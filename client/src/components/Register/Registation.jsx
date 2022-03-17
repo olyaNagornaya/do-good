@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {AddRegaThunk} from '../../redux/thunk/ThunkPosts' // ОТПРАВКА НА САНКИ
-// import { useHistory } from 'react-router-dom';
 
 
 function Registation() {
 
    
-   // const history = useHistory() x3 что это
+   // const history = useHistory() //xw что это
+   // console.log('register history', history);
+
    const dispatch = useDispatch() 
    const [registation, setRegistation] = useState({name: '', email:'',password:''})
 

@@ -1,8 +1,27 @@
+const { application } = require("express");
 const express = require("express");
 const router = express.Router();
 const sha256 = require('sha256')
 const { User, Item, Category } = require("../db/models");
 const { checkUser } = require("../middlewares/allMiddleware");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // РЕГИСТРАЦИЯ
@@ -11,18 +30,17 @@ router.post('/signup', async (req, res ) => {
    try {
       const checkUser = await User.findOne({ where: { email: req.body.email } })
       if (checkUser) {
-         res.sendStatus(555);
-         // res.json(555);
+         console.log('зашёл в ошибку?');
+         res.json({haveuser: 'have'});
       }
       else {
          const { name, email } = req.body
          const password = sha256(req.body.password);
          const user = await User.create({ name, email, password });
-         // console.log(user, 'ЧТО ТУТ??');
          req.session.userId = user.id;
          req.session.userName = user.name;
          req.session.Email = user.email;
-         res.json(user.email)
+            res.json({user:user.id})
       }
    } catch (error) {
       console.log(error);
@@ -43,12 +61,12 @@ router.post('/signin', async (req, res) => {
             req.session.userId = checkUser.id;
             req.session.userName = checkUser.name;
             req.session.Email = checkUser.email;
-            res.json(checkUser);
+            res.json({zahodi:checkUser.email});
          } else {
-            res.sendStatus(555);
+            res.json({wrong:'wrong pass'})
          }
       } else {
-         res.sendStatus(554);
+         res.json({errLogin:'no!'})
       }
    } catch (error) {
       console.log(error);
@@ -57,6 +75,50 @@ router.post('/signin', async (req, res) => {
 
 
 
+
+
+
+
+
+
+//Профиль
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+router.get('/profile',async (req, res) => {
+   try {
+      const namee = await User.findByPk(req.session.userId)
+      //НАЙДИ ВСЕ ПОСТЫ ГДЕ ВСЕ ПОСТЫ АВТОРА РАВНЫ СЕССИИ ПО ЮЗЕР АЙДИ
+      const data = await Post.findAll({ where: { author_id: req.session.userId } })
+         // console.log('name', namee.name);
+      res.render('profile', { data, namee })
+   } catch (error) {
+      console.log(error);
+   }
+})
+
+
+
+///////УДАЛЕНИЕ ТУТ 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+router.get('/logout',(req, res) => {
+   req.session.destroy();
+   res.clearCookie('COOKIE_NAME');
+   res.redirect('/')
+
+})
+
+
+
+//запрос Сессию юзера текущего
+router.get('/user/quqa', (req,res)=>{
+   try {
+      if (req.session.userId) {
+         res.json()
+      }
+   } catch (error) {
+         console.log(error);
+   }
+  
+})
 
 
 

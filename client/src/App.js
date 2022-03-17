@@ -7,10 +7,22 @@ import { Routes, Route } from 'react-router-dom';
 import Registation from './components/Register/Registation';
 import Login from './components/Register/Login';
 import Profile from './components/Register/Profile';
+import { useEffect } from 'react';
 
 
 
 function App() {
+   
+// useEffect(() => {
+//  // ДЛЯ ЗАПРОСА СЕССИИ ЮЗЕРА НА БЕК ЗАПРОС , ПОЛУЧАЕМ КУКИ ЮЗЕРА И ДИСПАТЧИМ В РЕДАКС 
+
+ 
+// }, [])
+
+
+
+
+
   return (
       <>
         <Navbar />
@@ -20,8 +32,7 @@ function App() {
    <Route path='/login' element={<Login/>}></Route> 
    <Route path='/profile' element={<Profile/>}></Route> 
    </Routes>
-        {/* <MainPage /> */}
-          <Footer />
+   <Footer />
       </>
   );
 }

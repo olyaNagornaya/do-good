@@ -4,7 +4,7 @@ const registerReducer = (state = [], action) => {
     
       case 'ALL_REGA':  
       console.log(payload, 'REGISTER REDUCER');
-      return payload;
+      return [payload];
 
 
       default:
