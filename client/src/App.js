@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import MainPage from "./pages/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import {Route, Routes} from "react-router-dom";
-import Item from "./components/Item/Item";
 import Form from "./components/Form/Form";
+import Itemlist from './components/Itemlist';
 
 function App() {
   return (
@@ -13,8 +12,7 @@ function App() {
         <Navbar />
           <Routes>
               <Route path="/" element={ <MainPage />} />
-              {/*<Route path="/good" element={ <ItemList/>} />*/}
-              <Route path="/good/:id" element={ <Item/>} />
+              <Route path="/good" element={ <Itemlist />} />
               <Route path="/addgood" element={ <Form/>} />
           </Routes>
           <Footer />
