@@ -3,14 +3,20 @@ import './App.css';
 import MainPage from "./pages/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import MyProductCard from "./components/MyProductCard/MyProductCard";
+import {Route, Routes} from "react-router-dom";
+import Item from "./components/Item/Item";
+import Form from "./components/Form/Form";
 
 function App() {
   return (
       <>
         <Navbar />
-          <MyProductCard/>
-        <MainPage />
+          <Routes>
+              <Route path="/" element={ <MainPage />} />
+              {/*<Route path="/good" element={ <ItemList/>} />*/}
+              <Route path="/good/:id" element={ <Item/>} />
+              <Route path="/addgood" element={ <Form/>} />
+          </Routes>
           <Footer />
       </>
   );
