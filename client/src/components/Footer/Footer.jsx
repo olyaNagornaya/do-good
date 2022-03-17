@@ -10,8 +10,8 @@ const Footer = () => {
             <div className="row">
 
               <div className="col-lg-3 col-md-6 footer-info">
-                <h3>Fruitoninja</h3>
-                <p>Фудшеринг - это социально-экологическое движение, которое помогает решить проблему нерационального использования ресурсов планеты</p>
+                <h3>Дари Добро</h3>
+                <p>Дари Добро - это социально-экологическое движение, которое помогает людям, попавшим в беду</p>
               </div>
 
               <div className="col-lg-3 col-md-6 footer-links">
@@ -33,7 +33,7 @@ const Footer = () => {
                   Российская Федерация <br />
                   <strong>Phone:</strong> +7 999 700 77 07<br />
                   <strong>Phone:</strong> +7 495 700 77 07<br />
-                  <strong>Email:</strong> info@foodsharing.com<br />
+                  <strong>Email:</strong> info@dogood.com<br />
                 </p>
 
                 <div className="social-links">
@@ -58,11 +58,11 @@ const Footer = () => {
 
         <div className="container">
           <div className="copyright">
-            &copy; Copyright <strong><span>Fruitoninja</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Do Good</span></strong>. All Rights Reserved
           </div>
           <div className="credits">
           
-            Designed by <a href="/">Fruitoninja Team</a>
+            Designed by <a href="/">Do Good Team</a>
           </div>
         </div>
       </footer>
