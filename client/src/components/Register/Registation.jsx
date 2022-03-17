@@ -30,7 +30,7 @@ function Registation() {
   return (
     <div>
 
-       <form style={{width: '500px'}} className='container'>
+       <form style={{width: '500px'}} className='container mt-5'>
 
        <div className="mb-3 " >
     <label htmlFor="exampleInputName1" className="form-label">Имя</label>

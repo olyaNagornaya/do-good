@@ -3,7 +3,7 @@ const registerReducer = (state = [], action) => {
    switch (type) {
     
       case 'ALL_REGA':  
-      console.log(payload, 'Пришло????');
+      console.log(payload, 'REGISTER REDUCER');
       return payload;
 
 

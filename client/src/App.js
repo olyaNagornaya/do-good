@@ -15,11 +15,12 @@ function App() {
       <>
         <Navbar />
    <Routes>
+   <Route path='/' element={<MainPage/>}></Route> 
    <Route path='/register' element={<Registation/>}></Route> 
    <Route path='/login' element={<Login/>}></Route> 
    <Route path='/profile' element={<Profile/>}></Route> 
    </Routes>
-        <MainPage />
+        {/* <MainPage /> */}
           <Footer />
       </>
   );

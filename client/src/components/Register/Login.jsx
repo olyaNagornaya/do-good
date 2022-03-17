@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {AddRegaThunk} from '../../redux/thunk/ThunkPosts' // ОТПРАВКА НА САНКИ
+import {LoginRegaThunk} from '../../redux/thunk/ThunkPosts' // ОТПРАВКА НА САНКИ
 
 
 
@@ -14,7 +14,7 @@ function Login() {
 
    const addLogin =  (e) => {
       e.preventDefault()
-      dispatch(AddRegaThunk(login))
+      dispatch(LoginRegaThunk(login))
       setLogin({email:'',password:''})
 
    }
@@ -28,7 +28,7 @@ function Login() {
 
 
 
-<form style={{width: '500px'}} className='container'>
+<form style={{width: '500px'}} className='container mt-5'>
 
 
 <div className="mb-3 " >

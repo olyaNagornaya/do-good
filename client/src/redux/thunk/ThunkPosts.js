@@ -4,16 +4,35 @@ import {RegaAction} from '../actions/postActions'
 
 //ДОБАВЛЕНИЕ, ПРИЁМ ДАННЫХ С ФРОНТА ДАЛЕЕ ПЕРЕДАЧА НА БЕК, ПРИЁМ С БЕКА, ОТПРАВКА НА ЭКШН
 export const AddRegaThunk = (rega) =>{
-   console.log(rega, 'пришло?');
    return async (dispatch) => {
 
-   // const response = await axios.post(`http://localhost:3001/api`, rega)
-   // const data = response.data 
+      try {
+         const response = await axios.post(`http://localhost:3001/users/signup`, rega,{withCredentials:true})
+         const data = response.data 
+         console.log(data, 'ответ с бека');
+         dispatch(RegaAction(data))
+      } catch (error) {
+         
+         console.log('ошибка',error);
+      }
+      
+   }
 
-   dispatch(RegaAction(rega))
-   // dispatch(AddPostAction(post))
-   // console.log('ssdadsads',data);
+}
 
+
+export const LoginRegaThunk = (rega) =>{
+   return async (dispatch) => {
+
+      try {
+         const response = await axios.post(`http://localhost:3001/users/signin`, rega,{withCredentials:true})
+         const data = response.data 
+         console.log(data, 'ответ с бека');
+         dispatch(RegaAction(data))
+      } catch (error) {
+         console.log('ошибка',error);
+      }
+      
    }
 
 }
