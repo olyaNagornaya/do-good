@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {AddRegaThunk} from '../redux/thunk/ThunkPosts' // ОТПРАВКА НА САНКИ
+import {AddRegaThunk} from '../../redux/thunk/ThunkPosts' // ОТПРАВКА НА САНКИ
 
 
 

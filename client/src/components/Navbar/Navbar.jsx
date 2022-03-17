@@ -41,9 +41,9 @@ function Navbar() {
               <li><a href="pricing.html">Pricing</a></li>
               <li><a href="portfolio.html">Portfolio</a></li>
               <li><a href="blog.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
-
-              <li><a class="getstarted" href="about.html">Get Started</a></li>
+              <li><Link to='/profile' className="started">Профиль</Link></li>
+              <li><Link to='/register' className="getstarted">Регистрация</Link></li>
+              <li><Link to='/login' className="getstarted">Авторизация</Link></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>
