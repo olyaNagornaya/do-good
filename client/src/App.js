@@ -4,7 +4,7 @@ import MainPage from "./pages/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import {Route, Routes} from "react-router-dom";
-import Item from "./components/Item/Item";
+
 import Form from "./components/Form/Form";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
           <Routes>
               <Route path="/" element={ <MainPage />} />
               {/*<Route path="/good" element={ <ItemList/>} />*/}
-              <Route path="/good/:id" element={ <Item/>} />
+              {/*<Route path="/good/:id" element={ <Item/>} />*/}
               <Route path="/addgood" element={ <Form/>} />
           </Routes>
           <Footer />

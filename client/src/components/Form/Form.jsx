@@ -12,18 +12,29 @@ const Form = () => {
         description: "",
         img: "",
         available: "",
-        quantity: "",
         category: "",
 
     });
     const handleChange = (e) => {
         setInputs({ ...inputs, [e.target.name]: e.target.value });
     };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(inputs, 'eto inputs');
 
     };
+
+    const uploadHandler = async (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        setInputs({ ...inputs, img: formData })
+    }
+    const inputAvatarHandler = (e) => {
+        const file = e.target.files[0];
+        console.log(file);
+        uploadHandler(file);
+    }
 
 
 
@@ -41,10 +52,10 @@ const Form = () => {
                             <input
                                 className="text inputformdecor"
                                 type="text"
-                                name="name"
+                                name="title"
                                 placeholder="Название"
                                 required=""
-                                // value={inputs.name}
+                                // value={inputs.title}
                                 // onChange={handleChange}
                             />
                             <select
@@ -57,7 +68,7 @@ const Form = () => {
                                 <option default>Выберите категорию</option>
                                 <option value="Food">Продукты</option>
                                 <option value="Clothers">Одежда</option>
-                                <option value="Home">Жилье</option>
+                                <option value="Furniture">Мебель</option>
 
                             </select>
 
@@ -70,40 +81,41 @@ const Form = () => {
                                 // value={inputs.description}
                                 // onChange={handleChange}
                             />
-                            {/*<input*/}
-                            {/*    className="text email inputformdecor"*/}
-                            {/*    type="text"*/}
-                            {/*    name="geolocation"*/}
-                            {/*    placeholder="Город"*/}
-                            {/*    required=""*/}
-                            {/*    value={inputs.geolocation}*/}
-                            {/*    onChange={handleChange}*/}
-                            {/*/>*/}
-                            {/*<input*/}
-                            {/*    className="text email inputformdecor"*/}
-                            {/*    type="text"*/}
-                            {/*    name="city"*/}
-                            {/*    placeholder="Адрес"*/}
-                            {/*    required=""*/}
-                            {/*    value={inputs.city}*/}
-                            {/*    onChange={handleChange}*/}
-                            {/*/>*/}
-
-                            {/*<input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)} accept='image/*' type='file' name='photo' />*/}
-                            {/*<label for="file" className="btn btn-tertiary js-labelFile">*/}
-                            {/*    {inputs.photo ? <i className="bi bi-check2-square"></i> : <i className="icon fa fa-check"></i>}*/}
-                            {/*    <span className="js-fileName"> {inputs.photo ? " Фото загружено" : " Загрузить фото"}</span>*/}
-                            {/*</label>*/}
-
                             <input
                                 className="text email inputformdecor"
                                 type="text"
-                                name="quantity"
-                                placeholder="Количество"
+                                name="geolocation"
+                                placeholder="Город"
                                 required=""
-                                // value={inputs.quantity}
+                                // value={inputs.geolocation}
                                 // onChange={handleChange}
                             />
+                            <input
+                                className="text email inputformdecor"
+                                type="text"
+                                name="city"
+                                placeholder="Адрес"
+                                required=""
+                                // value={inputs.city}
+                                // onChange={handleChange}
+                            />
+
+                            <input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)} accept='image/*' type='file' name='img' />
+                            {/*<input className="inputphoto input-file" id="file"  accept='image/*' type='file' name='img' />*/}
+                            <label for="file" className="btn btn-tertiary js-labelFile">
+                                {inputs.img ? <i className="bi bi-check2-square"></i> : <i className="icon fa fa-check"></i>}
+                                <span className="js-fileName"> {inputs.img ? " Фото загружено" : " Загрузить фото"}</span>
+                            </label>
+
+                            {/*<input*/}
+                            {/*    className="text email inputformdecor"*/}
+                            {/*    type="text"*/}
+                            {/*    name="quantity"*/}
+                            {/*    placeholder="Количество"*/}
+                            {/*    required=""*/}
+                            {/*    // value={inputs.quantity}*/}
+                            {/*    // onChange={handleChange}*/}
+                            {/*/>*/}
 
                             <div className="wthree-text">
                                 <label className="anim">
@@ -122,16 +134,17 @@ const Form = () => {
                     </div>
                 </div>
                 <ul className="colorlib-bubbles">
-                    <li><img className="img-bubbles" src="../../../assets/img/eggplant.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/pineapple.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/strawberry.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/apple.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/bananas.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/bell-pepper.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/broccoli.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/carrot.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/fruit.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/faviconavocado.svg" /></li>
+                    <li><img className="img-bubbles" src="../../../assets/img/hart.svg" /></li>
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/eggplant.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/pineapple.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/strawberry.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/apple.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/bananas.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/bell-pepper.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/broccoli.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/carrot.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/fruit.svg" /></li>*/}
+                {/*    <li><img className="img-bubbles" src="../../../assets/img/faviconavocado.svg" /></li>*/}
                 </ul>
             </div>
             {/* <!-- //main --> */}
