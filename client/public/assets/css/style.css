@@ -23,7 +23,12 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -95,7 +100,8 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
 }
 
-#header .logo h1 a, #header .logo h1 a:hover {
+#header .logo h1 a,
+#header .logo h1 a:hover {
   color: #3c4133;
   text-decoration: none;
 }
@@ -401,7 +407,6 @@ h1, h2, h3, h4, h5, h6 {
   #hero {
     background-attachment: fixed;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -600,7 +605,7 @@ section {
 }
 
 .about .play-btn::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 50%;
@@ -615,7 +620,7 @@ section {
 }
 
 .about .play-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 120px;
   height: 120px;
@@ -643,7 +648,7 @@ section {
 }
 
 .about .play-btn:hover::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 50%;
@@ -954,7 +959,10 @@ section {
   background: #94c045;
 }
 
-.features .card:hover .read-more a, .features .card:hover .card-title, .features .card:hover .card-title a, .features .card:hover .card-text {
+.features .card:hover .read-more a,
+.features .card:hover .card-title,
+.features .card:hover .card-title a,
+.features .card:hover .card-text {
   color: #fff;
 }
 
@@ -986,7 +994,8 @@ section {
   border-radius: 3px;
 }
 
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
   color: #fff;
   background: #94c045;
 }
@@ -1096,7 +1105,10 @@ section {
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #fff;
@@ -1104,7 +1116,10 @@ section {
   border: 1px solid #94c045;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+.portfolio-details
+  .portfolio-details-slider
+  .swiper-pagination
+  .swiper-pagination-bullet-active {
   background-color: #94c045;
 }
 
@@ -1328,7 +1343,8 @@ section {
   color: #717a60;
 }
 
-.contact .info .email, .contact .info .phone {
+.contact .info .email,
+.contact .info .phone {
   margin-top: 40px;
 }
 
@@ -1388,7 +1404,8 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .php-email-form input,
+.contact .php-email-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
@@ -1624,7 +1641,7 @@ section {
 }
 
 .blog .entry .entry-content blockquote::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -1863,7 +1880,8 @@ section {
   background: #809bfa;
 }
 
-.blog .blog-pagination li.active a, .blog .blog-pagination li:hover a {
+.blog .blog-pagination li.active a,
+.blog .blog-pagination li:hover a {
   color: #fff;
 }
 
@@ -2026,7 +2044,6 @@ section {
   font-size: 14px;
 }
 
-
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -2100,8 +2117,9 @@ section {
   padding-bottom: 12px;
 }
 
-#footer .footer-top h4::before, #footer .footer-top h4::after {
-  content: '';
+#footer .footer-top h4::before,
+#footer .footer-top h4::after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -2188,11 +2206,10 @@ section {
   color: #fff;
 }
 
-
 /* EDIT DESIGN */
 
 .btnauthor {
-  font-family: "Raleway", sans-serif ;
+  font-family: "Raleway", sans-serif;
   font-size: 15px;
   margin-bottom: 15px;
   color: #fff;
@@ -2212,7 +2229,7 @@ section {
 }
 
 .btnmap {
-  font-family: "Raleway", sans-serif ;
+  font-family: "Raleway", sans-serif;
   font-size: 15px;
   margin-bottom: 15px;
   color: #fff;
@@ -2225,4 +2242,12 @@ section {
 
 .btnmap:hover {
   background-color: #0038f5;
+}
+
+#map {
+  color: white;
+  position: relative;
+  width: 90%;
+  height: 90%;
+  top: 5%;
 }

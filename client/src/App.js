@@ -1,6 +1,7 @@
 import './App.css';
 
 import MainPage from "./pages/MainPage";
+import { MapPage } from "./pages/MapPage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { Routes, Route } from 'react-router-dom';
@@ -41,6 +42,7 @@ function App() {
               <Route path="/good" element={ <ItemList/>} />
               <Route path="/good/:id" element={ <Post/>} />
               <Route path="/addgood" element={ <Form/>} />
+              <Route path="/map" element={<MapPage />} />
    </Routes>
    <Footer />
       </>
