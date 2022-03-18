@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+
 import MainPage from "./pages/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -13,6 +13,10 @@ import rootReducer from './redux/reducers/rootReducer';
 import ProtectedAutf from './components/ProtectedAutf';
 
 
+import Post from "./components/Post/Post"
+
+import Form from "./components/Form/Form";
+import ItemList from "./components/ItemList/ItemList";
 
 function App() {
    // const Check = useSelector(store=> store.register)
@@ -34,6 +38,9 @@ function App() {
    <Route path='/' element={<MainPage/>}></Route> 
    <Route path='/register' element={<Registation/>}></Route>    
    <Route path='/login' element={<Login/>}></Route> 
+              <Route path="/good" element={ <ItemList/>} />
+              <Route path="/good/:id" element={ <Post/>} />
+              <Route path="/addgood" element={ <Form/>} />
    </Routes>
    <Footer />
       </>
