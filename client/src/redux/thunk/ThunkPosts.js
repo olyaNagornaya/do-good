@@ -75,6 +75,7 @@ export const LoginRegaThunk = (rega) =>{
          const data = response.data 
          if(data.user) {
             console.log(data,'зашёл в профиль');
+            console.log('ПРОФИЛЬ ДАТА',data);
             dispatch(RegaAction(data))
          window.location = '/profile'
          }

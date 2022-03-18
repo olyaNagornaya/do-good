@@ -27,9 +27,9 @@ function App() {
    <Navbar />
    <Routes>
    <Route path='/profile' element={
-   // <ProtectedAutf>
+   <ProtectedAutf>
       <Profile/>
-   // </ProtectedAutf>
+    </ProtectedAutf>
    }/> 
    <Route path='/' element={<MainPage/>}></Route> 
    <Route path='/register' element={<Registation/>}></Route>    
