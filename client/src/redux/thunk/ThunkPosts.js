@@ -1,12 +1,39 @@
 import axios from 'axios'
-import {RegaAction} from '../actions/postActions'
+// import { useNavigate } from 'react-router-dom';
+import {RegaAction,ClearAction} from '../actions/postActions'
 
 
 
 
 //ЭТА ТЕМА ДЛЯ ТОГО ЧТОБЫ НЕ ПИСАТЬ ВЕЗДЕ В АКСИОСЕ withCredentials true
 axios.defaults.withCredentials=true
+// axios.defaults.baseURL= `http://localhost:3001'
 
+
+
+//ЗАБОР ДАННЫХ У ПРОФИЛЯ
+export const ProfileThunk = () => {
+   return async (dispatch) => {
+     const response = await axios(`http://localhost:3001/users/profile`)
+        const data = response.data
+         dispatch(RegaAction(data))
+   }
+
+}
+
+
+
+
+//Удаление КУКИ
+export const LogoutThunk = () => {
+   console.log('зашёл на удаление куки?');
+
+   return async (dispatch) => {
+      const response = await axios(`http://localhost:3001/users/logout`)
+      dispatch(ClearAction())
+   }
+
+}
 
 
 
@@ -46,7 +73,7 @@ export const LoginRegaThunk = (rega) =>{
       try {
          const response = await axios.post(`http://localhost:3001/users/signin`, rega)
          const data = response.data 
-         if(data.zahodi) {
+         if(data.user) {
             console.log(data,'зашёл в профиль');
             dispatch(RegaAction(data))
          window.location = '/profile'

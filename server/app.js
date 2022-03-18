@@ -32,7 +32,7 @@ app.use(
   session({
     secret: COOKIE_SECRET, // строка для шифрования сессии
     resave: false, // не пересохраняем сессию если не было изменений
-    saveUninitialized: true, // не сохраняем сессию если она пустая
+    saveUninitialized: false, // не сохраняем сессию если она пустая
     cookie: { secure: false }, // не HTTPS
     name: COOKIE_NAME, // имя сессионной куки
     store: new FileStore(), // хранилище для куков - папка с файлами

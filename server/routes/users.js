@@ -14,16 +14,6 @@ const { checkUser } = require("../middlewares/allMiddleware");
 
 
 
-
-
-
-
-
-
-
-
-
-
 // РЕГИСТРАЦИЯ
 //users/signup
 router.post('/signup', async (req, res ) => {
@@ -40,7 +30,7 @@ router.post('/signup', async (req, res ) => {
          req.session.userId = user.id;
          req.session.userName = user.name;
          req.session.Email = user.email;
-            res.json({user:user.id})
+            res.json({user:user.id, useremail:user.email, username: user.name})
       }
    } catch (error) {
       console.log(error);
@@ -58,10 +48,11 @@ router.post('/signin', async (req, res) => {
       const checkUser = await User.findOne({ where: { email } })
       if (checkUser) {
          if (checkUser.password === password) {
+            console.log('тут');
             req.session.userId = checkUser.id;
             req.session.userName = checkUser.name;
             req.session.Email = checkUser.email;
-            res.json({zahodi:checkUser.email});
+            res.json({user: checkUser.id,useremail:checkUser.email,username:checkUser.name});
          } else {
             res.json({wrong:'wrong pass'})
          }
@@ -87,9 +78,9 @@ router.get('/profile',async (req, res) => {
    try {
       const namee = await User.findByPk(req.session.userId)
       //НАЙДИ ВСЕ ПОСТЫ ГДЕ ВСЕ ПОСТЫ АВТОРА РАВНЫ СЕССИИ ПО ЮЗЕР АЙДИ
-      const data = await Post.findAll({ where: { author_id: req.session.userId } })
+      // const data = await Post.findAll({ where: { author_id: req.session.userId } })
          // console.log('name', namee.name);
-      res.render('profile', { data, namee })
+      res.json({user: namee.id,username:namee.name, useremail:namee.email})
    } catch (error) {
       console.log(error);
    }
@@ -100,25 +91,26 @@ router.get('/profile',async (req, res) => {
 ///////УДАЛЕНИЕ ТУТ 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 router.get('/logout',(req, res) => {
+   console.log('удали куки ');
    req.session.destroy();
-   res.clearCookie('COOKIE_NAME');
-   res.redirect('/')
+   res.clearCookie('auth');
+   res.json({ok:'ok'})
 
 })
 
 
 
-//запрос Сессию юзера текущего
-router.get('/user/quqa', (req,res)=>{
-   try {
-      if (req.session.userId) {
-         res.json()
-      }
-   } catch (error) {
-         console.log(error);
-   }
+// //запрос Сессию юзера текущего
+// router.post('/user/quqa', (req,res)=>{
+//    try {
+//       if (req.session.userId) {
+//          return res.json({user: req.session.userId})
+//       }
+//    } catch (error) {
+//          console.log(error);
+//    }
   
-})
+// })
 
 
 
