@@ -6,9 +6,18 @@ import {createStore,applyMiddleware} from 'redux'; // ПОДКЛЮЧИТЬ ЭП�
 //Это для Санок 
 import thunk from 'redux-thunk';
 
-
 //composeWithDevTools ПОДКЛЮЧАЕМ НАШ ДЕВТУЛС К ПРОЕКТУ
 import { composeWithDevTools } from '@redux-devtools/extension';
+
+//САГА
+import createSagaMiddleware from 'redux-saga';
+//САГА
+import rootSaga from './sagas/rootSaga';
+//сага
+const sagaMiddleware = createSagaMiddleware();
+
+
+
 
 
 
@@ -21,7 +30,7 @@ const persistedState = localStorage.getItem("reduxState") // 2. Распарси
 
 
 //CreateStore Создание стора где лежит наш РЕДЮСЕР который отвечает за ВСЕХ!
-let store = createStore(rootReducer,persistedState,composeWithDevTools(applyMiddleware(thunk)))           //persistedState Положить рядом с РУТРЕДЮСЕРОМ ДЛЯ ЛОКАЛ СТОРАДЖ
+let store = createStore(rootReducer,persistedState,composeWithDevTools(applyMiddleware(sagaMiddleware,thunk)))           //persistedState Положить рядом с РУТРЕДЮСЕРОМ ДЛЯ ЛОКАЛ СТОРАДЖ
 
 
 store.subscribe(() => { // 1. Подписываемся и закидываем данные в localStorage
@@ -31,7 +40,8 @@ store.subscribe(() => { // 1. Подписываемся и закидываем
 
 
 
-
+//для саги
+sagaMiddleware.run(rootSaga);
 export default store; // ЭКСПОРТ 
 
 

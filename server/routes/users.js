@@ -100,21 +100,6 @@ router.get('/logout',(req, res) => {
 
 
 
-// //запрос Сессию юзера текущего
-// router.post('/user/quqa', (req,res)=>{
-//    try {
-//       if (req.session.userId) {
-//          return res.json({user: req.session.userId})
-//       }
-//    } catch (error) {
-//          console.log(error);
-//    }
-  
-// })
-
-
-
-
 
 
 
