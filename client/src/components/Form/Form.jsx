@@ -58,6 +58,14 @@ const Form = () => {
                                 // value={inputs.title}
                                 // onChange={handleChange}
                             />
+                            <input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)}
+                                   accept='image/*' type='file' name='img'/>
+                            <label htmlFor="file" className="btn btn-tertiary js-labelFile">
+                                {inputs.img ? <i className="bi bi-check2-square"></i> :
+                                    <i className="icon fa fa-check"></i>}
+                                <span
+                                    className="js-fileName"> {inputs.img ? " Фото загружено" : " Загрузить фото"}</span>
+                            </label>
                             <select
                                 className="text email selectformdecor"
                                 placeholder="Категория"
@@ -100,12 +108,15 @@ const Form = () => {
                                 // onChange={handleChange}
                             />
 
-                            <input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)} accept='image/*' type='file' name='img' />
-                            {/*<input className="inputphoto input-file" id="file"  accept='image/*' type='file' name='img' />*/}
-                            <label for="file" className="btn btn-tertiary js-labelFile">
-                                {inputs.img ? <i className="bi bi-check2-square"></i> : <i className="icon fa fa-check"></i>}
-                                <span className="js-fileName"> {inputs.img ? " Фото загружено" : " Загрузить фото"}</span>
-                            </label>
+                            <input
+                                className="text email inputformdecor"
+                                type="date"
+                                name="validUntil"
+                                placeholder="Действительно до"
+                                required=""
+                                // value={inputs.validUntil}
+                                onChange={handleChange}
+                            />
 
                             {/*<input*/}
                             {/*    className="text email inputformdecor"*/}

@@ -33,7 +33,7 @@ function Navbar() {
               <li><a className="active" href="/">Главная</a></li>
               <li><a href="good">Добро</a></li>
               <li><a href="map">Карта</a></li>
-                <li className="dropdown"><a href="#"><span>Личный кабинет</span> <i className="bi bi-chevron-right"></i></a>
+                <li className="dropdown"><a href="#"><span>Личный кабинет</span> <i className="bi bi-chevron-right"/></a>
                     <ul>
                         {!Check.username && <li><a href="register">Регистрация</a></li>}
                         {!Check.username && <li><a href="login">Вход</a></li>}
@@ -41,7 +41,7 @@ function Navbar() {
                         {Check.username && <li onClick={logAut}><a href="#">Выход</a></li>}
                     </ul>
                 </li>
-             <li><a className="getstarted" href="#">Готов помочь</a></li>
+             <li><a className="getstarted" href="addgood">Готов помочь</a></li>
 
             </ul>
             <i className="bi bi-list mobile-nav-toggle"/>

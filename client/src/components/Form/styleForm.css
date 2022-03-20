@@ -201,6 +201,7 @@ input.email, input.text.w3lpass {
 .inputphoto {
     /* display:"none" */
     font-size: 1.1em;
+    margin-top: 32px;
     color: #fff;
     font-weight: 500;
     width: 94.5%;
@@ -241,7 +242,8 @@ input.email, input.text.w3lpass {
     text-overflow:ellipsis;
     white-space:nowrap;
     padding:0 ;
-    cursor:pointer
+    cursor:pointer;
+    margin-top: 32px;
 }
 .input-file + .js-labelFile .icon:before{
     content:"\f093"
