@@ -19,6 +19,7 @@ import Post from "./components/Post/Post"
 import Form from "./components/Form/Form";
 import ItemList from "./components/ItemList/ItemList";
 import OnePostPage from "./pages/OnePostPage";
+import ProfilePage from "./pages/Profile";
 
 function App() {
    // const Check = useSelector(store=> store.register)
@@ -34,7 +35,7 @@ function App() {
    <Routes>
    <Route path='/profile' element={
    <ProtectedAutf>
-      <Profile/>
+      <ProfilePage/>
     </ProtectedAutf>
    }/> 
    <Route path='/' element={<MainPage/>}></Route> 

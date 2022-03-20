@@ -20,17 +20,17 @@ function Navbar() {
   return (
     <>
   {/* <!-- ======= Header ======= --> */}
-  <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
+  <header id="header" className="fixed-top d-flex align-items-center">
+        <div className="container d-flex align-items-center justify-content-between">
 
-          <div class="logo">
+          <div className="logo">
             {/*<img className="imglogo" src="/assets/img/logo-do-good.png"/>{" "}*/}
 
-            <h1 class="text-light"><a href="index.html">Дари Добро</a></h1>
+            <h1 className="text-light"><a href="/">Дари Добро</a></h1>
           </div>
-          <nav id="navbar" class="navbar">
+          <nav id="navbar" className="navbar">
             <ul>
-              <li><a class="active" href="/">Главная</a></li>
+              <li><a className="active" href="/">Главная</a></li>
               <li><a href="good">Добро</a></li>
               <li><a href="map">Карта</a></li>
                 <li className="dropdown"><a href="#"><span>Личный кабинет</span> <i className="bi bi-chevron-right"></i></a>
@@ -44,7 +44,7 @@ function Navbar() {
              <li><a className="getstarted" href="#">Готов помочь</a></li>
 
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <i className="bi bi-list mobile-nav-toggle"/>
           </nav>
         </div>
       </header>

@@ -17,32 +17,32 @@ export default function MainComponent() {
             <main id="main">
 
                 {/*<!-- ======= About Section ======= -->*/}
-                <section id="about" class="about">
-                    <div class="container">
+                <section id="about" className="about">
+                    <div className="container">
 
-                        <div class="row justify-content-end">
-                            <div class="col-lg-11 py-3">
+                        <div className="row justify-content-end">
+                            <div className="col-lg-11 py-3">
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div className="row">
 
-                            <div class="col-lg-6 video-box align-self-baseline position-relative">
-                                <img src="assets/img/about.jpg" class="img-fluid" alt="" />
-                                    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+                            <div className="col-lg-6 video-box align-self-baseline position-relative">
+                                <img src="assets/img/about.jpg" className="img-fluid" alt="" />
+                                    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox play-btn mb-4"></a>
                             </div>
 
-                            <div class="col-lg-6 pt-3 pt-lg-0 content">
+                            <div className="col-lg-6 pt-3 pt-lg-0 content">
                                 <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                                <p class="fst-italic">
+                                <p className="fst-italic">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                                     magna aliqua.
                                 </p>
                                 <ul>
-                                    <li><i class="bx bx-check-double"/> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bx bx-check-double"/> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bx bx-check-double"/> Voluptate repellendus pariatur reprehenderit corporis sint.</li>
-                                    <li><i class="bx bx-check-double"/> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                                    <li><i className="bx bx-check-double"/> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                                    <li><i className="bx bx-check-double"/> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                                    <li><i className="bx bx-check-double"/> Voluptate repellendus pariatur reprehenderit corporis sint.</li>
+                                    <li><i className="bx bx-check-double"/> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
                                 </ul>
                                 <p>
                                     Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
