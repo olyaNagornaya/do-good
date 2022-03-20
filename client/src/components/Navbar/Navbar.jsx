@@ -33,10 +33,16 @@ function Navbar() {
               <li><a class="active" href="/">Главная</a></li>
               <li><a href="good">Добро</a></li>
               <li><a href="map">Карта</a></li>
-             {!Check.username  && <li><a className="getstarted" href="register">Регистрация</a></li>} 
-             {!Check.username && <li><a className="getstarted" href="login">Вход</a></li>} 
-             {Check.username && <li><a className="getstarted" href="profile">Профиль</a></li>} 
-             {Check.username && <li><button onClick={logAut} className='btn btn-info'>Выход</button> </li> }
+                <li className="dropdown"><a href="#"><span>Личный кабинет</span> <i className="bi bi-chevron-right"></i></a>
+                    <ul>
+                        {!Check.username && <li><a href="register">Регистрация</a></li>}
+                        {!Check.username && <li><a href="login">Вход</a></li>}
+                        {Check.username && <li><a href="profile">Профиль</a></li>}
+                        {Check.username && <li onClick={logAut}><a href="#">Выход</a></li>}
+                    </ul>
+                </li>
+             <li><a className="getstarted" href="#">Готов помочь</a></li>
+
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>

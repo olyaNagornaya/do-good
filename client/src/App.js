@@ -18,6 +18,7 @@ import Post from "./components/Post/Post"
 
 import Form from "./components/Form/Form";
 import ItemList from "./components/ItemList/ItemList";
+import OnePostPage from "./pages/OnePostPage";
 
 function App() {
    // const Check = useSelector(store=> store.register)
@@ -40,7 +41,7 @@ function App() {
    <Route path='/register' element={<Registation/>}></Route>    
    <Route path='/login' element={<Login/>}></Route> 
               <Route path="/good" element={ <ItemList/>} />
-              <Route path="/good/:id" element={ <Post/>} />
+              <Route path="/good/:id" element={ <OnePostPage/>} />
               <Route path="/addgood" element={ <Form/>} />
               <Route path="/map" element={<MapPage />} />
    </Routes>

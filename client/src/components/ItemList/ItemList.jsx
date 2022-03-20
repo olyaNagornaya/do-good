@@ -1,14 +1,38 @@
 import React, {useEffect, useState} from 'react';
 import Item from "../Item/Item";
+import { Link } from 'react-router-dom';
+
 
 
 function ItemList() {
-
+    //следит за всеми товарами
     const [items, setItems] = useState([]);
+    //следит за копией
+    const [itemsCopy, setItemsCopy] = useState([]);
+    //следит за инпутом
+    const [input, setInput] = useState('')
 
     useEffect(()=>{
         fetch('http://localhost:3001/items').then(response => response.json()).then(data => setItems(data))
     }, [])
+
+    useEffect(() => {
+        items && setItemsCopy(items)
+    }, [items]);
+
+    useEffect(() => {
+        if (input.length === 0) {
+            setItemsCopy(items)
+        }
+    }, [input]);
+
+    const inputHandler = (e) => {
+        setInput(e.target.value)
+        setItemsCopy(items.filter((el)=> el.title.toLowerCase().includes(input.toLowerCase())))
+    };
+
+
+
     return (
         <>
         <main id="main">
@@ -115,3 +139,5 @@ function ItemList() {
     )
     }
 export default ItemList
+
+
