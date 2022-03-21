@@ -8,12 +8,6 @@ const { checkUser } = require("../middlewares/allMiddleware");
 
 
 
-
-
-
-
-
-
 // РЕГИСТРАЦИЯ
 //users/signup
 router.post('/signup', async (req, res ) => {
@@ -24,13 +18,13 @@ router.post('/signup', async (req, res ) => {
          res.json({haveuser: 'have'});
       }
       else {
-         const { name, email } = req.body
+         const { name, email, surname, telephone, city, img } = req.body
          const password = sha256(req.body.password);
-         const user = await User.create({ name, email, password });
+         const user = await User.create({ name, email, password, surname, telephone, city, img });
          req.session.userId = user.id;
          req.session.userName = user.name;
          req.session.Email = user.email;
-            res.json({user:user.id, useremail:user.email, username: user.name})
+            res.json({user:user.id, useremail:user.email, username: user.name, surname: user.surname, phone: user.telephone, city: user.city, photo: user.img})
       }
    } catch (error) {
       console.log(error);
@@ -68,23 +62,21 @@ router.post('/signin', async (req, res) => {
 
 
 
-
-
-
-
 //Профиль
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 router.get('/profile',async (req, res) => {
    try {
-      const namee = await User.findByPk(req.session.userId)
+      const name = await User.findByPk(req.session.userId)
       //НАЙДИ ВСЕ ПОСТЫ ГДЕ ВСЕ ПОСТЫ АВТОРА РАВНЫ СЕССИИ ПО ЮЗЕР АЙДИ
       // const data = await Post.findAll({ where: { author_id: req.session.userId } })
          // console.log('name', namee.name);
-      res.json({user: namee.id,username:namee.name, useremail:namee.email})
+      console.log("????????????????????", name)
+      res.json({user: name.id,username:name.name, useremail:name.email, surname: name.surname, phone: name.telephone, city: name.city, photo: name.img})
    } catch (error) {
       console.log(error);
    }
 })
+
 
 
 
@@ -97,10 +89,6 @@ router.get('/logout',(req, res) => {
    res.json({ok:'ok'})
 
 })
-
-
-
-
 
 
 

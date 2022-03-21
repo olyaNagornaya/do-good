@@ -1,13 +1,25 @@
 import AboutMe from "../../components/AboutMe";
 import {useEffect, useState} from "react";
 import ProfileProductList from "../../components/ProfileProductList";
+import {RegaAction} from "../../redux/actions/postActions";
+
 
 export default function ProfilePage() {
+    const [profile, setProfile] = useState({});
     const [typeProduct, setTypeProduct] = useState('active');
 
     useEffect(() => {
        // тут нужно брать из базы архивные и актуальные товары и по условию их показывать
+        fetch("http://localhost:3001/users/profile", {
+            credentials: "include",
+        })
+            .then((response) => response.json())
+            .then((response) => setProfile(response));
     }, [])
+    if (profile?.user?.name) {
+        RegaAction(profile.user.name);
+    }
+
     const handlerActual = () => {
         setTypeProduct('active');
     };
@@ -16,7 +28,7 @@ export default function ProfilePage() {
     };
     return (
         <main id="main">
-            <AboutMe />
+            <AboutMe setProfile={setProfile} profile={profile}/>
             <div className="div-btn-profile">
                 <button className="btnproduct" onClick={handlerActual}>
                     Актуальные

@@ -33,13 +33,13 @@ function App() {
    <Navbar />
    <Routes>
    <Route path='/profile' element={
-   <ProtectedAutf>
+     <ProtectedAutf>
       <ProfilePage/>
     </ProtectedAutf>
    }/> 
-   <Route path='/' element={<MainPage/>}></Route> 
-   <Route path='/register' element={<Registration/>}></Route>
-   <Route path='/login' element={<Login/>}></Route> 
+             <Route path='/' element={<MainPage/>}></Route>
+             <Route path='/register' element={<Registration/>}></Route>
+             <Route path='/login' element={<Login/>}></Route>
               <Route path="/good" element={ <GoodPage/>} />
               <Route path="/good/:id" element={ <OnePostPage/>} />
               <Route path="/addgood" element={ <Form/>} />

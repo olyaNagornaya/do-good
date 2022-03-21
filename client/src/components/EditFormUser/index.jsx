@@ -19,7 +19,7 @@ const OVERLAY_STYLES = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, .7)',
+    backgroundColor: 'rgba(0,88,189, .6)',
     zIndex: 1000
 }
 
@@ -42,7 +42,7 @@ export const BUTTON_WRAPPER_STYLES = {
 
 function EditUserModal({ user, open, children, onClose, setProfile }) {
 
-    const [inputs, setInputs] = useState({ name: user.name, surname: user.surname, phone: user.phone, city: user.city, })
+    const [inputs, setInputs] = useState({ name: user.username, surname: user.surname, phone: user.phone, city: user.city, })
 
 
     const handleChange = (e) => {
@@ -50,19 +50,19 @@ function EditUserModal({ user, open, children, onClose, setProfile }) {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // let resp = await fetch("/profile", {
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     credentials: "include",
-        //     body: JSON.stringify(inputs)
-        // })
-        // if (resp.status === 200)
-        //     await setProfile(prev => {
-        //         let user = { ...prev.user, name: inputs.name, surname: inputs.surname, phone: inputs.phone, city: inputs.city}
-        //         return { ...prev, user }
-        //     })
+        let resp = await fetch('http://localhost:3001/users/profile', {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(inputs)
+        })
+        if (resp.status === 200)
+            await setProfile(prev => {
+                let user = { ...prev.user, name: inputs.name, surname: inputs.surname, phone: inputs.telephone, city: inputs.city}
+                return { ...prev, user }
+            })
         await onClose()
     }
 
@@ -79,7 +79,7 @@ function EditUserModal({ user, open, children, onClose, setProfile }) {
                         <button onClick={onClose} style={BUTTON_CLOUSE_STYLES} ><i className="bi bi-x"/></button>
                         <input className="text inputformdecor" type="text" name="name" placeholder="Имя" required="" value={inputs?.name} onChange={handleChange} />
                         <input className="text email inputformdecor" type="text" name="surname" placeholder="Фамилия" required="" value={inputs?.surname} onChange={handleChange} />
-                        <input className="text email inputformdecor" type="text" name="phone" placeholder="Телефон" required="" value={inputs?.phone} onChange={handleChange} />
+                        <input className="text email inputformdecor" type="text" name="telephone" placeholder="Телефон" required="" value={inputs?.phone} onChange={handleChange} />
                         <input className="text email inputformdecor" type="text" name="city" placeholder="Город" required="" value={inputs?.city} onChange={handleChange} />
                         <button onClick={handleSubmit} className="btnlogin"> Сохранить изменения</button>
                     </form>

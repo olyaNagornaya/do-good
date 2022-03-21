@@ -10,6 +10,7 @@ export const RegaAction = (rega) => {
 }
 
 
+
 export const ClearAction = () => {
    console.log('ClearAction');
    return {

@@ -25,6 +25,7 @@ export default function AboutMe() {
         DataUser()
 
     }, [])
+
     return (
         <>
             {user && (
@@ -39,18 +40,17 @@ export default function AboutMe() {
                         <>
                     <div className="section-title" data-aos="fade-up">
                         <h2>
-                            {user?.username}
+                            {user?.username} {user?.surname}
                         </h2>
                     </div>
 
                             <div className="row content">
                                 <div className="col-md-5" data-aos="fade-right">
-                                    <img src={user?.photo ? user?.photo : '../../../assets/img/logouserbrocol.jpeg'} className="img-fluid" alt="" />
-                                    {/* <img src={'../../../assets/img/logouserbrocol.jpeg'} className="img-fluid" alt="" /> */}
+                                    <img src={user?.photo ? user?.photo : '../../../assets/img/daridobro.jpeg'} className="img-fluid" alt="" />
 
                                 </div>
                                 <div className="col-md-7 pt-4" data-aos="fade-left">
-                                    {/* <h3>{user?.city}</h3> */}
+                                     {/*<h3>{user?.city}</h3>*/}
 
                                     <ul>
                                         <li>
@@ -63,7 +63,7 @@ export default function AboutMe() {
                                             <i className="bi bi-phone"/> {user?.phone}
                                         </li>
                                         <li>
-                                            <i className="bi bi-check-circle"/> Мои подписки:{" "}
+                                            {/*<i className="bi bi-check-circle"/> Мои подписки:{" "}*/}
                                             {/*{err}*/}
                                             <br />
                                             {/*{subList.length*/}
