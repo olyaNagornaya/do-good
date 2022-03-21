@@ -3,16 +3,16 @@ import {useEffect, useState} from "react";
 import ProfileProductList from "../../components/ProfileProductList";
 
 export default function ProfilePage() {
-    const [activeProduct, setActiveProduct] = useState('active');
+    const [typeProduct, setTypeProduct] = useState('active');
 
     useEffect(() => {
        // тут нужно брать из базы архивные и актуальные товары и по условию их показывать
     }, [])
     const handlerActual = () => {
-        setActiveProduct('active');
+        setTypeProduct('active');
     };
     const handlerArchive = () => {
-        setActiveProduct('archive');
+        setTypeProduct('archive');
     };
     return (
         <main id="main">
@@ -25,11 +25,22 @@ export default function ProfilePage() {
                     Архивные
                 </button>
             </div>
+            {typeProduct === 'active' ? (
             <ProfileProductList
                 header="Ваши актуальные продукты"
                 descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
-                type={activeProduct}
+                type={typeProduct}
             />
+            )
+              : (
+                  <ProfileProductList
+                        header="Ваши архивные продукты"
+                        descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
+                        type={typeProduct}
+                    />
+                )
+
+            }
         </main>
     )
 }
