@@ -8,7 +8,7 @@ function Item({el}) {
     return (
         <article className="entry">
             <div className="entry-img">
-                <img src="assets/img/blog/blog-2.jpg" alt="" className="img-fluid"/>
+                <img src={el.img} alt="" className="img-fluid"/>
             </div>
 
             <h2 className="entry-title">
