@@ -18,7 +18,7 @@ function Item({el}) {
             <div className="entry-meta">
                 <ul>
                     <li className="d-flex align-items-center"><i className="bi bi-person"></i> <a
-                        href="/good/:id">{el.User.name}</a></li>
+                        href="/good/:id">{el.User?.name}</a></li>
                     <li className="d-flex align-items-center"><i className="bi bi-clock"></i> <a
                         href="/good/:id">
                         <time dateTime="2020-01-01">{el.createdAt.slice(0, 10)}</time>

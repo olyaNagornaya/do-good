@@ -1,20 +1,19 @@
-import './App.css';
+import "./App.css";
 
 import MainPage from "./pages/MainPage";
 import { MapPage } from "./pages/MapPage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import { Routes, Route } from 'react-router-dom';
-import Registation from './components/Register/Registation';
-import Login from './components/Register/Login';
-import Profile from './components/Register/Profile';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import rootReducer from './redux/reducers/rootReducer';
-import ProtectedAutf from './components/ProtectedAutf';
+import { Routes, Route } from "react-router-dom";
+import Registation from "./components/Register/Registation";
+import Login from "./components/Register/Login";
+import Profile from "./components/Register/Profile";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import rootReducer from "./redux/reducers/rootReducer";
+import ProtectedAutf from "./components/ProtectedAutf";
 
-
-import Post from "./components/Post/Post"
+import Post from "./components/Post/Post";
 
 import Form from "./components/Form/Form";
 import ItemList from "./components/ItemList/ItemList";
@@ -22,12 +21,11 @@ import OnePostPage from "./pages/OnePostPage";
 import ProfilePage from "./pages/Profile";
 
 function App() {
-   // const Check = useSelector(store=> store.register)
+  // const Check = useSelector(store=> store.register)
 
-
-   {/* {Check.username && <Route path='/profile' element={<Profile/>}></Route> } */}
-
-
+  {
+    /* {Check.username && <Route path='/profile' element={<Profile/>}></Route> } */
+  }
 
   return (
       <>
