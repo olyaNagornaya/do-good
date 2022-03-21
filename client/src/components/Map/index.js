@@ -27,15 +27,14 @@ export function App() {
   const DBO = useSelector((store) => store.post);
   // console.log(DBO);
 
-  //Москва, улица Новый Арбат, дом 24
+  // Москва, улица Новый Арбат, дом 24
 
-  // fetch(
-  //   `https://nominatim.openstreetmap.org/search?q=24+Новый+Арбат%2C+Москва&format=geojson`
-  // )
-  //   .then((resp) => {
-  //     return resp.json();
-  //   })
-  //   .then((data) => console.log(data));
+  const transformAddress = async () => {
+    const responce = await fetch(`https://nominatim.openstreetmap.org/search?q=24+улица+Арбат+Новый%2C+Москва&format=geojson`)
+    const data = await responce.json();
+    const address = data[0]
+    console.log(data.features[0]);
+  };
 
   return (
     <div id="map" className="App">
@@ -51,6 +50,7 @@ export function App() {
               });
             }
           }}
+          onClick={transformAddress}
         >
           <GeolocationControl />
           <Clusterer
