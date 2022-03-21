@@ -122,8 +122,8 @@ module.exports = {
      updatedAt: new Date(),
    },
    {
-    title: 'Стол',
-    description: 'Описание стола',
+    title: 'Проданный Стол',
+    description: 'Описание проданного стола',
     img: 'https://images.unsplash.com/photo-1565791380713-1756b9a05343?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
     category_id: 3,
     user_id: 3,
