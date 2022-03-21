@@ -1,79 +1,85 @@
-import "./Map.css";
-import { YMaps, Map, Placemark } from "react-yandex-maps";
-import { Geocode } from "react-geocode";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import {
+  YMaps,
+  Map,
+  Placemark,
+  GeolocationControl,
+  Clusterer
+} from "react-yandex-maps";
 
-export const OurMap = () => {
-  const mapData = {
-    center: [55.684758, 37.738521],
-    zoom: 11,
-  };
+const mapState = {
+  center: [55.751574, 37.573856],
+  zoom: 9
+};
 
-  const coordinates = [
-    [55.684758, 37.738521],
-    [57.684758, 39.738521],
-  ];
-
-  function getCoord(e) {
-    const coord = e.ready(function () {
-      var myMap = new ymaps.Map("YMapsID", {
-        center: [55.733835, 37.588227],
-        zoom: 12,
-        // Обратите внимание, что в API 2.1 по умолчанию карта создается с элементами управления.
-        // Если вам не нужно их добавлять на карту, в ее параметрах передайте пустой массив в поле controls.
-        // controls: [],
-      });
-
-      var myPlacemark = new ymaps.Placemark(
-        myMap.getCenter(),
-        {
-          balloonContentBody: [
-            "<address>",
-            "<strong>Офис Яндекса в Москве</strong>",
-            "<br/>",
-            "Адрес: 119021, Москва, ул. Льва Толстого, 16",
-            "<br/>",
-            'Подробнее: <a href="https://company.yandex.ru/">https://company.yandex.ru</a>',
-            "</address>",
-          ].join(""),
-        },
-        {
-          preset: "islands#redDotIcon",
-        }
-      );
-
-      console.log(coord);
-      myMap.geoObjects.add(myPlacemark);
-    });
-  }
-
+export function App() {
+  const [cluster, setCluster] = useState(null);
   return (
-    <div id="map">
+    <div id='map' className="App">
       <YMaps>
         <Map
-          defaultState={mapData}
+          defaultState={mapState}
           width="100%"
           height="100%"
-          onLoad={getCoord}
+          instanceRef={ref => {
+            if (ref) {
+              ref.events.add("click", e => {
+                ref.balloon.close();
+              });
+            }
+          }}
         >
-          {coordinates.map((coordinate) => (
+          <GeolocationControl />
+          <Clusterer
+            modules={["clusterer.addon.balloon"]}
+            options={{}}
+            instanceRef={ref => {
+              if (ref) {
+                setCluster(ref);
+              }
+            }}
+          >
             <Placemark
-              geometry={coordinate}
+              modules={["geoObject.addon.balloon"]}
+              geometry={[55.684758, 37.738521]}
               properties={{
-                iconContent: "this is iconContent",
-                iconCaption: "this is iconCaption",
-                hintContent: "this is hintContent",
-                balloonContent: "this is balloonContent",
-              }}
-              modules={["geoObject.addon.hint", "geoObject.addon.balloon"]}
-              options={{
-                preset: [
-                  "islands#blackStretchyIcon", //метка растягивающая
-                ],
+                balloonContentHeader: "Balloon1",
+                balloonContent: "Balloon1 <strong>Test</strong>"
               }}
             />
-          ))}
+            <Placemark
+              modules={["geoObject.addon.balloon"]}
+              geometry={[55.8, 37.8]}
+              properties={{
+                balloonContentHeader: "Balloon2",
+                balloonContent: "Balloon2 <strong>Test</strong>"
+              }}
+            />
+            <Placemark
+              modules={["geoObject.addon.balloon"]}
+              geometry={[55.5, 37.738521]}
+              properties={{
+                balloonContentHeader: "Balloon3",
+                balloonContent: "Balloon3 <strong>Test</strong>"
+              }}
+            />
+            <Placemark
+              modules={["geoObject.addon.balloon"]}
+              geometry={[55.684758, 37]}
+              properties={{
+                balloonContentHeader: "Balloon4",
+                balloonContent: "Balloon4 <strong>Test</strong>"
+              }}
+            />
+          </Clusterer>
         </Map>
       </YMaps>
     </div>
   );
-};
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+
+

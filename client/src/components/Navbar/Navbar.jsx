@@ -20,17 +20,17 @@ function Navbar() {
   return (
     <>
   {/* <!-- ======= Header ======= --> */}
-  <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
+  <header id="header" className="fixed-top d-flex align-items-center">
+        <div className="container d-flex align-items-center justify-content-between">
 
-          <div class="logo">
+          <div className="logo">
             {/*<img className="imglogo" src="/assets/img/logo-do-good.png"/>{" "}*/}
 
-            <h1 class="text-light"><a href="index.html">Дари Добро</a></h1>
+            <h1 className="text-light"><a href="/">Дари Добро</a></h1>
           </div>
-          <nav id="navbar" class="navbar">
+          <nav id="navbar" className="navbar">
             <ul>
-              <li><a class="active" href="/">Главная</a></li>
+              <li><a className="active" href="/">Главная</a></li>
               <li><a href="good">Добро</a></li>
               <li><a href="map">Карта</a></li>
              {!Check.username  && <li><a className="getstarted" href="register">Регистрация</a></li>} 
@@ -38,7 +38,7 @@ function Navbar() {
              {Check.username && <li><a className="getstarted" href="profile">Профиль</a></li>} 
              {Check.username && <li><button onClick={logAut} className='btn btn-info'>Выход</button> </li> }
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+            <i className="bi bi-list mobile-nav-toggle"></i>
           </nav>
         </div>
       </header>
