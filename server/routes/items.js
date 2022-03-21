@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { User, Item, Category, Taken } = require("../db/models");
+const upload = require('../middlewares/allMiddleware');
 
 router.get('/', async (req, res) => {
   const Items = await Item.findAll({include: [Category, User]});
