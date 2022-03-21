@@ -36,6 +36,12 @@ module.exports = {
       available: {
         type: Sequelize.BOOLEAN
       },
+      city: {
+        type: Sequelize.STRING
+      },
+      address: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
