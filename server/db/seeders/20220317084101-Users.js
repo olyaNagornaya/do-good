@@ -14,6 +14,7 @@ module.exports = {
      await queryInterface.bulkInsert('Users', [
        {
         name: 'Сережа',
+        surname: 'Бойко',
         email: 'serg@gmail.com',
         password: '123',
         telephone: '+7-999-999-00-00',
@@ -24,6 +25,7 @@ module.exports = {
       },
       {
         name: 'Алексей',
+        surname: 'Бойко',
         email: 'aleks@gmail.com',
         password: '123',
         telephone: '+7-999-999-00-01',
@@ -34,6 +36,7 @@ module.exports = {
       },
       {
         name: 'Оля',
+        surname: 'Бойко',
         email: 'olya@gmail.com',
         password: '123',
         telephone: '+7-999-999-00-02',
