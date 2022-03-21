@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import {
   YMaps,
@@ -8,17 +8,24 @@ import {
   Clusterer,
 } from "react-yandex-maps";
 import DB from "./points.js";
+import { useDispatch, useSelector } from "react-redux";
+import { PostsThunk } from "../../redux/thunk/ThunkForm";
 
 const mapState = {
   center: [55.751574, 37.573856],
   zoom: 9,
 };
 
-
-
 export function App() {
   const [cluster, setCluster] = useState(null);
-  const [address, setAddress] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(PostsThunk());
+  }, []);
+
+  const DBO = useSelector((store) => store.post);
+  // console.log(DBO);
 
   //Москва, улица Новый Арбат, дом 24
 
@@ -74,6 +81,3 @@ export function App() {
     </div>
   );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
