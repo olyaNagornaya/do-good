@@ -83,12 +83,12 @@ img {
 
 /*-- end reset --*/
 .maindiv {
-    background: #76b852;
+    background: #3360f7;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #76b852, #8DC26F);
-    background: -moz-linear-gradient(to top, #76b852, #8DC26F);
-    background: -o-linear-gradient(to top, #76b852, #8DC26F);
-    background: linear-gradient(to top, #76b852, #8DC26F);
+    background: -webkit-linear-gradient(to top, #3360f7, #4d74f8);
+    background: -moz-linear-gradient(to top, #3360f7, #4d74f8);
+    background: -o-linear-gradient(to top, #3360f7, #4d74f8);
+    background: linear-gradient(to top, #3360f7, #4d74f8);
     background-size: cover;
     background-attachment: fixed;
 
@@ -201,6 +201,7 @@ input.email, input.text.w3lpass {
 .inputphoto {
     /* display:"none" */
     font-size: 1.1em;
+    margin-top: 32px;
     color: #fff;
     font-weight: 500;
     width: 94.5%;
@@ -241,14 +242,15 @@ input.email, input.text.w3lpass {
     text-overflow:ellipsis;
     white-space:nowrap;
     padding:0 ;
-    cursor:pointer
+    cursor:pointer;
+    margin-top: 32px;
 }
 .input-file + .js-labelFile .icon:before{
     content:"\f093"
 }
 .input-file + .js-labelFile.has-file .icon:before{
     content:"\f00c";
-    color:#5AAC7B
+    color:#1a4cf6
 }
 /* \unput file */
 
@@ -259,9 +261,9 @@ input.email, input.text.w3lpass {
 .btnlogin {
     font-size: .9em;
     color: #fff;
-    background: #76b852;
+    background: #4d74f8;
     outline: none;
-    border: 1px solid #76b852;
+    border: 1px solid #4d74f8;
     cursor: pointer;
     padding: 0.9em;
     -webkit-appearance: none;
@@ -276,7 +278,7 @@ input.email, input.text.w3lpass {
     -o-transition: .5s all;
     -ms-transition: .5s all;
     transition: .5s all;
-    background: #8DC26F;
+    background: #4d74f8;
 }
 
 .btngoogle {
@@ -284,7 +286,7 @@ input.email, input.text.w3lpass {
     color: #fff;
     background: #76b85200;
     outline: none;
-    border: 1px solid #76b852;
+    border: 1px solid #3360f7;
     cursor: pointer;
     padding: 0.1px;
     -webkit-appearance: none;
@@ -299,7 +301,7 @@ input.email, input.text.w3lpass {
     -o-transition: .5s all;
     -ms-transition: .5s all;
     transition: .5s all;
-    background: #8DC26F;
+    background: #4d74f8;
 }
 
 .agileits-top p {
@@ -319,7 +321,7 @@ input.email, input.text.w3lpass {
 }
 
 .agileits-top p a:hover {
-    color: #76b852;
+    color: #3360f7;
 }
 
 /*-- //main --*/
@@ -333,7 +335,7 @@ input.email, input.text.w3lpass {
 }
 
 input.checkbox {
-    background: #8DC26F;
+    background: #4d74f8;
     cursor: pointer;
     width: 1.2em;
     height: 1.2em;

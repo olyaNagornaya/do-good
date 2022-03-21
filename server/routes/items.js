@@ -3,8 +3,8 @@ const router = express.Router();
 const { User, Item, Category, Taken } = require("../db/models");
 
 router.get('/', async (req, res) => {
-  const Items = await Item.findAll();
-  console.log(Items);
+  const Items = await Item.findAll({include: [Category, User]});
+  console.log('IIIITTTTTTEEEE', Items);
   res.json(Items)
 })
 
