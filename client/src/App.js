@@ -22,7 +22,7 @@ import ProfilePage from "./pages/Profile";
 
 function App() {
   // const Check = useSelector(store=> store.register)
-
+  
   {
     /* {Check.username && <Route path='/profile' element={<Profile/>}></Route> } */
   }

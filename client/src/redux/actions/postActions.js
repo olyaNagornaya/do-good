@@ -7,7 +7,6 @@ export const RegaAction = (rega) => {
       payload: rega,
    }
 
-
 }
 
 
@@ -17,8 +16,6 @@ export const ClearAction = () => {
       type: 'CLEAR_REGA',
       payload: [],
    }
-
-
 }
 
 

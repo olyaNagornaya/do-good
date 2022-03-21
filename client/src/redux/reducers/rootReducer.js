@@ -1,16 +1,15 @@
-//2 ФАЙЛ 
+//2 ФАЙЛ
 // ДЛЯ ОБЪЕДЕНЕНИЕ ВСЕХ РОУТЕРОВ
-import registerReducer from './registerReducer';
+import registerReducer from "./registerReducer";
+import postReducer from "./postReducer";
 
 //combineReducers КОМБАЙН СОБИРАЕТ ВСЕ РЕДЬЮСЕРЫ ВМЕСТЕ
-import { combineReducers } from "redux"
-
+import { combineReducers } from "redux";
 
 //combineReducers КОМБАЙН СОБИРАЕТ ВСЕ РЕДЬЮСЕРЫ ВМЕСТЕ
-const rootReducer = combineReducers({register:registerReducer})
-
-
-
-
+const rootReducer = combineReducers({
+  register: registerReducer,
+  post: postReducer,
+});
 
 export default rootReducer;
