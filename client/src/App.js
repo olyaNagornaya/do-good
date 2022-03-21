@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.css";
 
 import MainPage from "./pages/MainPage";
 import { MapPage } from "./pages/MapPage";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+
 import { Routes, Route } from 'react-router-dom';
 import Registration from './components/Register/Registration';
 import Login from './components/Register/Login';
@@ -13,8 +14,7 @@ import { useSelector } from 'react-redux';
 import rootReducer from './redux/reducers/rootReducer';
 import ProtectedAutf from './components/ProtectedAutf';
 
-
-import Post from "./components/Post/Post"
+import Post from "./components/Post/Post";
 
 import Form from "./components/Form/Form";
 import OnePostPage from "./pages/OnePostPage";
@@ -22,12 +22,11 @@ import ProfilePage from "./pages/Profile";
 import GoodPage from "./pages/GoodPage";
 
 function App() {
-   // const Check = useSelector(store=> store.register)
-
-
-   {/* {Check.username && <Route path='/profile' element={<Profile/>}></Route> } */}
-
-
+  // const Check = useSelector(store=> store.register)
+  
+  {
+    /* {Check.username && <Route path='/profile' element={<Profile/>}></Route> } */
+  }
 
   return (
       <>
