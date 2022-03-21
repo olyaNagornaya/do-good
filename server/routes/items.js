@@ -36,7 +36,8 @@ router.post("/addgood", async (req, res) => {
     available: true,
   };
 
-  await Item.create(objForDB);
+  console.log(objForDB);
+  // await Item.create(objForDB);
 
   res.status(200);
 });

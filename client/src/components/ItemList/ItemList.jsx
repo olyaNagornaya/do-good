@@ -9,8 +9,16 @@ function ItemList() {
     const [items, setItems] = useState([]);
     //следит за копией
     const [itemsCopy, setItemsCopy] = useState([]);
+    //следит за постами в зависимости от текущей страницы
+    const [itemsWithPages, setItemsWithPages] = useState([]);
+    // Номер текущей страницы
+    const [page, setPage] = useState(1);
     //следит за инпутом
     const [input, setInput] = useState('')
+    
+    console.log('Render in ItemList');
+    console.log('items ---->>>>', items);
+    console.log('items ---->>>>', itemsCopy);
 
     useEffect(()=>{
         fetch('http://localhost:3001/items').then(response => response.json()).then(data => setItems(data))
@@ -31,6 +39,23 @@ function ItemList() {
         setItemsCopy(items.filter((el)=> el.title.toLowerCase().includes(input.toLowerCase())))
     };
 
+
+    // Счетчики для каждой категории
+    const allItemsQnty = items?.length;
+    const foodQnty = items.filter(el => el.category_id === 1).length;
+    const clothesQnty = items.filter(el => el.category_id === 2).length;
+    const furnitureQnty = items.filter(el => el.category_id === 3).length;
+
+
+    console.log(allItemsQnty);
+    console.log(foodQnty);
+    console.log(clothesQnty);
+    console.log(furnitureQnty);
+
+    // Пагинация
+    // Кол-во страниц для выводимой категории
+    const pagesQnty = Math.ceil(itemsCopy.length/10)
+    console.log(pagesQnty);
 
 
     return (
@@ -65,7 +90,7 @@ function ItemList() {
                     <div className="row">
                         <div className="col-lg-8 entries">
 
-                            {items.map(el => ( <Item key={`${el.title}${el.id}`} el={el}/>))}
+                            {itemsCopy.map(el => ( <Item key={`${el.title}${el.id}`} el={el}/>))}
 
 
                             {/*Пагинация*/}
@@ -87,8 +112,8 @@ function ItemList() {
 
                                 <h3 className="sidebar-title">Поиск</h3>
                                 <div className="sidebar-item search-form">
-                                    <form action="">
-                                        <input type="text"/>
+                                    <form>
+                                        <input onChange={inputHandler} value={input} type="text"/>
                                             <button type="submit"><i className="bi bi-search"></i></button>
                                     </form>
                                 </div>
@@ -97,10 +122,10 @@ function ItemList() {
                                 <h3 className="sidebar-title">Категории</h3>
                                 <div className="sidebar-item categories">
                                     <ul>
-                                        <li><a href="#">Все <span>(25)</span></a></li>
-                                        <li><a href="#">Одежда <span>(10)</span></a></li>
-                                        <li><a href="#">Еда <span>(5)</span></a></li>
-                                        <li><a href="#">Мебель <span>(10)</span></a></li>
+                                        <li><a onClick={()=> setItemsCopy(items)}>Все <span>{`(${allItemsQnty})`}</span></a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 2))}>Одежда <span>{`(${clothesQnty})`}</span></a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 1))}>Еда <span>{`(${foodQnty})`}</span></a></li>
+                                        <li><a onClick={() => setItemsCopy(() => items.filter((el)=> +el.category_id === 3))}>Мебель <span>{`(${furnitureQnty})`}</span></a></li>
                                     </ul>
                                 </div>
                                 {/*End sidebar categories*/}
@@ -109,12 +134,10 @@ function ItemList() {
                                 <h3 className="sidebar-title">Теги</h3>
                                 <div className="sidebar-item tags">
                                     <ul>
-                                        <li><a href="#">Все</a></li>
-                                        <li><a href="#">Одежда</a></li>
-                                        <li><a href="#">Мебель</a></li>
-                                        <li><a href="#">Еда</a></li>
-                                        <li><a href="#">Добро</a></li>
-                                        <li><a href="#">Помощь</a></li>
+                                        <li><a onClick={()=> setItemsCopy(items)}>Все</a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 2))}>Одежда</a></li>
+                                        <li><a onClick={() => setItemsCopy(() => items.filter((el)=> +el.category_id === 3))}>Мебель</a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 1))}>Еда</a></li>
 
                                     </ul>
                                 </div>
