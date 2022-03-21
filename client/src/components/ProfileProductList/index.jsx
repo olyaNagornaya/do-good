@@ -2,7 +2,7 @@ import ProfileProductCard from "../ProfileProductCard";
 
 export default function ProfileProductList({header, descriptions, type}) {
 
-    const isShowActualProducts = type === 'active';
+    // взять из редакса данные для мапа карточек и передать в лист пропсами
     return (
         <>
             {/* <!-- ======= Features Section ======= --> */}

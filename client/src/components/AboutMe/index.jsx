@@ -1,13 +1,18 @@
 import {useDispatch, useSelector} from "react-redux";
 import {ProfileThunk} from "../../redux/thunk/ThunkPosts";
 import {useEffect, useState} from "react";
+import EditUserModal, {BUTTON_WRAPPER_STYLES} from "../EditFormUser";
 
 export default function AboutMe() {
 
     const [isOpen, setIsOpen] = useState(false);
-    const clickHandler = (id) => {
+    const clickHandler = () => {
         setIsOpen(true);
     };
+
+    const handlerCloseModal = () => {
+        setIsOpen(false);
+    }
     const dispatch = useDispatch();
     const user = useSelector(state => state.register);
 
@@ -22,6 +27,11 @@ export default function AboutMe() {
     }, [])
     return (
         <>
+            {user && (
+                <div style={BUTTON_WRAPPER_STYLES}>
+                    <EditUserModal user={user} onClose={handlerCloseModal} open={isOpen} />
+                </div>
+            )}
             {/* <!-- ======= Work Process Section ======= --> */}
             <section id="work-process" className="work-process">
                 <div className="container">
@@ -44,16 +54,16 @@ export default function AboutMe() {
 
                                     <ul>
                                         <li>
-                                            <i className="bi bi-house"></i> {user?.city}
+                                            <i className="bi bi-house"/> {user?.city}
                                         </li>
                                         <li>
-                                            <i className="bi bi-envelope"></i> {user?.useremail}
+                                            <i className="bi bi-envelope"/> {user?.useremail}
                                         </li>
                                         <li>
-                                            <i className="bi bi-phone"></i> {user?.phone}
+                                            <i className="bi bi-phone"/> {user?.phone}
                                         </li>
                                         <li>
-                                            <i className="bi bi-check-circle"></i> Мои подписки:{" "}
+                                            <i className="bi bi-check-circle"/> Мои подписки:{" "}
                                             {/*{err}*/}
                                             <br />
                                             {/*{subList.length*/}

@@ -1,6 +1,6 @@
 import { call, put, delay, takeLatest } from 'redux-saga/effects';
 
-// worker halpres
+// worker helpers
 
 const searchFetch = async (title) => {
   const response = await fetch(`/filter/${title}`);

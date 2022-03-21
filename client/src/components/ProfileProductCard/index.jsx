@@ -1,4 +1,6 @@
 export default function ProfileProductCard() {
+
+    // тут из пропсов закинуть данные в поля карты
     const testImage = {
         backgroundImage: 'url(https://i.pinimg.com/originals/68/8e/32/688e32cd90dbb711edc5812f7d05975d.jpg)',
     }; //временный хардкод, потом удалим, когда из базы фотос прилетит

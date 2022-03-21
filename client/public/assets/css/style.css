@@ -472,7 +472,7 @@ section {
 
 .breadcrumbs .breadcrumb-hero {
   text-align: center;
-  background: #0038f5;
+  background: #809bfa;
   padding: 20px 0;
   color: #fff;
 }
@@ -595,7 +595,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#94c045 50%, rgba(148, 192, 69, 0.4) 52%);
+  background: radial-gradient(#3360f7 50%, #4d74f8 52%);
   border-radius: 50%;
   display: block;
   position: absolute;
@@ -636,14 +636,14 @@ section {
   animation-timing-function: steps;
   opacity: 1;
   border-radius: 50%;
-  border: 5px solid rgba(148, 192, 69, 0.7);
+  border: 5px solid #6688f9;
   top: -15%;
   left: -15%;
   background: rgba(198, 16, 0, 0);
 }
 
 .about .play-btn:hover::after {
-  border-left: 15px solid #94c045;
+  border-left: 15px solid #6688f9;
   transform: scale(20);
 }
 
@@ -899,11 +899,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #94c045;
+  border: 1px solid #3360f7;
 }
 
 .clients .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #94c045;
+  background-color: #3360f7;
 }
 
 /*--------------------------------------------------------------
@@ -997,7 +997,7 @@ section {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
   color: #fff;
-  background: #94c045;
+  background: #3360f7;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -1074,7 +1074,7 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #c0da91;
+  color: #6688f9;
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -1113,14 +1113,14 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #94c045;
+  border: 1px solid #3360f7;
 }
 
 .portfolio-details
   .portfolio-details-slider
   .swiper-pagination
   .swiper-pagination-bullet-active {
-  background-color: #94c045;
+  background-color: #3360f7;
 }
 
 .portfolio-details .portfolio-info {
@@ -1255,8 +1255,8 @@ section {
 
 .pricing .featured h3 {
   color: #fff;
-  background: #94c045;
-  box-shadow: 0 3px 7px rgba(148, 192, 69, 0.4);
+  background: #3360f7;
+  box-shadow: 0 3px 7px #6688f9;
 }
 
 .pricing .advanced {

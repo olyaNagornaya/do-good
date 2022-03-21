@@ -38,7 +38,8 @@ function Post({el}) {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-check"></i>
-                                            {/*<span>{el.date.slice(0, 10)}</span>*/}
+                                            {/*<span>{el.createdAt.slice(0, 10)}</span>*/}
+                                            {/*<time dateTime="2020-01-01">{el.createdAt.slice(0, 10)}</time>*/}
                                            <span>17.03</span>
                                             <p>Опубликовано</p>
                                         </div>
@@ -63,7 +64,7 @@ function Post({el}) {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box pb-5 pt-0 pt-lg-5">
                                             <i className="bi bi-tags"></i>
-                                            {/*<span>{categories[el.category_id]}</span>*/}
+                                            {/*<span>{categories[el.category.id]}</span>*/}
                                             <p>Категория</p>
                                         </div>
                                     </div>
@@ -97,7 +98,7 @@ function Post({el}) {
                                     Обращайте внимание на состояние вещей и сроки годности продуктов, будьте вежливы
                                     с автором публикации
                                 </p>
-                                {/* <button href="#about" className="btnauthor">Снять с публикации</button> */}
+                                 <button href="#about" className="btnauthor">Снять с публикации</button>
                             </div>
                         </div>
                     </div>
