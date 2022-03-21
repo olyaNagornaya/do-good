@@ -14,7 +14,7 @@ axios.defaults.withCredentials=true
 //ЗАБОР ДАННЫХ У ПРОФИЛЯ
 export const ProfileThunk = () => {
    return async (dispatch) => {
-     const response = await axios(`http://localhost:3001/users/profile`)
+     const response = await axios.get(`users/profile`)
         const data = response.data
          dispatch(RegaAction(data))
    }

@@ -77,6 +77,26 @@ router.get('/profile',async (req, res) => {
    }
 })
 
+// Изменяем данные пользователя из модалки
+
+router.patch('/', async (req, res) => {
+   console.log('router.patch(async (req------>>>', req)
+   if (req.session.userId) {
+      try {
+         const user = await User.findByPk(req.session.userId);
+         user.name = req.body.name;
+         user.surname = req.body.surname;
+         user.phone = req.body.phone;
+         user.city = req.body.city;
+         await user.save();
+         res.sendStatus(200);
+      } catch (error) {
+         res.sendStatus(404);
+      }
+   } else {
+      res.sendStatus(401);
+   }
+});
 
 
 

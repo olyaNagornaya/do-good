@@ -1,34 +1,24 @@
 import AboutMe from "../../components/AboutMe";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import ProfileProductList from "../../components/ProfileProductList";
-import {RegaAction} from "../../redux/actions/postActions";
+import {useSelector} from "react-redux";
 
 
 export default function ProfilePage() {
-    const [profile, setProfile] = useState({});
     const [typeProduct, setTypeProduct] = useState('active');
-
-    useEffect(() => {
-       // тут нужно брать из базы архивные и актуальные товары и по условию их показывать
-        fetch("http://localhost:3001/users/profile", {
-            credentials: "include",
-        })
-            .then((response) => response.json())
-            .then((response) => setProfile(response));
-    }, [])
-    if (profile?.user?.name) {
-        RegaAction(profile.user.name);
-    }
+    const user = useSelector(state => state.register);
 
     const handlerActual = () => {
         setTypeProduct('active');
     };
+
     const handlerArchive = () => {
         setTypeProduct('archive');
     };
+
     return (
         <main id="main">
-            <AboutMe setProfile={setProfile} profile={profile}/>
+            <AboutMe profile={user}/>
             <div className="div-btn-profile">
                 <button className="btnproduct" onClick={handlerActual}>
                     Актуальные
@@ -42,6 +32,7 @@ export default function ProfilePage() {
                 header="Ваши актуальные продукты"
                 descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
                 type={typeProduct}
+                card={'тут передать активные товары'}
             />
             )
               : (
@@ -49,7 +40,8 @@ export default function ProfilePage() {
                         header="Ваши архивные продукты"
                         descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
                         type={typeProduct}
-                    />
+                        card={'тут передать те товары которые в архиве'}
+                  />
                 )
 
             }

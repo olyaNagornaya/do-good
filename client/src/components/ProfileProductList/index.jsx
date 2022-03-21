@@ -1,6 +1,6 @@
 import ProfileProductCard from "../ProfileProductCard";
 
-export default function ProfileProductList({header, descriptions, type}) {
+export default function ProfileProductList({header, descriptions, type, card}) {
 
     // взять из редакса данные для мапа карточек и передать в лист пропсами
     return (

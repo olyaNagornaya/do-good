@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactDom from 'react-dom'
 import { Link } from 'react-router-dom'
 import './styleFormModal.css'
+import {ProfileThunk} from "../../redux/thunk/ThunkPosts";
+import {useDispatch} from "react-redux";
 
 const MODAL_STYLES = {
     position: 'fixed',
@@ -40,9 +42,17 @@ export const BUTTON_WRAPPER_STYLES = {
 };
 
 
-function EditUserModal({ user, open, children, onClose, setProfile }) {
+function EditUserModal({ user, open, children, onClose }) {
 
-    const [inputs, setInputs] = useState({ name: user.username, surname: user.surname, phone: user.phone, city: user.city, })
+    const [inputs, setInputs] = useState()
+    const dispatch = useDispatch();
+
+    console.log('inputs?.phone',inputs?.phone)
+    console.log('inputs',inputs)
+
+    useEffect(() => {
+        setInputs({ name: user.username, surname: user.surname, phone: user.phone, city: user.city, })
+    }, [user])
 
 
     const handleChange = (e) => {
@@ -50,7 +60,7 @@ function EditUserModal({ user, open, children, onClose, setProfile }) {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let resp = await fetch('http://localhost:3001/users/profile', {
+        let resp = await fetch('/users', {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -59,10 +69,7 @@ function EditUserModal({ user, open, children, onClose, setProfile }) {
             body: JSON.stringify(inputs)
         })
         if (resp.status === 200)
-            await setProfile(prev => {
-                let user = { ...prev.user, name: inputs.name, surname: inputs.surname, phone: inputs.telephone, city: inputs.city}
-                return { ...prev, user }
-            })
+            await dispatch(ProfileThunk())
         await onClose()
     }
 
@@ -79,7 +86,7 @@ function EditUserModal({ user, open, children, onClose, setProfile }) {
                         <button onClick={onClose} style={BUTTON_CLOUSE_STYLES} ><i className="bi bi-x"/></button>
                         <input className="text inputformdecor" type="text" name="name" placeholder="Имя" required="" value={inputs?.name} onChange={handleChange} />
                         <input className="text email inputformdecor" type="text" name="surname" placeholder="Фамилия" required="" value={inputs?.surname} onChange={handleChange} />
-                        <input className="text email inputformdecor" type="text" name="telephone" placeholder="Телефон" required="" value={inputs?.phone} onChange={handleChange} />
+                        <input className="text email inputformdecor" type="text" name="phone" placeholder="Телефон" required="" value={inputs?.phone} onChange={handleChange} />
                         <input className="text email inputformdecor" type="text" name="city" placeholder="Город" required="" value={inputs?.city} onChange={handleChange} />
                         <button onClick={handleSubmit} className="btnlogin"> Сохранить изменения</button>
                     </form>
