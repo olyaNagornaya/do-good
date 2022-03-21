@@ -3,11 +3,11 @@ const router = express.Router();
 const { User, Item, Category, Taken } = require("../db/models");
 const { convertCategoryId } = require("../src/controller.js");
 
-router.get("/", async (req, res) => {
-  const Items = await Item.findAll();
-  console.log(Items);
-  res.json(Items);
-});
+router.get('/', async (req, res) => {
+  const Items = await Item.findAll({include: [Category, User]});
+  console.log('IIIITTTTTTEEEE', Items);
+  res.json(Items)
+})
 
 router.get("/takens", async (req, res) => {
   const Takens = await Taken.findAll();

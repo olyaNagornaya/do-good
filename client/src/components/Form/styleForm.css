@@ -207,50 +207,51 @@ input.text.w3lpass {
 }
 
 .inputphoto {
-  /* display:"none" */
-  font-size: 1.1em;
-  color: #fff;
-  font-weight: 500;
-  width: 94.5%;
-  display: block;
-  border: none;
-  padding: 0.8em;
-  border: solid 1px rgba(255, 255, 255, 0.8);
+    /* display:"none" */
+    font-size: 1.1em;
+    margin-top: 32px;
+    color: #fff;
+    font-weight: 500;
+    width: 94.5%;
+    display: block;
+    border: none;
+    padding: 0.8em;
+    border: solid 1px rgba(255, 255, 255, 0.8);
 }
 
-.btn-tertiary {
-  color: #fff;
-  padding: 0.8em;
-  line-height: 40px;
-  width: 94.5%;
-  margin: 0;
-  display: block;
-  border: 1px solid #fff;
+.btn-tertiary{
+    color: #fff;
+    padding: 0.8em;
+    line-height:40px;
+    width: 94.5%;
+    margin:0;
+    display:block;
+    border:1px solid #fff
 }
-.btn-tertiary:hover,
-.example-2 .btn-tertiary:focus {
-  color: #fff;
-  border-color: #fff;
-  /* unput file */
+.btn-tertiary:hover,.example-2 .btn-tertiary:focus{
+    color: #fff;
+    border-color:#fff;
+    /* unput file */
 }
-.input-file {
-  width: 94.5%;
-  height: 40px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  /* z-index:-1 */
+.input-file{
+    width: 94.5%;
+    height:40px;
+    opacity:0;
+    overflow:hidden;
+    position:absolute;
+    /* z-index:-1 */
 }
 .input-file:hover {
   cursor: pointer;
 }
 
-.input-file + .js-labelFile {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding: 0;
-  cursor: pointer;
+.input-file + .js-labelFile{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    padding:0 ;
+    cursor:pointer;
+    margin-top: 32px;
 }
 .input-file + .js-labelFile .icon:before {
   content: "\f093";

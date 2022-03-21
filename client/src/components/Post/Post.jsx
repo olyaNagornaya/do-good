@@ -2,7 +2,7 @@ import React from "react";
 
 function Post({el}) {
     const categories = {
-        Food: "Продукты",
+        Food: "Еда",
         Clothers: "Одежда",
         Furniture: "Мебель",
     }
@@ -39,6 +39,7 @@ function Post({el}) {
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-check"></i>
                                             {/*<span>{el.date.slice(0, 10)}</span>*/}
+                                           <span>17.03</span>
                                             <p>Опубликовано</p>
                                         </div>
                                     </div>
