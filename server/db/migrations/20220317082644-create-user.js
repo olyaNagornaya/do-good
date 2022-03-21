@@ -20,9 +20,6 @@ module.exports = {
       telephone: {
         type: Sequelize.STRING
       },
-      address: {
-        type: Sequelize.STRING
-      },
       img: {
         type: Sequelize.TEXT
       },
