@@ -17,18 +17,20 @@ export default function ProfileProductList({header, descriptions, type, posts}) 
 
                         <div className="row">
                             {type === 'active' ?
-                            //     { posts && (
-                            //        posts.map(el => {
-                            //        return <ProfileProductCard key={el.id} card={el} type={type}/>
-                            //        }
-                            // }) }
-                                <ProfileProductCard type={type}/>
+                                <>
+                                    {posts && posts.map(el => <ProfileProductCard key={el.id} card={el} type={type}/>
+                                )}
+                                </>
                                 :
                                 <h1>Вы не добавляли продуктов</h1>
                             }
                             {type === 'archive' ?
                                 // тут мапим из базы карточки posts из пропсов
-                                <ProfileProductCard type={type} />
+                                <>
+                                    {posts && posts.map(el => <ProfileProductCard key={el.id} card={el} type={type}/>
+                                    )}
+
+                                </>
                                 :
                                 <h1>Вы не добавляли продуктов</h1>
                             }

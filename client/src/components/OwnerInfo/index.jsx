@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
+import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-function OwnerInfo({ id }) {
+function OwnerInfo() {
     const [user, setUser] = useState({});
+    const {id} = useParams()
+    const post = useSelector(state => state.post)
+    const curPost = post.filter(el => el.id === +id)[0]
+
     useEffect(() => {
-        fetch(`/profile/${id}`)
+        fetch(`http://localhost:3001/users/profile/${id}`)
             .then((res) => res.json())
             .then((res) => setUser(res));
     }, []);
+    console.log("user=========", id)
     return (
         <>
             <main id="main">
@@ -19,14 +26,14 @@ function OwnerInfo({ id }) {
 
                         <div className="row">
                             <div className="col-lg-6" data-aos="fade-right">
-                                <img src={user.img} className="img-fluid" alt="" />
+                                <img src={curPost.User.img} className="img-fluid" alt="" />
                             </div>
                             <div className="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-                                <h3>{user.name}&nbsp;{user.surname}</h3>
+                                <h3>{curPost.User.name}&nbsp;{curPost.User.surname}</h3>
                                 <p>Свяжитесь с автором, позвонив ему по телефону, или отправьте личное сообщение</p>
-                                <a href={`tel:${user.phone}`}  >
+                                <a href={`tel:${curPost.User.telephone}`}  >
                                     <i className="bi bi-phone"></i>
-                                    {user.phone}
+                                    {curPost.User.telephone}
                                 </a>
                                 <br />
 

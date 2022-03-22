@@ -9,8 +9,10 @@ export default function ProfilePage() {
     const user = useSelector(state => state.register);
     const allPosts = useSelector(state => state.post);
 
-    const activePost = 'тут фильтруешь те которые активные из всех постов'
-    const archivePost = 'тут фильтруешь те которые false из всех постов'
+    const activePost = allPosts.filter(el => el.available === true)
+    console.log('activePost------', activePost)
+    const archivePost = allPosts.filter(el => el.available === false)
+    console.log('archivePost------', archivePost)
 
     const handlerActual = () => {
         setTypeProduct('active');
@@ -36,8 +38,8 @@ export default function ProfilePage() {
                 header="Ваши актуальные продукты"
                 descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
                 type={typeProduct}
-                // posts={'тут передать активные товары activePost'}
-                posts={allPosts}
+                posts={activePost}
+                // posts={allPosts}
             />
             )
               : (
@@ -45,7 +47,7 @@ export default function ProfilePage() {
                         header="Ваши архивные продукты"
                         descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
                         type={typeProduct}
-                        posts={'тут передать те товары которые в архиве archivePost'}
+                        posts={archivePost}
                   />
                 )
 

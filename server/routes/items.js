@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
   res.json(Items)
 })
 
+
 router.get("/takens", async (req, res) => {
   const Takens = await Taken.findAll();
   console.log(Takens);
