@@ -58,7 +58,7 @@ function Registration() {
                               placeholder="Имя"
                               required=""
                               value={registration.name}
-                              onChange={e => setRegistration({...registration, name: e.target.value}) }
+                              onChange={e => setRegistration(prev => ({...prev, name: e.target.value})) }
                           />
                           <input
                               className="text email inputformdecor"

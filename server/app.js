@@ -50,8 +50,8 @@ app.use((req,res,next)=> {
 })
 
 
-app.use("/items", itemsRouter);
 app.use("/users", usersRouter);
+app.use("/items", itemsRouter);
 
 
 
