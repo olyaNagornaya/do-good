@@ -55,7 +55,7 @@ function Post() {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-x"></i>
-                                            <span>{curPost.available}</span>
+                                            <span>{curPost.validUntil.slice(0, 10)}</span>
                                             <p>Действительно до</p>
                                         </div>
                                     </div>
