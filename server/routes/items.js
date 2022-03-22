@@ -2,13 +2,14 @@ const express = require("express");
 const router = express.Router();
 const { User, Item, Category, Taken } = require("../db/models");
 const { convertCategoryId } = require("../src/controller.js");
-const upload = require('../middlewares/allMiddleware');
+const upload = require("../middlewares/allMiddleware");
+const helper = require("../src/helper");
 
-router.get('/', async (req, res) => {
-  const Items = await Item.findAll({include: [Category, User]});
-  console.log('IIIITTTTTTEEEE', Items);
-  res.json(Items)
-})
+router.get("/", async (req, res) => {
+  const Items = await Item.findAll({ include: [Category, User] });
+  console.log("IIIITTTTTTEEEE", Items);
+  res.json(Items);
+});
 
 router.get("/takens", async (req, res) => {
   const Takens = await Taken.findAll();
@@ -27,6 +28,9 @@ router.post("/addgood", async (req, res) => {
 
   const category_id = convertCategoryId(category);
 
+  const x = await helper({ geolocation, city });
+  // console.log(x.coordinate[0]);
+
   const objForDB = {
     title,
     img,
@@ -34,10 +38,15 @@ router.post("/addgood", async (req, res) => {
     user_id: req.session.userId,
     description,
     available: true,
+    city: geolocation, 
+    address: city,
+    coordinatesX: x.coordinate[0],
+    coordinatesY: x.coordinate[1],
   };
 
-  console.log(objForDB);
-  // await Item.create(objForDB);
+  console.log(req.body);
+  // console.log(objForDB);
+  await Item.create(objForDB);
 
   res.status(200);
 });

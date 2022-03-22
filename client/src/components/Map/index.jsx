@@ -25,7 +25,7 @@ export default function MapYandex () {
   }, []);
 
   const DBO = useSelector((store) => store.post);
-  // console.log(DBO);
+  console.log(DBO);
 
   // Москва, улица Новый Арбат, дом 24
 
