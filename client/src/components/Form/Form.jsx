@@ -148,7 +148,7 @@ const Form = () => {
                   name="geolocation"
                   placeholder="Город"
                   required=""
-                  value={inputs.geolocation}
+                  value={inputs.city}
                   onChange={handleChange}
                 />
                 <input
@@ -157,7 +157,7 @@ const Form = () => {
                   name="city"
                   placeholder="Адрес"
                   required=""
-                  value={inputs.city}
+                  value={inputs.geolocation}
                   onChange={handleChange}
                 />
 

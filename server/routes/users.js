@@ -77,6 +77,17 @@ router.get('/profile',async (req, res) => {
    }
 })
 
+router.get('/profile/:id',async (req, res) => {
+  const { id } = req.params;
+
+  try {
+     const name = await User.findByPk(id)
+     res.json({user: name.id,username:name.name, useremail:name.email, surname: name.surname, phone: name.telephone, city: name.city, photo: name.img})
+  } catch (error) {
+     console.log(error);
+  }
+})
+
 // Изменяем данные пользователя из модалки
 
 router.patch('/', async (req, res) => {

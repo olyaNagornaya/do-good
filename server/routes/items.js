@@ -27,7 +27,7 @@ router.post("/addgood", upload.single('file'), async (req, res) => {
   // console.log(req.file);
   // console.log(req.body);
 
-  console.log( 'session --------', req.session);
+  console.log( 'session --------', req.session.userId);
 
   const img = req.file ? `/img/${req.file.originalname}` : null;
 
@@ -39,10 +39,11 @@ router.post("/addgood", upload.single('file'), async (req, res) => {
     title,
     img,
     category_id,
-    user_id,
+    user_id: +req.session.userId,
     description,
     address: geolocation,
     available: true,
+    validUntil,
     city
   };
 

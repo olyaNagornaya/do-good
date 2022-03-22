@@ -1,5 +1,8 @@
 'use strict';
 
+let validDate = new Date();
+validDate.setDate(validDate.getDate() + 7);
+
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -22,6 +25,7 @@ module.exports = {
         city: 'Москва',
         address: 'ул. Вавилова, 1',
         available: true,
+        validUntil: validDate,
         createdAt: new Date(),
         updatedAt: new Date(),
      },
@@ -34,6 +38,7 @@ module.exports = {
       city: 'Москва',
       address: 'ул. Вавилова, 2',
       available: true,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -46,6 +51,7 @@ module.exports = {
       city: 'Москва',
       address: 'ул. Вавилова, 3',
       available: true,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -58,6 +64,7 @@ module.exports = {
       city: 'Москва',
       address: 'ул. Вавилова, 4',
       available: true,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -70,6 +77,7 @@ module.exports = {
       city: 'Москва',
       address: 'ул. Вавилова, 5',
       available: true,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -82,6 +90,7 @@ module.exports = {
       city: 'Москва',
       address: 'ул. Вавилова, 6',
       available: true,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -94,6 +103,7 @@ module.exports = {
       city: 'Москва',
       address: 'ул. Вавилова, 7',
       available: true,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -106,6 +116,7 @@ module.exports = {
       city: 'Москва',
       address: 'ул. Вавилова, 8',
       available: false,
+      validUntil: validDate,
       createdAt: new Date(),
       updatedAt: new Date(),
    },
@@ -118,6 +129,7 @@ module.exports = {
     city: 'Москва',
     address: 'ул. Вавилова, 9',
     available: false,
+    validUntil: validDate,
      createdAt: new Date(),
      updatedAt: new Date(),
    },
@@ -130,6 +142,7 @@ module.exports = {
     city: 'Москва',
     address: 'ул. Вавилова, 10',
     available: false,
+    validUntil: validDate,
      createdAt: new Date(),
      updatedAt: new Date(),
    },
