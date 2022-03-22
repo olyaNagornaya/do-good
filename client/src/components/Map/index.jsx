@@ -27,14 +27,6 @@ export default function MapYandex () {
   const DBO = useSelector((store) => store.post);
   console.log(DBO);
 
-  // Москва, улица Новый Арбат, дом 24
-
-  const transformAddress = async () => {
-    const responce = await fetch(`https://nominatim.openstreetmap.org/search?q=24+улица+Арбат+Новый%2C+Москва&format=geojson`)
-    const data = await responce.json();
-    const address = data[0]
-    console.log(data.features[0]);
-  };
 
   return (
 
@@ -72,7 +64,6 @@ export default function MapYandex () {
                   });
                 }
               }}
-              onClick={transformAddress}
             >
               <GeolocationControl />
               <Clusterer
@@ -84,12 +75,12 @@ export default function MapYandex () {
                   }
                 }}
               >
-                {DB.map((el) => {
+                {DBO.map((el) => {
                   return (
                     <Placemark
                       key={el.id}
                       modules={["geoObject.addon.balloon"]}
-                      geometry={el.coords}
+                      geometry={[el.coordinatesX, el.coordinatesY]}
                       properties={{
                         balloonContentHeader: el.title,
                         balloonContent: el.description,
