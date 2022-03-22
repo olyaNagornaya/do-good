@@ -36,13 +36,6 @@ const Form = () => {
   };
 
   const addProdToDB = async (e) => {
-    e.preventDefault();
-    // const coord = await addCoord(inputs)
-    // console.log(coord);
-    // setInputs((prev) => {
-    //   return { ...prev, coordinate: coord.coordinate}
-    // })
-    console.log(inputs);
     if (inputs.checkBox === true ) {
       fetch("http://localhost:3001/items/addgood", {
         method: "POST",

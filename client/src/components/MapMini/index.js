@@ -26,9 +26,7 @@ function MapMini() {
                 balloonContent: ourPostDesription,
               }}
               options={{
-                preset: [
-                  ourCategory(ourPost[0].category_id)
-                ],
+                preset: [ourCategory(ourPost[0].category_id)],
               }}
             />
           </Map>

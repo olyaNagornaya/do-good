@@ -7,7 +7,6 @@ import {
   GeolocationControl,
   Clusterer,
 } from "react-yandex-maps";
-// import DB from "./points.js";
 import { useDispatch, useSelector } from "react-redux";
 import { PostsThunk } from "../../redux/thunk/ThunkForm";
 import { ourCategory } from "../../helper";
@@ -26,7 +25,7 @@ export default function MapYandex() {
   }, []);
 
   const DBO = useSelector((store) => store.post);
-  console.log(DBO);
+  // console.log(DBO);
 
   return (
     <main id="main">
