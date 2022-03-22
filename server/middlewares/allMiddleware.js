@@ -10,7 +10,18 @@ const storage = multer.diskStorage({
   },
 });
 
+const storageAvatar = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'public/img/avatars');
+  },
+
+  filename(req, file, cb) {
+    cb(null, `${file.originalname}`);
+  },
+});
+
 const upload = multer({ storage });
+const uploadAvatar = multer({ storageAvatar });
 
 const addToLocals = (req, res, next) => {
   res.locals.userId = req.session?.userId;
@@ -35,4 +46,4 @@ const checkProtection = async (req, res, next) => {
 };
 
 
-module.exports = { addToLocals, checkUser, checkProtection, upload };
+module.exports = { addToLocals, checkUser, checkProtection, upload, uploadAvatar };

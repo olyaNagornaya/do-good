@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     available: DataTypes.TEXT,
     city: DataTypes.STRING,
     address: DataTypes.TEXT,
+    validUntil: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Item',
