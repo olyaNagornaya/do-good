@@ -9,9 +9,18 @@ const Form = () => {
     description: "",
     img: "",
     available: "",
+    city: "",
+    geolocation: "",
     category: "",
+    validUntil: "",
     checkBox: false,
   });
+
+  const user = useSelector(state => state.register);  
+
+  console.log(user);
+  console.log(inputs);
+
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
@@ -21,11 +30,11 @@ const Form = () => {
     console.log(inputs, "eto inputs");
   };
 
-  const uploadHandler = async (file) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    setInputs({ ...inputs, img: formData });
-  };
+  // const uploadHandler = async (file) => {
+  //   const formData = new FormData();
+  //   formData.append("file", file);
+  //   setInputs({ ...inputs, img: formData });
+  // };
 
   const inputCheckBox = (e) => {
     // console.log(e.target.checked);
@@ -34,22 +43,42 @@ const Form = () => {
     });
   };
 
-  const addProdToDB = (e) => {
+  const addProdToDB = async (e) => {
+    e.preventDefault();
     if (inputs.checkBox === true) {
-      fetch("http://localhost:3001/items/addgood", {
+      console.log(inputs);
+
+      const formData = new FormData();
+      formData.append('file', inputs.img);
+      formData.append('title', inputs.title);
+      formData.append('description', inputs.description);
+      formData.append('category', inputs.category);
+      formData.append('city', inputs.city);
+      formData.append('geolocation', inputs.geolocation);
+      formData.append('user_id', user.user);
+      formData.append('validUntil', inputs.validUntil);
+
+      console.log(Object.fromEntries(formData));
+      console.log(formData);
+
+      const response = await fetch("http://localhost:3001/items/addgood", {
         method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(inputs),
+        // headers: { "Content-type": "form/multipart" },
+        body: formData,
       });
+
+      console.log(response);
+
     } else {
-      e.preventDefault();
+      // e.preventDefault();
       alert("Согласись с нашими условиями платформы!!!");
     }
   }
     const inputAvatarHandler = (e) => {
       const file = e.target.files[0];
       console.log(file);
-      uploadHandler(file);
+      // uploadHandler(file);
+      setInputs(prev => ({...prev, img: file}))
     };
 
     return (

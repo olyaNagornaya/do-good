@@ -39,8 +39,19 @@ app.use(
   })
 );
 
+
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+
+app.use((req,res,next)=> {
+  console.log(req.session);
+  next();
+})
+
+
 app.use("/items", itemsRouter);
+app.use("/users", usersRouter);
+
+
+
 
 app.listen(PORT, () => console.log(`Server is runnig on port ${PORT}`));
