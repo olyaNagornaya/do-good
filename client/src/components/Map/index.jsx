@@ -87,6 +87,7 @@ export default function MapYandex() {
                     properties={{
                       balloonContentHeader: el.title,
                       balloonContent: el.description,
+                      balloonContentFooter: `<a href='/good/${el.id}' >Подбробнее</a href='/' >`
                     }}
                     options={{
                       preset: [ourCategory(el.category_id)],

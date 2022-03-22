@@ -48,6 +48,7 @@ const Form = () => {
   };
 
   const addProdToDB = async (e) => {
+    e.preventDefault();
     if (inputs.checkBox === true) {
       console.log(inputs);
 
