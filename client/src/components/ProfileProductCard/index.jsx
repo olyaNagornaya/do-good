@@ -1,20 +1,42 @@
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
+import { changeStatus} from "../../redux/actions/formActions";
 
 export default function ProfileProductCard({type, card}) {
 
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
+    const posts = useSelector(state => state.posts)
     const clickHandler = (id) => {
         setIsOpen(true);
     };
+    // const handlerChangeStatus = () => {
+    //     dispatch(changeStatus(card.id, posts))
+    // }
+
+    const handlerChangeStatus = async () => {
+        console.log('START')
+        const resp = await fetch(`http://localhost:3001/items/${card.id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({id: card.id}),
+        });
+        console.log(resp)
+        const answer = await resp.json()
+        if(resp.ok){
+            console.log("мы в ифе", posts)
+            dispatch(changeStatus(card.id, posts))
+            // const allPosts = posts.map(el => el.id === card.id ? {...el, available: false} : el)
+
+        }
+
+      }
 
 
-    // тут из пропсов закинуть данные в поля карты
-    // const testImage = {
-        // backgroundImage: 'url(https://i.pinimg.com/originals/68/8e/32/688e32cd90dbb711edc5812f7d05975d.jpg)',
-    // }; //временный хардкод, потом удалим, когда из базы фотос прилетит
 
     const backgroundImage = {
     backgroundImage: `url(${card.img})`,
@@ -30,12 +52,11 @@ export default function ProfileProductCard({type, card}) {
                     </h5>
                     <p className="card-text">
                         {card.description}
-                        тут описание
                     </p>
                     {type === 'active' &&
                         <>
                         <div className="read-more card-text">
-                            <Link to="#" >
+                            <Link to="#" onClick={handlerChangeStatus} >
                                 <i className="bi bi-arrow-right"/> Снять с публикации
                             </Link>
                         </div>

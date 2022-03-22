@@ -33,7 +33,8 @@ export default function MainComponent() {
                             </div>
 
                             <div className="col-lg-6 pt-3 pt-lg-0 content">
-                                <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                                <h3>В качестве гуманитарной помощи москвичи могут принести продуктовые товары, одежду, средства личной гигиены, посуду и другие предметы первой необходимости. Кроме того, для детей беженцев, которым нужна особая поддержка, собирают игрушки, канцелярские товары и книги.
+                                    </h3>
                                 <p className="fst-italic">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                                     magna aliqua.

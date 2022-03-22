@@ -22,8 +22,8 @@ const Form = () => {
 
   const user = useSelector((state) => state.register);
 
-  console.log(user);
-  console.log(inputs);
+  // console.log(user);
+  // console.log(inputs);
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -48,8 +48,9 @@ const Form = () => {
   };
 
   const addProdToDB = async (e) => {
+    e.preventDefault();
     if (inputs.checkBox === true) {
-      console.log(inputs);
+      console.log('addProdToDB--',inputs);
 
       const formData = new FormData();
       formData.append("file", inputs.img);
@@ -63,12 +64,19 @@ const Form = () => {
 
       console.log(Object.fromEntries(formData));
       console.log(formData);
+      try {
+        const response = await fetch("http://localhost:3001/items/addgood", {
+          method: "POST",
+          credentials: "include",
+          body: formData,
+        });
 
-      const response = await fetch("http://localhost:3001/items/addgood", {
-        method: "POST",
-        credentials: "include",
-        body: formData,
-      });
+      console.log('addProdToDB---response', response)
+
+      } catch (e) {
+        console.error(e);
+      }
+
 
     } else {
       e.preventDefault();
@@ -84,8 +92,9 @@ const Form = () => {
 
   return (
     <>
-      <main id="main"></main>
       {/* <!-- main --> */}
+      <main id="main">
+
 
       <div className="main-w3layouts wrapper maindiv">
         {/*<h1>{err}</h1>*/}
@@ -112,9 +121,9 @@ const Form = () => {
               />
               <label htmlFor="file" className="btn btn-tertiary js-labelFile">
                 {inputs.img ? (
-                  <i className="bi bi-check2-square"></i>
+                  <i className="bi bi-check2-square"/>
                 ) : (
-                  <i className="icon fa fa-check"></i>
+                  <i className="icon fa fa-check"/>
                 )}
                 <span className="js-fileName">
                   {" "}
@@ -186,72 +195,6 @@ const Form = () => {
                   </span>
                 </label>
 
-                <select
-                  className="text email selectformdecor"
-                  placeholder="Категория"
-                  value={inputs.category}
-                  onChange={handleChange}
-                  name="category"
-                >
-                  <option default>Выберите категорию</option>
-                  <option value="Food">Продукты</option>
-                  <option value="Clothers">Одежда</option>
-                  <option value="Furniture">Мебель</option>
-                </select>
-
-                <input
-                  className="text email inputformdecor"
-                  type="text"
-                  name="description"
-                  placeholder="Описание"
-                  required=""
-                  value={inputs.description}
-                  onChange={handleChange}
-                />
-                <input
-                  className="text email inputformdecor"
-                  type="text"
-                  name="city"
-                  placeholder="Город"
-                  required=""
-                  value={inputs.city}
-                  onChange={handleChange}
-                />
-                <input
-                  className="text email inputformdecor"
-                  type="text"
-                  name="geolocation"
-                  placeholder="Адрес"
-                  required=""
-                  value={inputs.geolocation}
-                  onChange={handleChange}
-                />
-
-                <input
-                  className="text email inputformdecor"
-                  type="date"
-                  name="validUntil"
-                  placeholder="Действительно до"
-                  required=""
-                  value={inputs.validUntil}
-                  onChange={handleChange}
-                />
-
-                <div className="wthree-text">
-                  <label className="anim">
-                    <input
-                      name="checkBox"
-                      type="checkbox"
-                      className="checkbox"
-                      required=""
-                      onChange={inputCheckBox}
-                    />
-                    <span className="textoncheckbox">
-                      Я согласен с условиями платформы!
-                    </span>
-                  </label>
-                  <div className="clear"> </div>
-                </div>
                 <button
                   className="btnlogin"
                   type="submit"
@@ -294,6 +237,7 @@ const Form = () => {
           </li>
         </ul>
       </div>
+      </main>
       {/* <!-- //main --> */}
     </>
   );

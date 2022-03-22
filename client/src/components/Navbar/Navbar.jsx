@@ -37,11 +37,12 @@ function Navbar() {
                     <ul>
                         {!Check.username && <li><a href="register">Регистрация</a></li>}
                         {!Check.username && <li><a href="login">Вход</a></li>}
-                        {Check.username && <li><a href="profile">Профиль</a></li>}
+                        {Check.username && <li><a href="/profile">Профиль</a></li>}
                         {Check.username && <li onClick={logAut}><a href="#">Выход</a></li>}
                     </ul>
                 </li>
-             <li><a className="getstarted" href="addgood">Готов помочь</a></li>
+                {Check.username && <li><a className="getstarted" href="addgood">Готов помочь</a></li>}
+                {!Check.username && <li><a className="getstarted" href="#about">Как это работает?</a></li>}
 
             </ul>
             <i className="bi bi-list mobile-nav-toggle"/>

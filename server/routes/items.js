@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 router.get("/takens", async (req, res) => {
   const Takens = await Taken.findAll();
-  console.log(Takens);
+  console.log("takens===========",Takens);
   res.json(Takens);
 });
 
@@ -23,6 +23,13 @@ router.get("/categories", async (req, res) => {
   console.log(Categories);
   res.json(Categories);
 });
+
+router.post('/:id' ,async (req, res) => {
+  const data = await Item.update({available: false},{where: {id: req.params.id}})
+  console.log('data-----', data)
+  res.status(200)
+
+})
 
 router.post("/addgood", upload.single("file"), async (req, res) => {
   console.log(">>>>>>>>>>>>>>>>>>>>>>");
