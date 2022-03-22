@@ -259,11 +259,12 @@ const Form = () => {
                 >
                   ДОБАВИТЬ
                 </button>
+                </div>
               </form>
+
               <p>
                 Вы передумали? <Link to="/profile"> Выйти</Link>
               </p>
-            </div>
           </div>
         </div>
         <ul className="colorlib-bubbles">
