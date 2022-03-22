@@ -1,13 +1,14 @@
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
-import { changeStatus} from "../../redux/actions/formActions";
+import {changeStatus, setStatus} from "../../redux/actions/formActions";
+import axios from "axios";
 
 export default function ProfileProductCard({type, card}) {
 
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
-    const posts = useSelector(state => state.posts)
+    const posts = useSelector(state => state.post)
     const clickHandler = (id) => {
         setIsOpen(true);
     };
@@ -15,24 +16,48 @@ export default function ProfileProductCard({type, card}) {
     //     dispatch(changeStatus(card.id, posts))
     // }
 
-    const handlerChangeStatus = async () => {
+    console.log('posts-1111->>', posts)
+    const handlerChangeStatus = async (cardId) => {
         console.log('START')
-        const resp = await fetch(`http://localhost:3001/items/${card.id}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            credentials: "include",
-            body: JSON.stringify({id: card.id}),
-        });
-        console.log(resp)
-        const answer = await resp.json()
-        if(resp.ok){
-            console.log("мы в ифе", posts)
-            dispatch(changeStatus(card.id, posts))
-            // const allPosts = posts.map(el => el.id === card.id ? {...el, available: false} : el)
+        console.log('cardId-->>', cardId)
+        // dispatch(changeStatus(cardId, posts))
 
+        try {
+            const response = await axios.post(`http://localhost:3001/items/${cardId}`, {
+                id: cardId
+            });
+            console.log('handlerChangeStatus---res-->>',response)
+            // console.log('tryyyyyyy')
+            // const resp = await fetch(`http://localhost:3001/items/${cardId}`, {
+            //     method: "PATCH",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     credentials: "include",
+            //     body: JSON.stringify({id: cardId}),
+            // });
+            // const answer = await resp.json()
+            // console.log('answer handlerChangeStatus---answer-->>',answer)
+            // if(resp.ok){
+                // console.log("мы в ифе", posts)
+                // dispatch(changeStatus(card.id, posts))
+                // const allPosts = posts.map(el => el.id === card.id ? {...el, available: false} : el)
+
+            // }
+            // return answer;
+        } catch (e) {
+            console.error(e);
         }
+
+        const res = posts.map((el) => {
+            if (el.id === cardId) {
+                el.available = false;
+                return el
+            } else {
+                return el
+            }})
+        console.log('res--', res)
+        dispatch(setStatus(res))
 
       }
 
@@ -41,7 +66,6 @@ export default function ProfileProductCard({type, card}) {
     const backgroundImage = {
     backgroundImage: `url(${card.img})`,
     };
-    console.log('card=======>>>>', card)
     return (
         <div className="col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
             <div className="card" style={backgroundImage}>
@@ -56,7 +80,7 @@ export default function ProfileProductCard({type, card}) {
                     {type === 'active' &&
                         <>
                         <div className="read-more card-text">
-                            <Link to="#" onClick={handlerChangeStatus} >
+                            <Link to="#" onClick={() => handlerChangeStatus(card.id)} >
                                 <i className="bi bi-arrow-right"/> Снять с публикации
                             </Link>
                         </div>

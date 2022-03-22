@@ -25,9 +25,15 @@ router.get("/categories", async (req, res) => {
 });
 
 router.post('/:id' ,async (req, res) => {
-  const data = await Item.update({available: false},{where: {id: req.params.id}})
-  console.log('data-----', data)
-  res.status(200)
+  try {
+    console.log('req--params---', req.params)
+    const data = await Item.update({available: false},{where: {id: req.params.id}})
+    console.log('data-----', data)
+    res.status(200)
+  } catch {
+    res.status(500)
+
+  }
 
 })
 

@@ -22,20 +22,20 @@ function ItemList() {
     const allPost = useSelector(state => state.post);
 
 
-    console.log('Render in ItemList');
+    console.log('Render in ItemList allPost', allPost);
     console.log('items ---->>>>', items);
     console.log('items ---->>>>', itemsCopy);
 
     useEffect(()=>{
-        // fetch('http://localhost:3001/items').then(response => response.json()).then(data => setItems(data))
+        (async() => {
+            const allllll = await dispatch(PostsThunk());
+                console.log('allllll', allllll)
+        })()
         if (allPost.length > 0) {
+            console.log('allPost.length > 0', allPost.length > 0)
             setItems(allPost);
-        } else {
-            (async() => {
-              await dispatch(PostsThunk());
-            })();
         }
-    }, [allPost])
+    }, [])
 
     useEffect(() => {
         items && setItemsCopy(items.filter(el => el.available === true))
@@ -58,12 +58,6 @@ function ItemList() {
     const foodQnty = items.filter(el => el.available === true).filter(el => el.category_id === 1).length;
     const clothesQnty = items.filter(el => el.available === true).filter(el => el.category_id === 2).length;
     const furnitureQnty = items.filter(el => el.available === true).filter(el => el.category_id === 3).length;
-
-
-    console.log(allItemsQnty);
-    console.log(foodQnty);
-    console.log(clothesQnty);
-    console.log(furnitureQnty);
 
     // Пагинация
     // Кол-во страниц для выводимой категории

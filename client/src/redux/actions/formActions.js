@@ -20,7 +20,8 @@ export const setStatus = (allPost) => {
 }
 
 export const changeStatus = (id, posts) => (dispatch) => {
-    const res = posts.map((el) => {if (el.id === id) {
+    const res = posts.map((el) => {
+        if (el.id === id) {
         el.available = false;
         return el
     } else {

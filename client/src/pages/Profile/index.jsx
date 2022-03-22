@@ -1,13 +1,23 @@
 import AboutMe from "../../components/AboutMe";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import ProfileProductList from "../../components/ProfileProductList";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {PostsThunk} from "../../redux/thunk/ThunkForm";
 
 
 export default function ProfilePage() {
     const [typeProduct, setTypeProduct] = useState('active');
     const user = useSelector(state => state.register);
     const allPosts = useSelector(state => state.post);
+    const dispatch = useDispatch();
+
+
+    useEffect(()=>{
+        (async() => {
+            const allllll = await dispatch(PostsThunk());
+            console.log('allllll', allllll)
+        })()
+    }, [])
 
     const activePost = allPosts.filter(el => el.available === true)
     console.log('activePost------', activePost)
