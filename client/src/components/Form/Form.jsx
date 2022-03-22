@@ -2,13 +2,17 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./styleForm.css";
 import { Link } from "react-router-dom";
+import { PostsThunk } from '../../redux/thunk/ThunkForm' 
+import { getNewPost } from '../../redux/actions/formActions'
 
 const Form = () => {
+
+  const dispatch = useDispatch();
+
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
     img: "",
-    available: "",
     city: "",
     geolocation: "",
     category: "",
@@ -67,7 +71,6 @@ const Form = () => {
         body: formData,
       });
 
-      console.log(response);
 
     } else {
       // e.preventDefault();
@@ -145,7 +148,7 @@ const Form = () => {
                 <input
                   className="text email inputformdecor"
                   type="text"
-                  name="geolocation"
+                  name="city"
                   placeholder="Город"
                   required=""
                   value={inputs.city}
@@ -154,7 +157,7 @@ const Form = () => {
                 <input
                   className="text email inputformdecor"
                   type="text"
-                  name="city"
+                  name="geolocation"
                   placeholder="Адрес"
                   required=""
                   value={inputs.geolocation}
