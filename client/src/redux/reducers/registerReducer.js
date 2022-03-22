@@ -7,6 +7,8 @@ const registerReducer = (state = {}, action) => {
       //2
       case 'CLEAR_REGA':  
       return [];
+      case 'AUTH':
+         return { name: action.payload };
       default:
        return state; // STATE - ПРЕДЫДУЩИЕ СОСТОЯНИЕ
    }

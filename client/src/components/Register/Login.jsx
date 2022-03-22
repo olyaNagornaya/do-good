@@ -63,7 +63,7 @@ function Login() {
                           <button onClick={addLogin} className="btnlogin">ВОЙТИ</button>
                       </form>
                       <button className="btngoogle">
-                          <a href="/user/google">
+                          <a href="/users/google">
                               ВОЙТИ ЧЕРЕЗ{" "}
                               <img
                                   src="../../../assets/img/google-logo.png"

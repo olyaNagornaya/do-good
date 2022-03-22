@@ -17,8 +17,9 @@ const itemsRouter = require("./routes/items");
 const { PORT, COOKIE_SECRET, COOKIE_NAME } = process.env;
 
 const corsOptions = {
-  origin: true,
-  credentials: true,
+    origin: true,
+    credentials: true,
+    methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
 }
 
 app.use(logger("dev"));
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.set("trust proxy", 1);
 
 app.use(
   session({

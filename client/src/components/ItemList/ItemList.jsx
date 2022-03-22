@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Item from "../Item/Item";
 import { Link } from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+import {PostsThunk} from "../../redux/thunk/ThunkForm";
 
 
 
@@ -15,14 +17,25 @@ function ItemList() {
     const [page, setPage] = useState(1);
     //следит за инпутом
     const [input, setInput] = useState('')
-    
+    const dispatch = useDispatch();
+
+    const allPost = useSelector(state => state.post);
+
+
     console.log('Render in ItemList');
     console.log('items ---->>>>', items);
     console.log('items ---->>>>', itemsCopy);
 
     useEffect(()=>{
-        fetch('http://localhost:3001/items').then(response => response.json()).then(data => setItems(data))
-    }, [])
+        // fetch('http://localhost:3001/items').then(response => response.json()).then(data => setItems(data))
+        if (allPost.length > 0) {
+            setItems(allPost);
+        } else {
+            (async() => {
+              await dispatch(PostsThunk());
+            })();
+        }
+    }, [allPost])
 
     useEffect(() => {
         items && setItemsCopy(items)

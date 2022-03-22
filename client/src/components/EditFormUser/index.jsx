@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import ReactDom from 'react-dom'
 import { Link } from 'react-router-dom'
 import './styleFormModal.css'
+import {ProfileThunk} from "../../redux/thunk/ThunkPosts";
+import {useDispatch} from "react-redux";
 
 const MODAL_STYLES = {
     position: 'fixed',
@@ -19,7 +21,7 @@ const OVERLAY_STYLES = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, .7)',
+    backgroundColor: 'rgba(0,88,189, .6)',
     zIndex: 1000
 }
 
@@ -40,9 +42,17 @@ export const BUTTON_WRAPPER_STYLES = {
 };
 
 
-function EditUserModal({ user, open, children, onClose, setProfile }) {
+function EditUserModal({ user, open, children, onClose }) {
 
-    const [inputs, setInputs] = useState({ name: user.name, surname: user.surname, phone: user.phone, city: user.city, })
+    const [inputs, setInputs] = useState()
+    const dispatch = useDispatch();
+
+    console.log('inputs?.phone',inputs?.phone)
+    console.log('inputs',inputs)
+
+    useEffect(() => {
+        setInputs({ name: user.username, surname: user.surname, phone: user.phone, city: user.city, })
+    }, [user])
 
 
     const handleChange = (e) => {
@@ -50,19 +60,16 @@ function EditUserModal({ user, open, children, onClose, setProfile }) {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // let resp = await fetch("/profile", {
-        //     method: "PATCH",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     credentials: "include",
-        //     body: JSON.stringify(inputs)
-        // })
-        // if (resp.status === 200)
-        //     await setProfile(prev => {
-        //         let user = { ...prev.user, name: inputs.name, surname: inputs.surname, phone: inputs.phone, city: inputs.city}
-        //         return { ...prev, user }
-        //     })
+        let resp = await fetch('/users', {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(inputs)
+        })
+        if (resp.status === 200)
+            await dispatch(ProfileThunk())
         await onClose()
     }
 

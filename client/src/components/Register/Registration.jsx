@@ -13,9 +13,9 @@ function Registration() {
        name: '',
        email:'',
        password:'',
-       phone: '',
+       telephone: '',
        city: '',
-       photo: '',})
+       img: ''})
 
    const addRegister =  (e) => {
       e.preventDefault()
@@ -25,15 +25,15 @@ function Registration() {
           surname: '',
           email:'',
           password:'',
-          phone: '',
+          telephone: '',
           city: '',
-          photo: ''})
+          img: ''})
 
    }
     const uploadHandler = async (file) => {
         const formData = new FormData();
         formData.append('file', file);
-        setRegistration({ ...registration, photo: formData })
+        setRegistration({ ...registration, img: formData })
     }
     const inputAvatarHandler = (e) => {
         const file = e.target.files[0];
@@ -80,7 +80,7 @@ function Registration() {
                           />
                           {/* <input className="text email inputformdecor inputphoto input-file" id="file" type="file" name="photo" multiple accept="image/*" placeholder="Загрузить фото" required="" value={inputs.photo}> */}
                           <input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)}
-                                 accept='image/*' type='file' name='photo'/>
+                                 accept='image/*' type='file' name='img'/>
                           <label htmlFor="file" className="btn btn-tertiary js-labelFile">
                               {registration.photo ? (
                                   <i className="bi bi-check2-square"></i>
@@ -89,7 +89,7 @@ function Registration() {
                               )}
 
                               <span className="js-fileName">
-                  {registration.photo ? " Фото загружено" : " Загрузить фото"}
+                  {registration.img ? " Фото загружено" : " Загрузить фото"}
                 </span>
                           </label>
 
@@ -99,8 +99,8 @@ function Registration() {
                               name="phone"
                               placeholder="Телефон"
                               required=""
-                              value={registration.phone}
-                              onChange={e => setRegistration({...registration, phone: e.target.value}) }
+                              value={registration.telephone}
+                              onChange={e => setRegistration({...registration, telephone: e.target.value}) }
                           />
                           <input
                               className="text email inputformdecor"

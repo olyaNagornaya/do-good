@@ -1950,6 +1950,7 @@ section {
 
 .blog .sidebar .categories ul li + li {
   padding-top: 10px;
+  cursor: pointer;
 }
 
 .blog .sidebar .categories ul a {
@@ -2010,6 +2011,7 @@ section {
 
 .blog .sidebar .tags ul li {
   display: inline-block;
+  cursor: pointer;
 }
 
 .blog .sidebar .tags ul a {

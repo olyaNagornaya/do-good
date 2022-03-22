@@ -1,11 +1,18 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {ProfileThunk} from "../../redux/thunk/ThunkPosts";
 import {useEffect, useState} from "react";
 import EditUserModal, {BUTTON_WRAPPER_STYLES} from "../EditFormUser";
 
-export default function AboutMe() {
+export default function AboutMe({profile}) {
 
     const [isOpen, setIsOpen] = useState(false);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(ProfileThunk())
+
+    }, [])
+
     const clickHandler = () => {
         setIsOpen(true);
     };
@@ -13,57 +20,46 @@ export default function AboutMe() {
     const handlerCloseModal = () => {
         setIsOpen(false);
     }
-    const dispatch = useDispatch();
-    const user = useSelector(state => state.register);
-
-    const DataUser = () => {
-        dispatch(ProfileThunk())
-    }
 
 
-    useEffect(() => {
-        DataUser()
-
-    }, [])
     return (
         <>
-            {user && (
+            {profile && (
                 <div style={BUTTON_WRAPPER_STYLES}>
-                    <EditUserModal user={user} onClose={handlerCloseModal} open={isOpen} />
+                    <EditUserModal user={profile} onClose={handlerCloseModal} open={isOpen} />
                 </div>
             )}
             {/* <!-- ======= Work Process Section ======= --> */}
-            <section id="work-process" className="work-process">
+            <section id="work-process" className="work-process py-5">
                 <div className="container">
-                    {user ? (
+                    {profile ? (
                         <>
                     <div className="section-title" data-aos="fade-up">
                         <h2>
-                            {user?.username}
+                            {profile?.username} {profile?.surname}
                         </h2>
                     </div>
 
                             <div className="row content">
                                 <div className="col-md-5" data-aos="fade-right">
-                                    <img src={user?.photo ? user?.photo : '../../../assets/img/logouserbrocol.jpeg'} className="img-fluid" alt="" />
-                                    {/* <img src={'../../../assets/img/logouserbrocol.jpeg'} className="img-fluid" alt="" /> */}
+                                    <img src={profile?.photo ? profile?.photo : '../../../assets/img/daridobro.jpeg'} className="img-fluid" alt="" />
 
                                 </div>
                                 <div className="col-md-7 pt-4" data-aos="fade-left">
-                                    {/* <h3>{user?.city}</h3> */}
+                                     {/*<h3>{user?.city}</h3>*/}
 
                                     <ul>
                                         <li>
-                                            <i className="bi bi-house"/> {user?.city}
+                                            <i className="bi bi-house"/> {profile?.city}
                                         </li>
                                         <li>
-                                            <i className="bi bi-envelope"/> {user?.useremail}
+                                            <i className="bi bi-envelope"/> {profile?.useremail}
                                         </li>
                                         <li>
-                                            <i className="bi bi-phone"/> {user?.phone}
+                                            <i className="bi bi-phone"/> {profile?.phone}
                                         </li>
                                         <li>
-                                            <i className="bi bi-check-circle"/> Мои подписки:{" "}
+                                            {/*<i className="bi bi-check-circle"/> Мои подписки:{" "}*/}
                                             {/*{err}*/}
                                             <br />
                                             {/*{subList.length*/}
