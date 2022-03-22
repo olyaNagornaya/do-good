@@ -51,7 +51,7 @@ router.post("/addgood", upload.single("file"), async (req, res) => {
     title,
     img,
     category_id,
-    user_id: +req.session.userId,
+    user_id,
     description,
     available: true,
     city: geolocation,

@@ -7,7 +7,7 @@ const { checkUser, uploadAvatar } = require("../middlewares/allMiddleware");
 
 // РЕГИСТРАЦИЯ
 //users/signup
-router.post('/signup', async (req, res ) => {
+router.post('/signup', uploadAvatar.single('file'), async (req, res ) => {
     console.log(req.file);
    try {
       const checkUser = await User.findOne({ where: { email: req.body.email } })
@@ -18,7 +18,7 @@ router.post('/signup', async (req, res ) => {
       else {
          const { name, email, surname, telephone, city, img } = req.body
          const password = sha256(req.body.password);
-         const user = await User.create({ name, email, password, surname, telephone, city, img });
+         const user = await User.create({ name, email, password, surname, telephone, city });
          req.session.userId = user.id;
          req.session.userName = user.name;
          req.session.Email = user.email;

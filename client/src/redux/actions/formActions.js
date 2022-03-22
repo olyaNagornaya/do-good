@@ -4,3 +4,10 @@ export const getAllPosts = (allPosts) => {
      payload: allPosts,
   }
 }
+
+export const getNewPost = (allPost) => {
+  return {
+     type: 'ADD POST',
+     payload: allPost,
+  }
+}
