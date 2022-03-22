@@ -7,7 +7,7 @@ import {
   GeolocationControl,
   Clusterer,
 } from "react-yandex-maps";
-import DB from "./points.js";
+// import DB from "./points.js";
 import { useDispatch, useSelector } from "react-redux";
 import { PostsThunk } from "../../redux/thunk/ThunkForm";
 
