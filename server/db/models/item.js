@@ -24,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     available: DataTypes.TEXT,
     city: DataTypes.STRING,
     address: DataTypes.TEXT,
+    coordinatesX: DataTypes.FLOAT,
+    coordinatesY: DataTypes.FLOAT,
     validUntil: DataTypes.DATE,
   }, {
     sequelize,
