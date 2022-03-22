@@ -38,7 +38,7 @@ function ItemList() {
     }, [allPost])
 
     useEffect(() => {
-        items && setItemsCopy(items)
+        items && setItemsCopy(items.filter(el => el.available === true))
     }, [items]);
 
     useEffect(() => {
@@ -49,15 +49,15 @@ function ItemList() {
 
     const inputHandler = (e) => {
         setInput(e.target.value)
-        setItemsCopy(items.filter((el)=> el.title.toLowerCase().includes(input.toLowerCase())))
+        setItemsCopy(items.filter(el => el.available === true).filter((el)=> el.title.toLowerCase().includes(input.toLowerCase())))
     };
 
 
     // Счетчики для каждой категории
-    const allItemsQnty = items?.length;
-    const foodQnty = items.filter(el => el.category_id === 1).length;
-    const clothesQnty = items.filter(el => el.category_id === 2).length;
-    const furnitureQnty = items.filter(el => el.category_id === 3).length;
+    const allItemsQnty = items?.filter(el => el.available === true).length;
+    const foodQnty = items.filter(el => el.available === true).filter(el => el.category_id === 1).length;
+    const clothesQnty = items.filter(el => el.available === true).filter(el => el.category_id === 2).length;
+    const furnitureQnty = items.filter(el => el.available === true).filter(el => el.category_id === 3).length;
 
 
     console.log(allItemsQnty);
@@ -135,10 +135,10 @@ function ItemList() {
                                 <h3 className="sidebar-title">Категории</h3>
                                 <div className="sidebar-item categories">
                                     <ul>
-                                        <li><a onClick={()=> setItemsCopy(items)}>Все <span>{`(${allItemsQnty})`}</span></a></li>
-                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 2))}>Одежда <span>{`(${clothesQnty})`}</span></a></li>
-                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 1))}>Еда <span>{`(${foodQnty})`}</span></a></li>
-                                        <li><a onClick={() => setItemsCopy(() => items.filter((el)=> +el.category_id === 3))}>Мебель <span>{`(${furnitureQnty})`}</span></a></li>
+                                        <li><a onClick={()=> setItemsCopy(items.filter(el => el.available === true))}>Все <span>{`(${allItemsQnty})`}</span></a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter(el => el.available === true).filter((e)=> e.category_id === 2))}>Одежда <span>{`(${clothesQnty})`}</span></a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter(el => el.available === true).filter((e)=> e.category_id === 1))}>Еда <span>{`(${foodQnty})`}</span></a></li>
+                                        <li><a onClick={() => setItemsCopy(() => items.filter(el => el.available === true).filter((el)=> +el.category_id === 3))}>Мебель <span>{`(${furnitureQnty})`}</span></a></li>
                                     </ul>
                                 </div>
                                 {/*End sidebar categories*/}
@@ -147,10 +147,10 @@ function ItemList() {
                                 <h3 className="sidebar-title">Теги</h3>
                                 <div className="sidebar-item tags">
                                     <ul>
-                                        <li><a onClick={()=> setItemsCopy(items)}>Все</a></li>
-                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 2))}>Одежда</a></li>
-                                        <li><a onClick={() => setItemsCopy(() => items.filter((el)=> +el.category_id === 3))}>Мебель</a></li>
-                                        <li><a onClick={()=> setItemsCopy(()=> items.filter((e)=> e.category_id === 1))}>Еда</a></li>
+                                        <li><a onClick={()=> setItemsCopy(items.filter(el => el.available === true))}>Все</a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter(el => el.available === true).filter((e)=> e.category_id === 2))}>Одежда</a></li>
+                                        <li><a onClick={() => setItemsCopy(() => items.filter(el => el.available === true).filter((el)=> +el.category_id === 3))}>Мебель</a></li>
+                                        <li><a onClick={()=> setItemsCopy(()=> items.filter(el => el.available === true).filter((e)=> e.category_id === 1))}>Еда</a></li>
 
                                     </ul>
                                 </div>

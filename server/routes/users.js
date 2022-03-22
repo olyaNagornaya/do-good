@@ -3,14 +3,12 @@ const express = require("express");
 const router = express.Router();
 const sha256 = require('sha256')
 const { User, Item, Category } = require("../db/models");
-const { checkUser } = require("../middlewares/allMiddleware");
-
-
-
+const { checkUser, uploadAvatar } = require("../middlewares/allMiddleware");
 
 // РЕГИСТРАЦИЯ
 //users/signup
 router.post('/signup', async (req, res ) => {
+    console.log(req.file);
    try {
       const checkUser = await User.findOne({ where: { email: req.body.email } })
       if (checkUser) {
@@ -44,6 +42,8 @@ router.post('/signin', async (req, res) => {
          if (checkUser.password === password) {
             console.log('тут');
             req.session.userId = checkUser.id;
+            console.log('>>>>>>>>', req.session.userId)
+            console.log(req.session);
             req.session.userName = checkUser.name;
             req.session.Email = checkUser.email;
             res.json({user: checkUser.id,useremail:checkUser.email,username:checkUser.name});
@@ -77,6 +77,17 @@ router.get('/profile',async (req, res) => {
    }
 })
 
+router.get('/profile/:id',async (req, res) => {
+  const { id } = req.params;
+
+  try {
+     const name = await User.findByPk(id)
+     res.json({user: name.id,username:name.name, useremail:name.email, surname: name.surname, phone: name.telephone, city: name.city, photo: name.img})
+  } catch (error) {
+     console.log(error);
+  }
+})
+
 // Изменяем данные пользователя из модалки
 
 router.patch('/', async (req, res) => {
@@ -86,7 +97,7 @@ router.patch('/', async (req, res) => {
          const user = await User.findByPk(req.session.userId);
          user.name = req.body.name;
          user.surname = req.body.surname;
-         user.phone = req.body.phone;
+         user.telephone = req.body.phone;
          user.city = req.body.city;
          await user.save();
          res.sendStatus(200);

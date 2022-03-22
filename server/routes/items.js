@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { User, Item, Category, Taken } = require("../db/models");
 const { convertCategoryId } = require("../src/controller.js");
-const upload = require("../middlewares/allMiddleware");
+const { upload } = require("../middlewares/allMiddleware");
 const helper = require("../src/helper");
 
 router.get("/", async (req, res) => {
@@ -23,8 +23,24 @@ router.get("/categories", async (req, res) => {
   res.json(Categories);
 });
 
-router.post("/addgood", async (req, res) => {
-  const { title, description, category, geolocation, city, img } = req.body;
+router.post("/addgood", upload.single("file"), async (req, res) => {
+  console.log(">>>>>>>>>>>>>>>>>>>>>>");
+  // console.log(req.file);
+  // console.log(req.body);
+
+  console.log("session --------", req.session.userId);
+
+  const img = req.file ? `/img/${req.file.originalname}` : null;
+
+  const {
+    title,
+    description,
+    category,
+    geolocation,
+    city,
+    user_id,
+    validUntil,
+  } = req.body;
 
   const category_id = convertCategoryId(category);
 
@@ -35,20 +51,21 @@ router.post("/addgood", async (req, res) => {
     title,
     img,
     category_id,
-    user_id: req.session.userId,
+    user_id: +req.session.userId,
     description,
     available: true,
-    city: geolocation, 
+    city: geolocation,
     address: city,
     coordinatesX: x.coordinate[0],
     coordinatesY: x.coordinate[1],
+    validUntil,
   };
 
   // console.log(req.body);
   // console.log(`Объект, летящий в базу`, objForDB);
-  await Item.create(objForDB);
+  const ourPost = await Item.create(objForDB);
 
-  res.status(200);
+  res.json(ourPost);
 });
 
 module.exports = router;

@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.TEXT,
     coordinatesX: DataTypes.FLOAT,
     coordinatesY: DataTypes.FLOAT,
+    validUntil: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Item',

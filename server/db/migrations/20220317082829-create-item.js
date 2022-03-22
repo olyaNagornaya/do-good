@@ -48,6 +48,9 @@ module.exports = {
       coordinatesY: {
         type: Sequelize.FLOAT,
       },
+      validUntil: {
+        type: Sequelize.DATE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

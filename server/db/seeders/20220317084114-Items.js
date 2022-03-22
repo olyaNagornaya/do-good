@@ -1,5 +1,8 @@
 'use strict';
 
+let validDate = new Date();
+validDate.setDate(validDate.getDate() + 7);
+
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -24,6 +27,7 @@ module.exports = {
         available: true,
         coordinatesX: 55.761469,
         coordinatesY: 37.655561,
+        validUntil: validDate,
         createdAt: new Date(),
         updatedAt: new Date(),
      },
@@ -38,6 +42,7 @@ module.exports = {
       available: true,
       coordinatesX: 55.741469,
       coordinatesY: 37.615561,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -52,6 +57,7 @@ module.exports = {
       available: true,
       coordinatesX: 55.751469,
       coordinatesY: 37.625561,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -66,6 +72,7 @@ module.exports = {
       available: true,
       coordinatesX: 55.741479,
       coordinatesY: 37.645561,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -80,6 +87,7 @@ module.exports = {
       available: true,
       coordinatesX: 55.745469,
       coordinatesY: 37.615591,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -94,6 +102,7 @@ module.exports = {
       available: true,
       coordinatesX: 55.641469,
       coordinatesY: 37.715561,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -108,6 +117,7 @@ module.exports = {
       available: true,
       coordinatesX: 55.941469,
       coordinatesY: 37.6145561,
+      validUntil: validDate,
        createdAt: new Date(),
        updatedAt: new Date(),
      },
@@ -122,6 +132,7 @@ module.exports = {
       available: false,
       coordinatesX: 55.7414769,
       coordinatesY: 37.61561,
+      validUntil: validDate,
       createdAt: new Date(),
       updatedAt: new Date(),
    },
@@ -136,6 +147,7 @@ module.exports = {
     available: false,
     coordinatesX: 55.7414469,
     coordinatesY: 37.615461,
+    validUntil: validDate,
      createdAt: new Date(),
      updatedAt: new Date(),
    },
@@ -150,6 +162,7 @@ module.exports = {
     available: false,
     coordinatesX: 55.7414369,
     coordinatesY: 37.6152561,
+    validUntil: validDate,
      createdAt: new Date(),
      updatedAt: new Date(),
    },
