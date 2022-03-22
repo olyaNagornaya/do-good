@@ -2,6 +2,7 @@ import React from "react";
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { ourCategory } from '../../helper'
 
 function MapMini() {
   const DBO = useSelector((store) => store.post);
@@ -10,24 +11,6 @@ function MapMini() {
   const ourCoord = [ourPost[0].coordinatesX, ourPost[0].coordinatesY];
   const ourPostTitle = ourPost[0].title;
   const ourPostDesription = ourPost[0].description;
-  const category = {
-    eat: "islands#blueFoodCircleIcon",
-    clothes: "islands#blueFashionCircleIcon",
-    furniture: "islands#blueSouvenirsCircleIcon",
-    other: "islands#blueStarCircleIcon",
-  };
-  const ourCategory = () => {
-    switch (ourPost[0].category_id) {
-      case 1:
-        return category.eat;
-      case 2:
-        return category.clothes;
-      case 3:
-        return category.furniture;
-      default:
-        return category.other;
-    }
-  };
 
   return (
     <>
@@ -44,7 +27,7 @@ function MapMini() {
               }}
               options={{
                 preset: [
-                  ourCategory()
+                  ourCategory(ourPost[0].category_id)
                 ],
               }}
             />

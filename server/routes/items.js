@@ -29,7 +29,7 @@ router.post("/addgood", async (req, res) => {
   const category_id = convertCategoryId(category);
 
   const x = await helper({ geolocation, city });
-  // console.log(x.coordinate[0]);
+  console.log(x.coordinate);
 
   const objForDB = {
     title,
@@ -44,8 +44,8 @@ router.post("/addgood", async (req, res) => {
     coordinatesY: x.coordinate[1],
   };
 
-  console.log(req.body);
-  // console.log(objForDB);
+  // console.log(req.body);
+  // console.log(`Объект, летящий в базу`, objForDB);
   await Item.create(objForDB);
 
   res.status(200);
