@@ -63,7 +63,7 @@ const Form = () => {
 
       const response = await fetch("http://localhost:3001/items/addgood", {
         method: "POST",
-        // headers: { "Content-type": "form/multipart" },
+        credentials: 'include',
         body: formData,
       });
 

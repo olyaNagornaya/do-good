@@ -27,7 +27,7 @@ router.post("/addgood", upload.single('file'), async (req, res) => {
   // console.log(req.file);
   // console.log(req.body);
 
-  // console.log(req.session);
+  console.log( 'session --------', req.session);
 
   const img = req.file ? `/img/${req.file.originalname}` : null;
 

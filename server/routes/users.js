@@ -8,6 +8,7 @@ const { checkUser, uploadAvatar } = require("../middlewares/allMiddleware");
 // РЕГИСТРАЦИЯ
 //users/signup
 router.post('/signup', async (req, res ) => {
+    console.log(req.file);
    try {
       const checkUser = await User.findOne({ where: { email: req.body.email } })
       if (checkUser) {
@@ -85,7 +86,7 @@ router.patch('/', async (req, res) => {
          const user = await User.findByPk(req.session.userId);
          user.name = req.body.name;
          user.surname = req.body.surname;
-         user.phone = req.body.phone;
+         user.telephone = req.body.phone;
          user.city = req.body.city;
          await user.save();
          res.sendStatus(200);
