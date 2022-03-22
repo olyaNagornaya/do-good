@@ -1,8 +1,8 @@
 import ProfileProductCard from "../ProfileProductCard";
 
-export default function ProfileProductList({header, descriptions, type, card}) {
+export default function ProfileProductList({header, descriptions, type, posts}) {
 
-    // взять из редакса данные для мапа карточек и передать в лист пропсами
+    console.log('posts-->', posts) // мапим
     return (
         <>
             {/* <!-- ======= Features Section ======= --> */}
@@ -17,13 +17,18 @@ export default function ProfileProductList({header, descriptions, type, card}) {
 
                         <div className="row">
                             {type === 'active' ?
-                                <ProfileProductCard />
+                            //     { posts && (
+                            //        posts.map(el => {
+                            //        return <ProfileProductCard key={el.id} card={el} type={type}/>
+                            //        }
+                            // }) }
+                                <ProfileProductCard type={type}/>
                                 :
                                 <h1>Вы не добавляли продуктов</h1>
                             }
                             {type === 'archive' ?
-                                // тут мапим из базы карточки
-                                <ProfileProductCard />
+                                // тут мапим из базы карточки posts из пропсов
+                                <ProfileProductCard type={type} />
                                 :
                                 <h1>Вы не добавляли продуктов</h1>
                             }

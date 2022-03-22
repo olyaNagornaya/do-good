@@ -7,6 +7,10 @@ import {useSelector} from "react-redux";
 export default function ProfilePage() {
     const [typeProduct, setTypeProduct] = useState('active');
     const user = useSelector(state => state.register);
+    const allPosts = useSelector(state => state.post);
+
+    const activePost = 'тут фильтруешь те которые активные из всех постов'
+    const archivePost = 'тут фильтруешь те которые false из всех постов'
 
     const handlerActual = () => {
         setTypeProduct('active');
@@ -32,7 +36,8 @@ export default function ProfilePage() {
                 header="Ваши актуальные продукты"
                 descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
                 type={typeProduct}
-                card={'тут передать активные товары'}
+                // posts={'тут передать активные товары activePost'}
+                posts={allPosts}
             />
             )
               : (
@@ -40,7 +45,7 @@ export default function ProfilePage() {
                         header="Ваши архивные продукты"
                         descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
                         type={typeProduct}
-                        card={'тут передать те товары которые в архиве'}
+                        posts={'тут передать те товары которые в архиве archivePost'}
                   />
                 )
 

@@ -86,7 +86,7 @@ router.patch('/', async (req, res) => {
          const user = await User.findByPk(req.session.userId);
          user.name = req.body.name;
          user.surname = req.body.surname;
-         user.phone = req.body.phone;
+         user.telephone = req.body.phone;
          user.city = req.body.city;
          await user.save();
          res.sendStatus(200);

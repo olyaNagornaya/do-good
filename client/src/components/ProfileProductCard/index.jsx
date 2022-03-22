@@ -1,4 +1,4 @@
-export default function ProfileProductCard() {
+export default function ProfileProductCard({type, card}) {
 
     // тут из пропсов закинуть данные в поля карты
     const testImage = {
@@ -9,23 +9,27 @@ export default function ProfileProductCard() {
             <div className="card" style={testImage}>
                 <div className="card-body">
                     <h5 className="card-title">
-                        {/*<Link to={`/food/${item._id}`}>{item.name}</Link>*/}
+                        {/*<Link to={`/good/${item.id}`}>{item.name}</Link>*/}
                         Тут название
                     </h5>
                     <p className="card-text">
                         {/*{item.description}*/}
                         тут описание
                     </p>
-                    <div className="read-more card-text">
-                        {/*<Link to="#" onClick={handlerChangeStatus}>*/}
-                            <i className="bi bi-arrow-right"/> Снять с публикации
-                        {/*</Link>*/}
-                    </div>
-                    <div className="read-more card-text">
-                        {/*<Link to="#" onClick={clickHandler}>*/}
-                            <i className="bi bi-arrow-right"/> Изменить
-                        {/*</Link>*/}
-                    </div>
+                    {type === 'active' &&
+                        <>
+                        <div className="read-more card-text">
+                            {/*<Link to="#" onClick={handlerChangeStatus}>*/}
+                                <i className="bi bi-arrow-right"/> Снять с публикации
+                            {/*</Link>*/}
+                        </div>
+                        <div className="read-more card-text">
+                            {/*<Link to="#" onClick={clickHandler}>*/}
+                                <i className="bi bi-arrow-right"/> Изменить
+                            {/*</Link>*/}
+                        </div>
+                        </>
+                    }
                 </div>
             </div>
         </div>
