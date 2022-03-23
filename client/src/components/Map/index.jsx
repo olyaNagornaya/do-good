@@ -78,7 +78,7 @@ export default function MapYandex() {
                 }
               }}
             >
-              {DBO.map((el) => {
+              {DBO.filter((el)=> el.available === true).map((el) => {
                 return (
                   <Placemark
                     key={el.id}
