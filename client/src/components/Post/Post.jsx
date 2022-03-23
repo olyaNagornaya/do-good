@@ -81,20 +81,20 @@ function Post() {
 
                         <div className="row">
                             <div className="col-lg-6 video-box align-self-baseline position-relative">
-                                <img src={curPost.img} className="img-fluid" alt="" />
+                                <img src={curPost?.img} className="img-fluid" alt="" />
                             </div>
 
                             <div className="col-lg-6 pt-3 pt-lg-0 content">
-                                <h3>{curPost.title}</h3>
+                                <h3>{curPost?.title}</h3>
                                 <p>Детали продукта:</p>
                                 <ul>
                                     <li>
                                         <i className="bx bx-check-double"></i>{" "}
-                                        {curPost.city}
+                                        {curPost?.city}
                                     </li>
                                     <li>
                                         <i className="bx bx-check-double"></i>{" "}
-                                        {curPost.description}
+                                        {curPost?.description}
                                     </li>
                                     <li>
                                         <i className="bx bx-check-double"></i> Готов встретиться по

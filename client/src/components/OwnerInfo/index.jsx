@@ -26,14 +26,14 @@ function OwnerInfo() {
 
                         <div className="row">
                             <div className="col-lg-6" data-aos="fade-right">
-                                <img src={curPost.User.img} className="img-fluid" alt="" />
+                                <img src={curPost?.User.img} className="img-fluid" alt="" />
                             </div>
                             <div className="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-                                <h3>{curPost.User.name}&nbsp;{curPost.User.surname}</h3>
+                                <h3>{curPost?.User.name}&nbsp;{curPost?.User.surname}</h3>
                                 <p>Свяжитесь с автором, позвонив ему по телефону, или отправьте личное сообщение</p>
-                                <a href={`tel:${curPost.User.telephone}`}  >
+                                <a href={`tel:${curPost?.User.telephone}`}  >
                                     <i className="bi bi-phone"></i>
-                                    {curPost.User.telephone}
+                                    {curPost?.User.telephone}
                                 </a>
                                 <br />
 
