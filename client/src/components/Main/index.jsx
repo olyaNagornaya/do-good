@@ -28,8 +28,8 @@ export default function MainComponent() {
                         <div className="row">
 
                             <div className="col-lg-6 video-box align-self-baseline position-relative">
-                                <img src="assets/img/about.jpg" className="img-fluid" alt="" />
-                                    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" className="glightbox play-btn mb-4"></a>
+                                <img src="assets/img/videoBackground.jpeg" className="img-fluid" alt="" />
+                                    <a href="https://www.youtube.com/watch?v=DytUDs4iJT4" className="glightbox play-btn mb-4"></a>
                             </div>
 
                             <div className="col-lg-6 pt-3 pt-lg-0 content">
