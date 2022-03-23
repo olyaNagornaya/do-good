@@ -8,7 +8,7 @@ function Item({el}) {
     return (
         <article className="entry">
             <div className="entry-img">
-                <img src={el.img?.length > 60 ? el.img : `http://localhost:3001/${el.img}`} alt="" className="img-fluid"/>
+                <img src={el.img?.length > 60 ? el.img : `http://localhost:3001/${el.img}`} alt="" className="img-fluid" style={{width: '100%', height: '500px'}}/>
             </div>
 
             <h2 className="entry-title">

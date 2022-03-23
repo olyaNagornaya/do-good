@@ -1992,6 +1992,7 @@ section {
   font-size: 15px;
   margin-left: 95px;
   font-weight: bold;
+  max-height: ;
 }
 
 .blog .sidebar .recent-posts h4 a {
