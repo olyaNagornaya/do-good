@@ -29,6 +29,10 @@ export default function MapYandex() {
 
   const DBO = useSelector((store) => store.post);
 
+  const test = (data) => {
+    console.log(data);
+  }
+
   return (
     <main id="main">
       {/*// <!-- ======= Breadcrumbs ======= -->*/}
@@ -72,7 +76,7 @@ export default function MapYandex() {
           >
             <GeolocationControl />
             <FullscreenControl />
-            {/* <SearchControl options={{ provider: "yandex#search" }} /> */}
+            {/* <SearchControl state={(results) => test(results)} /> */}
             <ZoomControl />
             <Clusterer
               modules={["clusterer.addon.balloon"]}
