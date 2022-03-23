@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import "./styleForm.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { PostsThunk } from '../../redux/thunk/ThunkForm' 
+
+import { PostsThunk } from "../../redux/thunk/ThunkForm";
 import { getNewPost } from '../../redux/actions/formActions'
 
+
 const Form = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
     const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
@@ -70,7 +73,10 @@ const Form = () => {
         credentials: "include",
         body: formData,
       });
-
+      // const data = response.json();
+      // navigate(`/good/${data.id}`);
+      console.log(response);
+      dispatch(PostsThunk());
     } else {
       e.preventDefault();
       alert("Согласись с нашими условиями платформы!!!");

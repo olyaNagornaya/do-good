@@ -41,7 +41,7 @@ function Navbar() {
                         {Check.username && <li onClick={logAut}><a href="#">Выход</a></li>}
                     </ul>
                 </li>
-             <li><a className="getstarted" href="addgood">Готов помочь</a></li>
+             <li><a className="getstarted" href="/addgood">Готов помочь</a></li>
 
             </ul>
             <i className="bi bi-list mobile-nav-toggle"/>
