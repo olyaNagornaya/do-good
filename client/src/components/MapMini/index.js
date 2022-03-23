@@ -8,9 +8,9 @@ function MapMini() {
   const DBO = useSelector((store) => store.post);
   const id = useParams();
   const ourPost = DBO.filter((el) => el.id === Number(id.id));
-  const ourCoord = [ourPost[0].coordinatesX, ourPost[0].coordinatesY];
-  const ourPostTitle = ourPost[0].title;
-  const ourPostDesription = ourPost[0].description;
+  const ourCoord = [ourPost[0]?.coordinatesX, ourPost[0]?.coordinatesY];
+  const ourPostTitle = ourPost[0]?.title;
+  const ourPostDesription = ourPost[0]?.description;
 
   return (
     <>
@@ -26,7 +26,7 @@ function MapMini() {
                 balloonContent: ourPostDesription,
               }}
               options={{
-                preset: [ourCategory(ourPost[0].category_id)],
+                preset: [ourCategory(ourPost[0]?.category_id)],
               }}
             />
           </Map>

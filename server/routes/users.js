@@ -3,11 +3,12 @@ const express = require("express");
 const router = express.Router();
 const sha256 = require('sha256')
 const { User, Item, Category } = require("../db/models");
-const { checkUser, uploadAvatar } = require("../middlewares/allMiddleware");
+const { checkUser, upload } = require("../middlewares/allMiddleware");
 
 // РЕГИСТРАЦИЯ
 //users/signup
-router.post('/signup', uploadAvatar.single('file'), async (req, res ) => {
+router.post('/signup', upload.single('file'), async (req, res ) => {
+  console.log(req.body);
     console.log(req.file);
    try {
       const checkUser = await User.findOne({ where: { email: req.body.email } })
@@ -16,9 +17,10 @@ router.post('/signup', uploadAvatar.single('file'), async (req, res ) => {
          res.json({haveuser: 'have'});
       }
       else {
-         const { name, email, surname, telephone, city, img } = req.body
+         const { name, email, surname, telephone, city } = req.body
+         const img = req.file ? `/img/${req.file.originalname}` : null;
          const password = sha256(req.body.password);
-         const user = await User.create({ name, email, password, surname, telephone, city });
+         const user = await User.create({ name, email, password, surname, telephone, city, img });
          req.session.userId = user.id;
          req.session.userName = user.name;
          req.session.Email = user.email;

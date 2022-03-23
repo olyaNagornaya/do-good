@@ -78,7 +78,7 @@ export default function MapYandex() {
                 }
               }}
             >
-              {DBO.map((el) => {
+              {DBO.filter((el)=> el.available === true).map((el) => {
                 return (
                   <Placemark
                     key={el.id}
@@ -87,6 +87,7 @@ export default function MapYandex() {
                     properties={{
                       balloonContentHeader: el.title,
                       balloonContent: el.description,
+                      balloonContentFooter: `<a href='/good/${el.id}' >Подбробнее</a href='/' >`
                     }}
                     options={{
                       preset: [ourCategory(el.category_id)],
