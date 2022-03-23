@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import "./styleForm.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+
 import { PostsThunk } from "../../redux/thunk/ThunkForm";
-// import { addCoord } from "./controller";
+import { getNewPost } from '../../redux/actions/formActions'
+
 
 const Form = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+    const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
     img: "",
-    available: "",
     city: "",
     geolocation: "",
     category: "",
@@ -190,15 +192,86 @@ const Form = () => {
                     Я согласен с условиями платформы!
                   </span>
                 </label>
-                <div className="clear"> </div>
-              </div>
-              <button className="btnlogin" type="submit" onClick={addProdToDB}>
-                ДОБАВИТЬ
-              </button>
-            </form>
-            <p>
-              Вы передумали? <Link to="/profile"> Выйти</Link>
-            </p>
+
+                <select
+                  className="text email selectformdecor"
+                  placeholder="Категория"
+                  value={inputs.category}
+                  onChange={handleChange}
+                  name="category"
+                >
+                  <option default>Выберите категорию</option>
+                  <option value="Food">Продукты</option>
+                  <option value="Clothers">Одежда</option>
+                  <option value="Furniture">Мебель</option>
+                </select>
+
+                <input
+                  className="text email inputformdecor"
+                  type="text"
+                  name="description"
+                  placeholder="Описание"
+                  required=""
+                  value={inputs.description}
+                  onChange={handleChange}
+                />
+                <input
+                  className="text email inputformdecor"
+                  type="text"
+                  name="city"
+                  placeholder="Город"
+                  required=""
+                  value={inputs.city}
+                  onChange={handleChange}
+                />
+                <input
+                  className="text email inputformdecor"
+                  type="text"
+                  name="geolocation"
+                  placeholder="Адрес"
+                  required=""
+                  value={inputs.geolocation}
+                  onChange={handleChange}
+                />
+
+                <input
+                  className="text email inputformdecor"
+                  type="date"
+                  name="validUntil"
+                  placeholder="Действительно до"
+                  required=""
+                  value={inputs.validUntil}
+                  onChange={handleChange}
+                />
+
+                <div className="wthree-text">
+                  <label className="anim">
+                    <input
+                      name="checkBox"
+                      type="checkbox"
+                      className="checkbox"
+                      required=""
+                      onChange={inputCheckBox}
+                    />
+                    <span className="textoncheckbox">
+                      Я согласен с условиями платформы!
+                    </span>
+                  </label>
+                  <div className="clear"> </div>
+                </div>
+                <button
+                  className="btnlogin"
+                  type="submit"
+                  onClick={addProdToDB}
+                >
+                  ДОБАВИТЬ
+                </button>
+                </div>
+              </form>
+
+              <p>
+                Вы передумали? <Link to="/profile"> Выйти</Link>
+              </p>
           </div>
         </div>
         <ul className="colorlib-bubbles">

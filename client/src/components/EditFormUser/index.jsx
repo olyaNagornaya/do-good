@@ -47,9 +47,6 @@ function EditUserModal({ user, open, children, onClose }) {
     const [inputs, setInputs] = useState()
     const dispatch = useDispatch();
 
-    console.log('inputs?.phone',inputs?.phone)
-    console.log('inputs',inputs)
-
     useEffect(() => {
         setInputs({ name: user.username, surname: user.surname, phone: user.phone, city: user.city, })
     }, [user])

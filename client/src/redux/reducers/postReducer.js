@@ -3,6 +3,8 @@ const postReducer = (state = [], action) => {
   switch (type) {
     case "ALL POSTS":
       return payload;
+    case "ADD POST":
+      return [payload, ...state];
     default:
       return state;
   }

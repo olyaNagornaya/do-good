@@ -22,6 +22,8 @@ export default function AboutMe({profile}) {
     }
 
 
+
+
     return (
         <>
             {profile && (
@@ -82,6 +84,7 @@ export default function AboutMe({profile}) {
                                         <button className="btncustom" onClick={clickHandler}>
                                             Изменить личные данные
                                         </button>
+                                      
                                     </ul>
                                 </div>
                             </div>

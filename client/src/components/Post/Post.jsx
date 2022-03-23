@@ -1,11 +1,18 @@
 import React from "react";
+import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-function Post({el}) {
+function Post() {
     const categories = {
         Food: "Еда",
         Clothers: "Одежда",
         Furniture: "Мебель",
     }
+    const {id} = useParams()
+    const post = useSelector(state => state.post)
+    const curPost = post.filter(el => el.id === +id)[0]
+    console.log('currrent ', curPost)
+    console.log("el-------------", id)
     return (
         <>
             <main id="main">
@@ -38,9 +45,9 @@ function Post({el}) {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-check"></i>
-                                            {/*<span>{el.createdAt.slice(0, 10)}</span>*/}
+                                            <span>{curPost.createdAt.slice(0, 10)}</span>
                                             {/*<time dateTime="2020-01-01">{el.createdAt.slice(0, 10)}</time>*/}
-                                           <span>17.03</span>
+
                                             <p>Опубликовано</p>
                                         </div>
                                     </div>
@@ -48,7 +55,7 @@ function Post({el}) {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-x"></i>
-                                            {/*<span>{el.available}</span>*/}
+                                            <span>{curPost.validUntil.slice(0, 10)}</span>
                                             <p>Действительно до</p>
                                         </div>
                                     </div>
@@ -56,15 +63,15 @@ function Post({el}) {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box pb-5 pt-0 pt-lg-5">
                                             <i className="bi bi-basket"></i>
-                                            {/*<span data-purecounter-start="0" data-purecounter-end={curProduct.quantity} className="purecounter">{curProduct.quantity}</span>*/}
-                                            {/*<p>Количество</p>*/}
+                                            <span data-purecounter-start="0" className="purecounter">Для Вас</span>
+                                            <p>От чистого сердца</p>
                                         </div>
                                     </div>
 
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box pb-5 pt-0 pt-lg-5">
                                             <i className="bi bi-tags"></i>
-                                            {/*<span>{categories[el.category.id]}</span>*/}
+                                            <span>{curPost.Category.title}</span>
                                             <p>Категория</p>
                                         </div>
                                     </div>
@@ -74,20 +81,20 @@ function Post({el}) {
 
                         <div className="row">
                             <div className="col-lg-6 video-box align-self-baseline position-relative">
-                                {/*<img src={el.img} className="img-fluid" alt="" />*/}
+                                <img src={curPost.img} className="img-fluid" alt="" />
                             </div>
 
                             <div className="col-lg-6 pt-3 pt-lg-0 content">
-                                {/*<h3>{el.title}</h3>*/}
+                                <h3>{curPost.title}</h3>
                                 <p>Детали продукта:</p>
                                 <ul>
                                     <li>
                                         <i className="bx bx-check-double"></i>{" "}
-                                        {/*{el.geolocatcion}*/}
+                                        {curPost.city}
                                     </li>
                                     <li>
                                         <i className="bx bx-check-double"></i>{" "}
-                                        {/*{el.description}*/}
+                                        {curPost.description}
                                     </li>
                                     <li>
                                         <i className="bx bx-check-double"></i> Готов встретиться по
