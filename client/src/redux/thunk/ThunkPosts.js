@@ -42,7 +42,7 @@ export const LogoutThunk = () => {
 //ОТПРАВКА ДАННЫХ С РЕГИСТРАЦИИ
 export const AddRegaThunk = (rega) =>{
    return async (dispatch) => {
-
+console.log(rega);
       try {
 
          const response = await axios.post(`http://localhost:3001/users/signup`, rega)

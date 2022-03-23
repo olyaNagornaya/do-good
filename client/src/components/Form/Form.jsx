@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import "./styleForm.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { PostsThunk } from '../../redux/thunk/ThunkForm' 
-import { getNewPost } from '../../redux/actions/formActions'
+
+import { PostsThunk } from "../../redux/thunk/ThunkForm";
+import { getNewPost } from "../../redux/actions/formActions";
 
 const Form = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-    const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
@@ -49,6 +50,9 @@ const Form = () => {
 
   const addProdToDB = async (e) => {
     e.preventDefault();
+
+    let id;
+
     if (inputs.checkBox === true) {
       console.log('addProdToDB--',inputs);
 
@@ -70,7 +74,9 @@ const Form = () => {
           credentials: "include",
           body: formData,
         });
+        const data = await response.json();
         dispatch(PostsThunk());
+        id = data.id;
       console.log('addProdToDB---response', response)
 
       } catch (e) {
@@ -82,6 +88,7 @@ const Form = () => {
       e.preventDefault();
       alert("Согласись с нашими условиями платформы!!!");
     }
+    navigate(`/good/${id}`);
   };
   const inputAvatarHandler = (e) => {
     const file = e.target.files[0];
@@ -202,12 +209,12 @@ const Form = () => {
                 >
                   ДОБАВИТЬ
                 </button>
-                </div>
-              </form>
+              </div>
+            </form>
 
-              <p>
-                Вы передумали? <Link to="/profile"> Выйти</Link>
-              </p>
+            <p>
+              Вы передумали? <Link to="/profile"> Выйти</Link>
+            </p>
           </div>
         </div>
         <ul className="colorlib-bubbles">
@@ -215,6 +222,7 @@ const Form = () => {
             <img className="img-bubbles" src="" alt="" />
           </li>
           <li>
+
             <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>

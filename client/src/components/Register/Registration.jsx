@@ -15,11 +15,23 @@ function Registration() {
        password:'',
        telephone: '',
        city: '',
-       img: ''})
+       file: ''})
 
    const addRegister =  (e) => {
       e.preventDefault()
-      dispatch(AddRegaThunk(registration))
+      const formData = new FormData();
+      formData.append('file', registration.file);
+      formData.append('name', registration.name);
+      formData.append('surname', registration.surname);
+      formData.append('email', registration.email);
+      formData.append('password', registration.password);
+      formData.append('city', registration.city);
+      formData.append('telephone', registration.telephone);
+
+
+
+
+      dispatch(AddRegaThunk(formData))
       setRegistration({
           name: '',
           surname: '',
@@ -27,17 +39,18 @@ function Registration() {
           password:'',
           telephone: '',
           city: '',
-          img: ''})
+          file: ''})
 
    }
     const uploadHandler = async (file) => {
         const formData = new FormData();
         formData.append('file', file);
-        setRegistration({ ...registration, img: formData })
+        setRegistration({ ...registration, file: formData })
     }
     const inputAvatarHandler = (e) => {
         const file = e.target.files[0];
-        uploadHandler(file);
+        setRegistration(prev=> ({...prev, file}))
+        // uploadHandler(file);
     }
 
   return (

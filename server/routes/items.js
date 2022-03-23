@@ -6,21 +6,20 @@ const { upload } = require("../middlewares/allMiddleware");
 const helper = require("../src/helper");
 
 router.get("/", async (req, res) => {
-  const Items = await Item.findAll({ include: [Category, User] });
-  console.log("IIIITTTTTTEEEE", Items);
+  const Items = await Item.findAll({ include: [Category, User], order:[['id', "DESC"]] });
+  // console.log("IIIITTTTTTEEEE", Items);
   res.json(Items);
 });
 
 
 router.get("/takens", async (req, res) => {
   const Takens = await Taken.findAll();
-  console.log("takens===========",Takens);
   res.json(Takens);
 });
 
 router.get("/categories", async (req, res) => {
   const Categories = await Category.findAll();
-  console.log(Categories);
+  // console.log(Categories);
   res.json(Categories);
 });
 
@@ -38,11 +37,11 @@ router.post('/:id' ,async (req, res) => {
 })
 
 router.post("/addgood", upload.single("file"), async (req, res) => {
-  console.log(">>>>>>>>>>>>>>>>>>>>>>");
+  // console.log(">>>>>>>>>>>>>>>>>>>>>>");
   // console.log(req.file);
   // console.log(req.body);
 
-  console.log("session --------", req.session.userId);
+  // console.log("session --------", req.session.userId);
 
   const img = req.file ? `/img/${req.file.originalname}` : null;
 
@@ -59,7 +58,7 @@ router.post("/addgood", upload.single("file"), async (req, res) => {
   const category_id = convertCategoryId(category);
 
   const x = await helper({ geolocation, city });
-  console.log(x.coordinate);
+  // console.log(x.coordinate);
 
   const objForDB = {
     title,
@@ -78,7 +77,7 @@ router.post("/addgood", upload.single("file"), async (req, res) => {
   // console.log(req.body);
   // console.log(`Объект, летящий в базу`, objForDB);
   const ourPost = await Item.create(objForDB);
-
+  console.log(ourPost);
   res.json(ourPost);
 });
 

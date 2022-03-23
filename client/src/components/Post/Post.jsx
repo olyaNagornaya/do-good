@@ -45,7 +45,7 @@ function Post() {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-check"></i>
-                                            <span>{curPost.createdAt.slice(0, 10)}</span>
+                                            <span>{curPost?.createdAt.slice(0, 10)}</span>
                                             {/*<time dateTime="2020-01-01">{el.createdAt.slice(0, 10)}</time>*/}
 
                                             <p>Опубликовано</p>
@@ -55,7 +55,7 @@ function Post() {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-x"></i>
-                                            <span>{curPost.validUntil.slice(0, 10)}</span>
+                                            <span>{curPost?.validUntil.slice(0, 10)}</span>
                                             <p>Действительно до</p>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@ function Post() {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box pb-5 pt-0 pt-lg-5">
                                             <i className="bi bi-tags"></i>
-                                            <span>{curPost.Category.title}</span>
+                                            <span>{curPost?.Category.title}</span>
                                             <p>Категория</p>
                                         </div>
                                     </div>
@@ -81,20 +81,20 @@ function Post() {
 
                         <div className="row">
                             <div className="col-lg-6 video-box align-self-baseline position-relative">
-                                <img src={curPost.img} className="img-fluid" alt="" />
+                                <img src={curPost?.img} className="img-fluid" alt="" />
                             </div>
 
                             <div className="col-lg-6 pt-3 pt-lg-0 content">
-                                <h3>{curPost.title}</h3>
+                                <h3>{curPost?.title}</h3>
                                 <p>Детали продукта:</p>
                                 <ul>
                                     <li>
                                         <i className="bx bx-check-double"></i>{" "}
-                                        {curPost.city}
+                                        {curPost?.city}
                                     </li>
                                     <li>
                                         <i className="bx bx-check-double"></i>{" "}
-                                        {curPost.description}
+                                        {curPost?.description}
                                     </li>
                                     <li>
                                         <i className="bx bx-check-double"></i> Готов встретиться по
