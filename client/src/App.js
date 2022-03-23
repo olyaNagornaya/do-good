@@ -20,6 +20,7 @@ import Form from "./components/Form/Form";
 import OnePostPage from "./pages/OnePostPage";
 import ProfilePage from "./pages/Profile";
 import GoodPage from "./pages/GoodPage";
+import Rules from "./components/Rules/Rules";
 
 function App() {
   // const Check = useSelector(store=> store.register)
@@ -44,6 +45,7 @@ function App() {
               <Route path="/good/:id" element={ <OnePostPage/>} />
               <Route path="/addgood" element={ <Form/>} />
               <Route path="/map" element={<MapPage />} />
+       <Route path="/rules" element={<Rules />} />
    </Routes>
    <Footer />
       </>

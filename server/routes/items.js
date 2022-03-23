@@ -29,9 +29,9 @@ router.post('/:id' ,async (req, res) => {
     console.log('req--params---', req.params)
     const data = await Item.update({available: false},{where: {id: req.params.id}})
     console.log('data-----', data)
-    res.status(200)
+    res.sendStatus(200)
   } catch {
-    res.status(500)
+    res.sendStatus(500)
 
   }
 

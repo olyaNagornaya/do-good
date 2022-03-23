@@ -70,7 +70,7 @@ const Form = () => {
           credentials: "include",
           body: formData,
         });
-
+        dispatch(PostsThunk());
       console.log('addProdToDB---response', response)
 
       } catch (e) {
@@ -212,28 +212,28 @@ const Form = () => {
         </div>
         <ul className="colorlib-bubbles">
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt="" />
           </li>
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
         </ul>
       </div>
