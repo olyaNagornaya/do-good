@@ -1,8 +1,8 @@
 const category = {
-  eat: "islands#blueFoodCircleIcon",
-  clothes: "islands#blueFashionCircleIcon",
-  furniture: "islands#blueSouvenirsCircleIcon",
-  other: "islands#blueStarCircleIcon",
+  eat: "islands#blueFoodIcon",
+  clothes: 'islands#blueFashionIcon',
+  furniture: "islands#blueSouvenirsIcon",
+  other: "islands#blueStarIcon",
 };
 
 export const ourCategory = (category_id) => {

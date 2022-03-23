@@ -5,6 +5,9 @@ import {
   Map,
   Placemark,
   GeolocationControl,
+  FullscreenControl,
+  ZoomControl,
+  SearchControl,
   Clusterer,
 } from "react-yandex-maps";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +28,6 @@ export default function MapYandex() {
   }, []);
 
   const DBO = useSelector((store) => store.post);
-  // console.log(DBO);
 
   return (
     <main id="main">
@@ -69,6 +71,9 @@ export default function MapYandex() {
             }}
           >
             <GeolocationControl />
+            <FullscreenControl />
+            {/* <SearchControl options={{ provider: "yandex#search" }} /> */}
+            <ZoomControl />
             <Clusterer
               modules={["clusterer.addon.balloon"]}
               options={{}}
@@ -78,7 +83,7 @@ export default function MapYandex() {
                 }
               }}
             >
-              {DBO.filter((el)=> el.available === true).map((el) => {
+              {DBO.filter((el) => el.available === true).map((el) => {
                 return (
                   <Placemark
                     key={el.id}
@@ -87,7 +92,7 @@ export default function MapYandex() {
                     properties={{
                       balloonContentHeader: el.title,
                       balloonContent: el.description,
-                      balloonContentFooter: `<a href='/good/${el.id}' >Подбробнее</a href='/' >`
+                      balloonContentFooter: `<a href='/good/${el.id}' >Подбробнее</a href='/' >`,
                     }}
                     options={{
                       preset: [ourCategory(el.category_id)],

@@ -5,7 +5,6 @@ export const PostsThunk = () => {
     fetch("http://localhost:3001/items")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         dispatch(getAllPosts(data));
       });
   };
