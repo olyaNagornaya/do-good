@@ -5,7 +5,6 @@ import {Link} from "react-router-dom"; // ОТПРАВКА НА САНКИ
 
 
 
-
 function Login() {
 
    const dispatch = useDispatch() 
@@ -19,6 +18,13 @@ function Login() {
       setLogin({email:'',password:''})
 
    }
+
+   const alllert = (e) => {
+      e.preventDefault()
+      alert('Google 404')
+
+   }
+
 
 
 
@@ -62,8 +68,8 @@ function Login() {
                           </div>
                           <button onClick={addLogin} className="btnlogin">ВОЙТИ</button>
                       </form>
-                      <button className="btngoogle">
-                          <a href="/users/google">
+                      <button onClick={alllert} className="btngoogle">
+                          <a href="/">
                               ВОЙТИ ЧЕРЕЗ{" "}
                               <img
                                   src="../../../assets/img/google-logo.png"

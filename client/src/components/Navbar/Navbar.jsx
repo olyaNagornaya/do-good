@@ -33,6 +33,7 @@ function Navbar() {
               <li><NavLink activeclassname="active" to="/">Главная</NavLink></li>
               <li><NavLink activeclassname="active" to="good">Добро</NavLink></li>
               <li><NavLink activeclassname="active" to="map">Карта</NavLink></li>
+              <li><NavLink activeclassname="active" to="chat">Чат</NavLink></li>
                 <li className="dropdown"><a href="#"><span>Личный кабинет</span> <i className="bi bi-chevron-right"/></a>
                     <ul>
                         {!Check.username && <li><a href="register">Регистрация</a></li>}

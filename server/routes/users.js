@@ -4,6 +4,14 @@ const router = express.Router();
 const sha256 = require('sha256')
 const { User, Item, Category } = require("../db/models");
 const { checkUser, uploadAvatar } = require("../middlewares/allMiddleware");
+// const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+const passport = require('passport')
+
+
+
+
+
+
 
 // РЕГИСТРАЦИЯ
 //users/signup
