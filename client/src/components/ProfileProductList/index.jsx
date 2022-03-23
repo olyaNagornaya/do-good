@@ -1,6 +1,12 @@
 import ProfileProductCard from "../ProfileProductCard";
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 export default function ProfileProductList({header, descriptions, type, posts}) {
+
+  const profileDate = useSelector(state => state.register)
+
+  console.log(profileDate);
 
     console.log('posts-->', posts) // мапим
     return (
@@ -18,7 +24,7 @@ export default function ProfileProductList({header, descriptions, type, posts}) 
                         <div className="row">
                             {type === 'active' ?
                                 <>
-                                    {posts && posts.map(el => <ProfileProductCard key={el.id} card={el} type={type}/>
+                                    {posts && posts.filter(el => +el.user_id === +profileDate.user).map(el => <ProfileProductCard key={el.id} card={el} type={type}/>
                                 )}
                                 </>
                                 :
@@ -27,7 +33,7 @@ export default function ProfileProductList({header, descriptions, type, posts}) 
                             {type === 'archive' ?
                                 // тут мапим из базы карточки posts из пропсов
                                 <>
-                                    {posts && posts.map(el => <ProfileProductCard key={el.id} card={el} type={type}/>
+                                    {posts && posts.filter(el => +el.user_id === +profileDate.user).map(el => <ProfileProductCard key={el.id} card={el} type={type}/>
                                     )}
 
                                 </>
