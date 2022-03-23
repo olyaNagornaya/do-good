@@ -14,12 +14,12 @@ body {
 }
 
 a {
-  color: #3360f7;
+  color: #6688f9;
   text-decoration: none;
 }
 
 a:hover {
-  color: #3360f7;
+  color: #6688f9;
   text-decoration: none;
 }
 
@@ -153,14 +153,14 @@ h6 {
   margin-left: 5px;
 }
 
-.navbar a:hover,
-.navbar .active,
-.navbar li:hover > a {
-  color: #3360f7;
+
+.navbar a:hover, .navbar .active, .navbar li:hover > a {
+  color: #4d74f8;
+
 }
 
 .navbar .getstarted {
-  background: #3360f7;
+  background: #6688f9;
   padding: 8px 25px;
   margin-left: 30px;
   border-radius: 50px;
@@ -169,7 +169,7 @@ h6 {
 
 .navbar .getstarted:hover {
   color: #fff;
-  background: #0038f5;
+  background: #4d74f8;
 }
 
 .navbar .dropdown ul {
@@ -407,8 +407,8 @@ h6 {
 }
 
 #hero .btn-get-started:hover {
-  border: 2px solid #3360f7;
-  background: #3360f7;
+  border: 2px solid #4d74f8;
+  background: #4d74f8;
 }
 
 @media (min-width: 1024px) {
@@ -530,7 +530,7 @@ section {
 .about .count-box i {
   display: block;
   font-size: 48px;
-  color: #0038f5;
+  color: #6688f9;
   float: left;
   line-height: 0;
 }
@@ -590,7 +590,7 @@ section {
 
 .about .content ul i {
   font-size: 24px;
-  color: #0038f5;
+  color: #6688f9;
   position: absolute;
   left: 0;
   top: -2px;
@@ -603,7 +603,7 @@ section {
 .about .play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(#3360f7 50%, #4d74f8 52%);
+  background: radial-gradient(#809bfa 50%, #99affb 52%);
   border-radius: 50%;
   display: block;
   position: absolute;

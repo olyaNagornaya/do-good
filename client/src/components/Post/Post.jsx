@@ -105,7 +105,7 @@ function Post() {
                                     Обращайте внимание на состояние вещей и сроки годности продуктов, будьте вежливы
                                     с автором публикации
                                 </p>
-                                 <button href="#about" className="btnauthor">Снять с публикации</button>
+                                 {/*<button href="#about" className="btnauthor">Снять с публикации</button>*/}
                             </div>
                         </div>
                     </div>

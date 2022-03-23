@@ -50,9 +50,7 @@ const Form = () => {
 
   const addProdToDB = async (e) => {
     e.preventDefault();
-
     let id;
-
     if (inputs.checkBox === true) {
       console.log('addProdToDB--',inputs);
 

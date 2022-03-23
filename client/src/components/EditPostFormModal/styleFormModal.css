@@ -109,12 +109,12 @@ img {
 
 /*-- end reset --*/
 .maindiv {
-  background: #3360f7;
+  background: #6688f9;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #3360f7, #4d74f8);
-  background: -moz-linear-gradient(to top, #3360f7, #4d74f8);
-  background: -o-linear-gradient(to top, #3360f7, #4d74f8);
-  background: linear-gradient(to top, #3360f7, #4d74f8);
+  background: -webkit-linear-gradient(to top, #6688f9, #4d74f8);
+  background: -moz-linear-gradient(to top, #6688f9, #4d74f8);
+  background: -o-linear-gradient(to top, #6688f9, #4d74f8);
+  background: linear-gradient(to top, #6688f9, #4d74f8);
   background-size: cover;
   background-attachment: fixed;
 

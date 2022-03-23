@@ -12,39 +12,15 @@ export default function ProfileProductCard({type, card}) {
     const clickHandler = (id) => {
         setIsOpen(true);
     };
-    // const handlerChangeStatus = () => {
-    //     dispatch(changeStatus(card.id, posts))
-    // }
+
 
     console.log('posts-1111->>', posts)
     const handlerChangeStatus = async (cardId) => {
-        console.log('START')
-        console.log('cardId-->>', cardId)
-        // dispatch(changeStatus(cardId, posts))
 
         try {
             const response = await axios.post(`http://localhost:3001/items/${cardId}`, {
                 id: cardId
             });
-            console.log('handlerChangeStatus---res-->>',response)
-            // console.log('tryyyyyyy')
-            // const resp = await fetch(`http://localhost:3001/items/${cardId}`, {
-            //     method: "PATCH",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     credentials: "include",
-            //     body: JSON.stringify({id: cardId}),
-            // });
-            // const answer = await resp.json()
-            // console.log('answer handlerChangeStatus---answer-->>',answer)
-            // if(resp.ok){
-                // console.log("мы в ифе", posts)
-                // dispatch(changeStatus(card.id, posts))
-                // const allPosts = posts.map(el => el.id === card.id ? {...el, available: false} : el)
-
-            // }
-            // return answer;
         } catch (e) {
             console.error(e);
         }
