@@ -29,7 +29,7 @@ function ItemList() {
     useEffect(()=>{
         (async() => {
             const allllll = await dispatch(PostsThunk());
-                console.log('allllll', allllll)
+                console.log('allllll', allllll
         })()
         if (allPost.length > 0) {
             console.log('allPost.length > 0', allPost.length > 0)
