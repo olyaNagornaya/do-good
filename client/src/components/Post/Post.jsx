@@ -45,7 +45,7 @@ function Post() {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-check"></i>
-                                            <span>{curPost.createdAt.slice(0, 10)}</span>
+                                            <span>{curPost?.createdAt.slice(0, 10)}</span>
                                             {/*<time dateTime="2020-01-01">{el.createdAt.slice(0, 10)}</time>*/}
 
                                             <p>Опубликовано</p>
@@ -55,7 +55,7 @@ function Post() {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-x"></i>
-                                            <span>{curPost.validUntil.slice(0, 10)}</span>
+                                            <span>{curPost?.validUntil.slice(0, 10)}</span>
                                             <p>Действительно до</p>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@ function Post() {
                                     <div className="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                                         <div className="count-box pb-5 pt-0 pt-lg-5">
                                             <i className="bi bi-tags"></i>
-                                            <span>{curPost.Category.title}</span>
+                                            <span>{curPost?.Category.title}</span>
                                             <p>Категория</p>
                                         </div>
                                     </div>
