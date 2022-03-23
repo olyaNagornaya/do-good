@@ -24,9 +24,11 @@ function Navbar() {
         <div className="container d-flex align-items-center justify-content-between">
 
           <div className="logo">
-            {/*<img className="imglogo" src="/assets/img/logo-do-good.png"/>{" "}*/}
 
-            <h1 className="text-light"><a href="/">Дари Добро</a></h1>
+
+            <h1 className="text-light"><a href="/">
+                <img className="imglogo" src="/assets/img/help-logo.png"/>{" "}
+                Дари Добро</a></h1>
           </div>
           <nav id="navbar" className="navbar">
             <ul>

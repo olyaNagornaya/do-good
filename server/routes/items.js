@@ -62,8 +62,6 @@ router.post("/addgood", upload.single("file"), async (req, res) => {
     validUntil,
   };
 
-  // console.log(req.body);
-  // console.log(`Объект, летящий в базу`, objForDB);
   const ourPost = await Item.create(objForDB);
   console.log(ourPost);
   res.json(ourPost);
@@ -79,7 +77,19 @@ router.post('/:id' ,async (req, res) => {
     res.sendStatus(500)
 
   }
+})
 
+router.patch('/:id' ,async (req, res) => {
+  try {
+    console.log('req--params- patch(/:id--', req.params)
+    console.log('req.body(/:id--', req.body)
+    const data = await Item.update({title: req.body.title, description: req.body.description}, {where: {id: req.params.id}})
+    console.log('data-----', data)
+    res.sendStatus(200)
+  } catch {
+    res.sendStatus(500)
+
+  }
 })
 
 
