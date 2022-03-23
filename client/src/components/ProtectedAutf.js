@@ -5,7 +5,6 @@ import { Navigate, useLocation } from 'react-router-dom'
 export default function ProtectedAutf({children}) {
 
    const Check = useSelector(store=> store.register)
-   console.log('cah', Check);
    let location = useLocation()
 
    if(!Check.user) {

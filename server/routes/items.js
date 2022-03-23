@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
 
 router.get("/takens", async (req, res) => {
   const Takens = await Taken.findAll();
-  // console.log(Takens);
   res.json(Takens);
 });
 
@@ -23,6 +22,19 @@ router.get("/categories", async (req, res) => {
   // console.log(Categories);
   res.json(Categories);
 });
+
+router.post('/:id' ,async (req, res) => {
+  try {
+    console.log('req--params---', req.params)
+    const data = await Item.update({available: false},{where: {id: req.params.id}})
+    console.log('data-----', data)
+    res.sendStatus(200)
+  } catch {
+    res.sendStatus(500)
+
+  }
+
+})
 
 router.post("/addgood", upload.single("file"), async (req, res) => {
   // console.log(">>>>>>>>>>>>>>>>>>>>>>");

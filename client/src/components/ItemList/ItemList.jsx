@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PostsThunk } from "../../redux/thunk/ThunkForm";
 
 function ItemList() {
+
   //следит за всеми товарами
   const [items, setItems] = useState([]);
   //следит за копией
