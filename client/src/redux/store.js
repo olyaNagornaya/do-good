@@ -30,13 +30,13 @@ const persistedState = localStorage.getItem("reduxState") // 2. Распарси
 
 
 //CreateStore Создание стора где лежит наш РЕДЮСЕР который отвечает за ВСЕХ!
-let store = createStore(rootReducer,persistedState,composeWithDevTools(applyMiddleware(sagaMiddleware,thunk)))           //persistedState Положить рядом с РУТРЕДЮСЕРОМ ДЛЯ ЛОКАЛ СТОРАДЖ
+let store = createStore(rootReducer, persistedState, composeWithDevTools(applyMiddleware(sagaMiddleware,thunk)))           //persistedState Положить рядом с РУТРЕДЮСЕРОМ ДЛЯ ЛОКАЛ СТОРАДЖ
 
 
 store.subscribe(() => { // 1. Подписываемся и закидываем данные в localStorage
    localStorage.setItem("reduxState", JSON.stringify(store.getState()));
 });
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

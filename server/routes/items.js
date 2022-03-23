@@ -6,7 +6,7 @@ const { upload } = require("../middlewares/allMiddleware");
 const helper = require("../src/helper");
 
 router.get("/", async (req, res) => {
-  const Items = await Item.findAll({ include: [Category, User] });
+  const Items = await Item.findAll({ include: [Category, User], order:[['createdAt', "DESC"]] });
   console.log("IIIITTTTTTEEEE", Items);
   res.json(Items);
 });
