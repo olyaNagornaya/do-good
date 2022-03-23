@@ -1,3 +1,5 @@
+import React from "react";
+
 const Rules = () => {
     return (
         <>
@@ -12,6 +14,14 @@ const Rules = () => {
                             <p>Ознакомьтесь с условиями нашей платформы, это небольшой свод правил которые мы соблюдаем</p>
                         </div>
                     </div>
+                </div>
+                <div className="container">
+                    <ol>
+                        <li>
+                            <a href="/">Главная</a>
+                        </li>
+                        <li>Правила</li>
+                    </ol>
                 </div>
 
             </section>

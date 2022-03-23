@@ -55,7 +55,7 @@ function Registration() {
 
   return (
       <>
-          <main id="main"></main>
+          <main id="main">
 
           {/* <!-- main --> */}
           <div className="main-w3layouts wrapper maindiv">
@@ -179,6 +179,7 @@ function Registration() {
               </ul>
           </div>
           {/* <!-- //main --> */}
+          </main>
       </>
   )
 }
