@@ -63,13 +63,11 @@ function Login() {
                           <button onClick={addLogin} className="btnlogin">ВОЙТИ</button>
                       </form>
                       <button className="btngoogle">
-                          <a href="/users/google">
-                              ВОЙТИ ЧЕРЕЗ{" "}
+                              ТУТ МОГ БЫТЬ{" "}
                               <img
                                   src="../../../assets/img/google-logo.png"
                                   width="27%"
                               ></img>
-                          </a>
                       </button>
                       <p>
                           У вас нет аккаунта? <Link to="/register"> Регистрация</Link>
