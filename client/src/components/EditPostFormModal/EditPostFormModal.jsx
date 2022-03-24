@@ -18,14 +18,13 @@ const MODAL_STYLES = {
 };
 
 const OVERLAY_STYLES = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: "rgba(0, 0, 0, .7)",
-  zIndex: 1000,
-};
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,88,189, .6)',
+    zIndex: 1000
 
 const BUTTON_CLOUSE_STYLES = {
   position: "fixed",
@@ -165,63 +164,16 @@ const EditFoodFormModal = ({ open, children, onClose, food }) => {
             </p>
             <div></div>
           </div>
-
-          <ul className="colorlib-bubbles">
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/eggplant.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/pineapple.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/strawberry.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/apple.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/bananas.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/bell-pepper.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/broccoli.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/carrot.svg"
-              />
-            </li>
-            <li>
-              <img
-                className="img-bubbles"
-                src="../../../assets/img/fruit.svg"
-              />
-            </li>
-          </ul>
+                <ul className="colorlib-bubbles">
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                </ul>
+          
         </div>
       </main>
     </>,
@@ -229,3 +181,4 @@ const EditFoodFormModal = ({ open, children, onClose, food }) => {
   );
 };
 export default EditFoodFormModal;
+
