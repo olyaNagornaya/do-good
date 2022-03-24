@@ -1992,7 +1992,7 @@ section {
   font-size: 15px;
   margin-left: 95px;
   font-weight: bold;
-  max-height: ;
+  max-height: bold;
 }
 
 .blog .sidebar .recent-posts h4 a {
@@ -2238,9 +2238,6 @@ section {
   background-color: #0a53be;
 }
 
-.cardone {
-  background-image: url(/assets/img/features-1.jpg);
-}
 
 .btnmap {
   font-family: "Raleway", sans-serif;
