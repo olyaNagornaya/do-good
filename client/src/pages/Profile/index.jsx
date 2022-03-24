@@ -15,14 +15,14 @@ export default function ProfilePage() {
     useEffect(()=>{
         (async() => {
             const allllll = await dispatch(PostsThunk());
-            console.log('allllll', allllll)
+            // console.log('allllll', allllll)
         })()
     }, [])
 
     const activePost = allPosts.filter(el => el.available === true)
-    console.log('activePost------', activePost)
+    // console.log('activePost------', activePost)
     const archivePost = allPosts.filter(el => el.available === false)
-    console.log('archivePost------', archivePost)
+    // console.log('archivePost------', archivePost)
 
     const handlerActual = () => {
         setTypeProduct('active');

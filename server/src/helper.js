@@ -3,8 +3,9 @@ const fetch = require("node-fetch");
 const addCoord = async (inputs) => {
   let street = strToArr(inputs.city, "+");
   console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++= this STREET from helpers js ', street);
+  console.log('this is  input', inputs);
   const response = await fetch(
-    `https://geocode-maps.yandex.ru/1.x/?lang=ru&apikey=c44f3c3e-02a3-4e09-8441-9da1eec78fa8&format=json&geocode=${inputs.geolocation}${street.textAddress}+${street.homeNum}&results=1`
+    `https://geocode-maps.yandex.ru/1.x/?lang=ru&apikey=c44f3c3e-02a3-4e09-8441-9da1eec78fa8&format=json&geocode=${inputs.geolocation}${street.textAddress}&results=1`
   );
   let data = await response.json();
   let coord =
