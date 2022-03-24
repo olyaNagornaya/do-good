@@ -1,25 +1,47 @@
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
+import {changeStatus, setStatus} from "../../redux/actions/formActions";
+import axios from "axios";
 
 export default function ProfileProductCard({type, card}) {
 
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
+    const posts = useSelector(state => state.post)
     const clickHandler = (id) => {
         setIsOpen(true);
     };
 
 
-    // тут из пропсов закинуть данные в поля карты
-    // const testImage = {
-        // backgroundImage: 'url(https://i.pinimg.com/originals/68/8e/32/688e32cd90dbb711edc5812f7d05975d.jpg)',
-    // }; //временный хардкод, потом удалим, когда из базы фотос прилетит
+    console.log('posts-1111->>', posts)
+    const handlerChangeStatus = async (cardId) => {
+
+        try {
+            const response = await axios.post(`http://localhost:3001/items/${cardId}`, {
+                id: cardId
+            });
+        } catch (e) {
+            console.error(e);
+        }
+
+        const res = posts.map((el) => {
+            if (el.id === cardId) {
+                el.available = false;
+                return el
+            } else {
+                return el
+            }})
+        console.log('res--', res)
+        dispatch(setStatus(res))
+
+      }
+
+
 
     const backgroundImage = {
     backgroundImage: `url(${card.img})`,
     };
-    console.log('card=======>>>>', card)
     return (
         <div className="col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
             <div className="card" style={backgroundImage}>
@@ -30,12 +52,11 @@ export default function ProfileProductCard({type, card}) {
                     </h5>
                     <p className="card-text">
                         {card.description}
-                        тут описание
                     </p>
                     {type === 'active' &&
                         <>
                         <div className="read-more card-text">
-                            <Link to="#" >
+                            <Link to="#" onClick={() => handlerChangeStatus(card.id)} >
                                 <i className="bi bi-arrow-right"/> Снять с публикации
                             </Link>
                         </div>

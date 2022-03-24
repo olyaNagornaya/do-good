@@ -1,10 +1,8 @@
 import ProfileProductCard from "../ProfileProductCard";
-import React from 'react'
-import { useSelector } from 'react-redux'
+import {useSelector} from "react-redux";
 
 export default function ProfileProductList({header, descriptions, type, posts}) {
-
-  const profileDate = useSelector(state => state.register)
+    const profileDate = useSelector(state => state.register)
 
   console.log(profileDate);
 

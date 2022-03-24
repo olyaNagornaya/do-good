@@ -55,7 +55,7 @@ function Registration() {
 
   return (
       <>
-          <main id="main"></main>
+          <main id="main">
 
           {/* <!-- main --> */}
           <div className="main-w3layouts wrapper maindiv">
@@ -95,14 +95,14 @@ function Registration() {
                           <input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)}
                                  accept='image/*' type='file' name='img'/>
                           <label htmlFor="file" className="btn btn-tertiary js-labelFile">
-                              {registration.photo ? (
+                              {registration.file ? (
                                   <i className="bi bi-check2-square"></i>
                               ) : (
                                   <i className="icon fa fa-check"></i>
                               )}
 
                               <span className="js-fileName">
-                  {registration.img ? " Фото загружено" : " Загрузить фото"}
+                  {registration.file ? " Фото загружено" : " Загрузить фото"}
                 </span>
                           </label>
 
@@ -179,6 +179,7 @@ function Registration() {
               </ul>
           </div>
           {/* <!-- //main --> */}
+          </main>
       </>
   )
 }

@@ -23,8 +23,8 @@ const Form = () => {
 
   const user = useSelector((state) => state.register);
 
-  console.log(user);
-  console.log(inputs);
+  // console.log(user);
+  // console.log(inputs);
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -52,7 +52,7 @@ const Form = () => {
     e.preventDefault();
     let id;
     if (inputs.checkBox === true) {
-      console.log(inputs);
+      console.log('addProdToDB--',inputs);
 
       const formData = new FormData();
       formData.append("file", inputs.img);
@@ -66,16 +66,22 @@ const Form = () => {
 
       console.log(Object.fromEntries(formData));
       console.log(formData);
+      try {
+        const response = await fetch("http://localhost:3001/items/addgood", {
+          method: "POST",
+          credentials: "include",
+          body: formData,
+        });
+        const data = await response.json();
+        dispatch(PostsThunk());
+        id = data.id;
+      console.log('addProdToDB---response', response)
 
-      const response = await fetch("http://localhost:3001/items/addgood", {
-        method: "POST",
-        credentials: "include",
-        body: formData,
-      });
-      const data = await response.json();
-      console.log(data);
-      dispatch(PostsThunk());
-      id = data.id;
+      } catch (e) {
+        console.error(e);
+      }
+
+
     } else {
       e.preventDefault();
       alert("Согласись с нашими условиями платформы!!!");
@@ -91,8 +97,9 @@ const Form = () => {
 
   return (
     <>
-      <main id="main"></main>
       {/* <!-- main --> */}
+      <main id="main">
+
 
       <div className="main-w3layouts wrapper maindiv">
         {/*<h1>{err}</h1>*/}
@@ -119,9 +126,9 @@ const Form = () => {
               />
               <label htmlFor="file" className="btn btn-tertiary js-labelFile">
                 {inputs.img ? (
-                  <i className="bi bi-check2-square"></i>
+                  <i className="bi bi-check2-square"/>
                 ) : (
-                  <i className="icon fa fa-check"></i>
+                  <i className="icon fa fa-check"/>
                 )}
                 <span className="js-fileName">
                   {" "}
@@ -192,6 +199,7 @@ const Form = () => {
                     Я согласен с условиями платформы!
                   </span>
                 </label>
+
                 <button
                   className="btnlogin"
                   type="submit"
@@ -212,28 +220,30 @@ const Form = () => {
             <img className="img-bubbles" src="" alt="" />
           </li>
           <li>
-            <img className="img-bubbles" src="" alt="" />
+
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" alt="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" alt="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" alt="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" alt="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" alt="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
           <li>
-            <img className="img-bubbles" src="" alt="" />
+            <img className="img-bubbles" src="" alt=""/>
           </li>
         </ul>
       </div>
+      </main>
       {/* <!-- //main --> */}
     </>
   );
