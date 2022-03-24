@@ -64,7 +64,7 @@ const EditFoodFormModal = ({ open, children, onClose, food }) => {
                     "Content-Type": "application/json"
                 },
                 credentials: 'include',
-                body: JSON.stringify({ title, description })
+                body: JSON.stringify({ title, description, city, geolocation })
             })
             .then(response => {
                 if (response.status === 200) {

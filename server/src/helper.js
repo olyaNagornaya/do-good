@@ -2,8 +2,9 @@ const fetch = require("node-fetch");
 
 const addCoord = async (inputs) => {
   let street = strToArr(inputs.city, "+");
+  console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++= this STREET from helpers js ', street);
   const response = await fetch(
-    `https://geocode-maps.yandex.ru/1.x/?lang=ru&apikey=c44f3c3e-02a3-4e09-8441-9da1eec78fa8&format=json&geocode=${street.textAddress}+${street.homeNum}&results=1`
+    `https://geocode-maps.yandex.ru/1.x/?lang=ru&apikey=c44f3c3e-02a3-4e09-8441-9da1eec78fa8&format=json&geocode=${inputs.geolocation}${street.textAddress}+${street.homeNum}&results=1`
   );
   let data = await response.json();
   let coord =
@@ -30,6 +31,7 @@ const addCoord = async (inputs) => {
 
 const strToArr = (arr, params) => {
   arr = arr.split(",").join("").split(".").join("").split(" ");
+  console.log('Finaly arr', arr);
   let textAddress = [];
   let homeNum;
   if (params === "%20") {
