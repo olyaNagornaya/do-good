@@ -203,12 +203,7 @@ function ItemList() {
                     <div className="sidebar-item tags">
                       <ul>
                         <li>
-                          <a
-                              onClick={() =>
-                                  setItemsCopy(
-                                      items.filter((el) => el.available === true)
-                                  )
-                              }
+                          <a onClick={() => setItemsCopy(items.filter((el) => el.available === true))}
                           >
                             Все
                           </a>

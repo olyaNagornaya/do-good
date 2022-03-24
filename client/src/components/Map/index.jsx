@@ -13,6 +13,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { PostsThunk } from "../../redux/thunk/ThunkForm";
 import { ourCategory } from "../../helper";
+import './styleMap.css'
 
 const mapState = {
   center: [55.751574, 37.573856],
@@ -66,21 +67,44 @@ export default function MapYandex() {
       </section>
       {/*// <!-- End Breadcrumbs -->*/}
       <div className="container py-3" data-aos="fade-up">
-        <YMaps>
-          <div className="sidebar-item tags">
+        <YMaps >
+          {/*<section id="blog" className="blog">*/}
+          {/*  <div className="container" data-aos="fade-up">*/}
+          {/*<div className="sidebar-item tags">*/}
+          {/*  <ul>*/}
+          {/*    <li>*/}
+          {/*      <a onClick={() => sortedMarks(null)}>Все категории</a>{" "}*/}
+          {/*    </li>*/}
+          {/*    {allCategory.map((el) => {*/}
+          {/*      return (*/}
+          {/*        <li>*/}
+          {/*          <a onClick={() => sortedMarks(el.id)}>{el.title}</a>*/}
+          {/*        </li>*/}
+          {/*      );*/}
+          {/*    })}*/}
+          {/*  </ul>*/}
+          {/*</div>*/}
+          {/*  </div>*/}
+          {/*</section>*/}
+          <section id="blog" className="blog">
+          <div className="container" data-aos="fade-up">
+          <div className="sidebar">
+          {/*<h3 className="sidebar-title">Tags</h3>*/}
+          <div className="sidebar-item tags" >
             <ul>
-              <li>
-                <a onClick={() => sortedMarks(null)}>Все категории</a>{" "}
-              </li>
+              <li> <a onClick={() => sortedMarks(null)}>Все категории</a></li>
               {allCategory.map((el) => {
                 return (
-                  <li>
-                    <a onClick={() => sortedMarks(el.id)}>{el.title}</a>
-                  </li>
+                    <li>
+                      <a onClick={() => sortedMarks(el.id)}>{el.title}</a>
+                    </li>
                 );
               })}
             </ul>
           </div>
+          </div>
+          </div>
+          </section>
           <Map
             defaultState={mapState}
             width="100%"
