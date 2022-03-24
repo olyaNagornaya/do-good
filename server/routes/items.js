@@ -88,7 +88,7 @@ router.patch("/:id", async (req, res) => {
     console.log("req--params- patch(/:id--", req.params);
     console.log("req.body(/:id--", req.body);
     const { geolocation, city } = req.body;
-    const x = await helper({ geolocation, city });
+    const x = await helper({ geolocation: city, city:geolocation });
 
     const data = await Item.update(
       {
