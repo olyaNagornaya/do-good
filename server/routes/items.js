@@ -6,11 +6,13 @@ const { upload } = require("../middlewares/allMiddleware");
 const helper = require("../src/helper");
 
 router.get("/", async (req, res) => {
-  const Items = await Item.findAll({ include: [Category, User], order:[['id', "DESC"]] });
+  const Items = await Item.findAll({
+    include: [Category, User],
+    order: [["id", "DESC"]],
+  });
   // console.log("IIIITTTTTTEEEE", Items);
   res.json(Items);
 });
-
 
 router.get("/takens", async (req, res) => {
   const Takens = await Taken.findAll();
@@ -26,7 +28,7 @@ router.get("/categories", async (req, res) => {
 router.post("/addgood", upload.single("file"), async (req, res) => {
   console.log(">>>>>>>>>>>>>>>>>>>>>>");
   // console.log(req.file);
-  console.log('----------------------')
+  console.log("----------------------");
   console.log(req.body);
 
   // console.log("session --------", req.session.userId);
@@ -67,30 +69,43 @@ router.post("/addgood", upload.single("file"), async (req, res) => {
   res.json(ourPost);
 });
 
-router.post('/:id' ,async (req, res) => {
+router.post("/:id", async (req, res) => {
   try {
-    console.log('req--params---', req.params)
-    const data = await Item.update({available: false},{where: {id: req.params.id}})
-    console.log('data-----', data)
-    res.sendStatus(200)
+    console.log("req--params---", req.params);
+    const data = await Item.update(
+      { available: false },
+      { where: { id: req.params.id } }
+    );
+    console.log("data-----", data);
+    res.sendStatus(200);
   } catch {
-    res.sendStatus(500)
-
+    res.sendStatus(500);
   }
-})
+});
 
-router.patch('/:id' ,async (req, res) => {
+router.patch("/:id", async (req, res) => {
   try {
-    console.log('req--params- patch(/:id--', req.params)
-    console.log('req.body(/:id--', req.body)
-    const data = await Item.update({title: req.body.title, description: req.body.description}, {where: {id: req.params.id}})
-    console.log('data-----', data)
-    res.sendStatus(200)
+    console.log("req--params- patch(/:id--", req.params);
+    console.log("req.body(/:id--", req.body);
+    const { geolocation, city } = req.body;
+    const x = await helper({ geolocation: city, city:geolocation });
+
+    const data = await Item.update(
+      {
+        title: req.body.title,
+        description: req.body.description,
+        city: req.body.city,
+        address: req.body.geolocation,
+        coordinatesX: x.coordinate[0],
+        coordinatesY: x.coordinate[1],
+      },
+      { where: { id: req.params.id } }
+    );
+    console.log("data-----", data);
+    res.sendStatus(200);
   } catch {
-    res.sendStatus(500)
-
+    res.sendStatus(500);
   }
-})
-
+});
 
 module.exports = router;

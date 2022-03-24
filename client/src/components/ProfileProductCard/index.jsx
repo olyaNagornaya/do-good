@@ -20,7 +20,6 @@ export default function ProfileProductCard({type, card}) {
         setIsOpen(true);
     };
 
-
     console.log('posts-1111->>', posts)
     const handlerChangeStatus = async (cardId) => {
 
@@ -56,7 +55,7 @@ export default function ProfileProductCard({type, card}) {
                 <div className="card-body">
                     <h5 className="card-title">
                         {/*<Link to={`/good/${id}`}>{card.title}</Link>*/}
-                        {card.title}
+                        <a href={`/good/${card.id}`}>{card.title}</a>
                     </h5>
                     <p className="card-text">
                         {card.description}
