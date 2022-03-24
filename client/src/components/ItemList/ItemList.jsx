@@ -111,10 +111,10 @@ function ItemList() {
 
                   <div className="blog-pagination">
                     <ul className="justify-content-center">
-                      <li>
+                      <li className="active">
                         <a href="#">1</a>
                       </li>
-                      <li className="active">
+                      <li>
                         <a href="#">2</a>
                       </li>
                       <li>
@@ -203,12 +203,7 @@ function ItemList() {
                     <div className="sidebar-item tags">
                       <ul>
                         <li>
-                          <a
-                              onClick={() =>
-                                  setItemsCopy(
-                                      items.filter((el) => el.available === true)
-                                  )
-                              }
+                          <a onClick={() => setItemsCopy(items.filter((el) => el.available === true))}
                           >
                             Все
                           </a>

@@ -36,14 +36,13 @@ export default function MainComponent() {
                                 <h3>В качестве гуманитарной помощи все желающие могут разместить предложение:
                                     </h3>
                                 <p className="fst-italic">
-                                    {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore*/}
-                                    {/*magna aliqua.*/}
+                                   <br/>
                                 </p>
                                 <ul>
-                                    <li><i className="bx bx-check-double"/> продуктовые товары.</li>
-                                    <li><i className="bx bx-check-double"/> одежду.</li>
-                                    <li><i className="bx bx-check-double"/> средства личной гигиены.</li>
-                                    <li><i className="bx bx-check-double"/> посуду и другие предметы первой необходимости.</li>
+                                    <li><i className="bx bx-check-double"/> Продуктовые товары</li>
+                                    <li><i className="bx bx-check-double"/> Одежду</li>
+                                    <li><i className="bx bx-check-double"/> Мебель</li>
+                                    <li><i className="bx bx-check-double"/> Посуду и другие предметы первой необходимости</li>
                                 </ul>
                                 <p>
                                     Кроме того, для детей беженцев, которым нужна особая поддержка, собирают игрушки, канцелярские товары и книги.
