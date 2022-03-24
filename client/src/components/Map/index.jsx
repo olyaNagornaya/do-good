@@ -22,16 +22,24 @@ const mapState = {
 export default function MapYandex() {
   const [cluster, setCluster] = useState(null);
   const dispatch = useDispatch();
+  const [category, setCategory] = useState(null);
+  const [allCategory, setAllCategory] = useState([]);
+
+  const sortedMarks = (id) => {
+    setCategory(id);
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:3001/items/categories")
+      .then((response) => response.json())
+      .then((data) => setAllCategory(data));
+  }, []);
 
   useEffect(() => {
     dispatch(PostsThunk());
   }, []);
 
   const DBO = useSelector((store) => store.post);
-
-  const test = (data) => {
-    console.log(data);
-  }
 
   return (
     <main id="main">
@@ -42,10 +50,7 @@ export default function MapYandex() {
             <div className="breadcrumb-hero">
               <h2>Дари Добро</h2>
               <p>
-                Est dolorum ut non facere possimus quibusdam eligendi
-                voluptatem. Quia id aut similique quia voluptas sit quaerat
-                debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo
-                harum praesentium.{" "}
+               На карте отображается полный список актуальных товаров.{" "}
               </p>
             </div>
           </div>
@@ -62,6 +67,20 @@ export default function MapYandex() {
       {/*// <!-- End Breadcrumbs -->*/}
       <div className="container py-3" data-aos="fade-up">
         <YMaps>
+          <div className="sidebar-item tags">
+            <ul>
+              <li>
+                <a onClick={() => sortedMarks(null)}>Все категории</a>{" "}
+              </li>
+              {allCategory.map((el) => {
+                return (
+                  <li>
+                    <a onClick={() => sortedMarks(el.id)}>{el.title}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
           <Map
             defaultState={mapState}
             width="100%"
@@ -87,23 +106,31 @@ export default function MapYandex() {
                 }
               }}
             >
-              {DBO.filter((el) => el.available === true).map((el) => {
-                return (
-                  <Placemark
-                    key={el.id}
-                    modules={["geoObject.addon.balloon"]}
-                    geometry={[el.coordinatesX, el.coordinatesY]}
-                    properties={{
-                      balloonContentHeader: el.title,
-                      balloonContent: el.description,
-                      balloonContentFooter: `<a href='/good/${el.id}' >Подбробнее</a href='/' >`,
-                    }}
-                    options={{
-                      preset: [ourCategory(el.category_id)],
-                    }}
-                  />
-                );
-              })}
+              {DBO.filter((el) => el.available === true)
+                .filter((el) => {
+                  if (category === null) {
+                    return true;
+                  } else {
+                    return el.category_id === category;
+                  }
+                })
+                .map((el) => {
+                  return (
+                    <Placemark
+                      key={el.id}
+                      modules={["geoObject.addon.balloon"]}
+                      geometry={[el.coordinatesX, el.coordinatesY]}
+                      properties={{
+                        balloonContentHeader: el.title,
+                        balloonContent: el.description,
+                        balloonContentFooter: `<a href='/good/${el.id}' >Подбробнее</a href='/' >`,
+                      }}
+                      options={{
+                        preset: [ourCategory(el.category_id)],
+                      }}
+                    />
+                  );
+                })}
             </Clusterer>
           </Map>
         </YMaps>

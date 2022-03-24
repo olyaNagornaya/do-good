@@ -95,14 +95,14 @@ function Registration() {
                           <input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)}
                                  accept='image/*' type='file' name='img'/>
                           <label htmlFor="file" className="btn btn-tertiary js-labelFile">
-                              {registration.photo ? (
-                                  <i className="bi bi-check2-square"></i>
+                              {registration.file ? (
+                                  <i className="bi bi-check2-square"/>
                               ) : (
-                                  <i className="icon fa fa-check"></i>
+                                  <i className="icon fa fa-check"/>
                               )}
 
                               <span className="js-fileName">
-                  {registration.img ? " Фото загружено" : " Загрузить фото"}
+                  {registration.file ? " Фото загружено" : " Загрузить фото"}
                 </span>
                           </label>
 
@@ -153,13 +153,11 @@ function Registration() {
                           <button onClick={addRegister} className="btnlogin">ЗАРЕГИСТРИРОВАТЬСЯ</button>
                       </form>
                       <button className="btngoogle">
-                          <a href="/user/google">
-                              ВОЙТИ ЧЕРЕЗ{" "}
+                              ТУТ МОГ БЫТЬ{" "}
                               <img
                                   src="../../../assets/img/google-logo.png"
                                   width="27%"
                               ></img>
-                          </a>
                       </button>
                       <p>
                           У вас есть аккаунт? <Link to="/login"> Авторизация</Link>

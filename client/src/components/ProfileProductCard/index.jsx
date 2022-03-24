@@ -3,16 +3,22 @@ import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
 import {changeStatus, setStatus} from "../../redux/actions/formActions";
 import axios from "axios";
+import EditFoodFormModal from "../EditPostFormModal/EditPostFormModal";
+
+const BUTTON_WRAPPER_STYLES = {
+    position: "relative",
+    zIndex: 1,
+};
 
 export default function ProfileProductCard({type, card}) {
 
-    const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false);
-    const posts = useSelector(state => state.post)
-    const clickHandler = (id) => {
+    const posts = useSelector(state => state.post);
+    const dispatch = useDispatch()
+
+    const clickHandler = () => {
         setIsOpen(true);
     };
-
 
     console.log('posts-1111->>', posts)
     const handlerChangeStatus = async (cardId) => {
@@ -43,12 +49,13 @@ export default function ProfileProductCard({type, card}) {
     backgroundImage: `url(${card.img})`,
     };
     return (
+        <>
         <div className="col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up">
             <div className="card" style={backgroundImage}>
                 <div className="card-body">
                     <h5 className="card-title">
                         {/*<Link to={`/good/${id}`}>{card.title}</Link>*/}
-                        {card.title}
+                        <a href={`/good/${card.id}`}>{card.title}</a>
                     </h5>
                     <p className="card-text">
                         {card.description}
@@ -70,5 +77,16 @@ export default function ProfileProductCard({type, card}) {
                 </div>
             </div>
         </div>
+
+            {isOpen ? (
+                <div style={BUTTON_WRAPPER_STYLES}>
+                    <EditFoodFormModal
+                        open={isOpen}
+                        onClose={() => setIsOpen(false)}
+                        food={card}
+                    />
+                </div>
+            ) : null}
+        </>
     )
 }
