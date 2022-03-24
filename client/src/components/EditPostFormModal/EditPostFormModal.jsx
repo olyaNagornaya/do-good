@@ -24,7 +24,7 @@ const OVERLAY_STYLES = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, .7)',
+    backgroundColor: 'rgba(0,88,189, .6)',
     zIndex: 1000
 }
 
@@ -122,15 +122,13 @@ const EditFoodFormModal = ({ open, children, onClose, food }) => {
                 </div>
 
                 <ul className="colorlib-bubbles">
-                    <li><img className="img-bubbles" src="../../../assets/img/eggplant.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/pineapple.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/strawberry.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/apple.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/bananas.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/bell-pepper.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/broccoli.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/carrot.svg" /></li>
-                    <li><img className="img-bubbles" src="../../../assets/img/fruit.svg" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" /></li>
                 </ul>
             </div>
             </main>

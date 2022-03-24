@@ -38,10 +38,7 @@ export default function MapYandex() {
             <div className="breadcrumb-hero">
               <h2>Дари Добро</h2>
               <p>
-                Est dolorum ut non facere possimus quibusdam eligendi
-                voluptatem. Quia id aut similique quia voluptas sit quaerat
-                debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo
-                harum praesentium.{" "}
+               На карте отображается полный список актуальных товаров.{" "}
               </p>
             </div>
           </div>
