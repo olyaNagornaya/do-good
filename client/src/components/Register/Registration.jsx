@@ -102,7 +102,7 @@ function Registration() {
                               )}
 
                               <span className="js-fileName">
-                  {registration.img ? " Фото загружено" : " Загрузить фото"}
+                  {registration.file ? " Фото загружено" : " Загрузить фото"}
                 </span>
                           </label>
 
