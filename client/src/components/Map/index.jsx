@@ -100,6 +100,15 @@ export default function MapYandex() {
                     </li>
                 );
               })}
+              <li><a href="#">Жилье</a></li>
+              <li><a href="#">Посуда</a></li>
+              <li><a href="#">Игрушки</a></li>
+              <li><a href="#">Канцтовары</a></li>
+              <li><a href="#">Гигиена</a></li>
+              {/*<li><a href="#">Studio</a></li>*/}
+              {/*<li><a href="#">Smart</a></li>*/}
+              {/*<li><a href="#">Tips</a></li>*/}
+              {/*<li><a href="#">Marketing</a></li>*/}
             </ul>
           </div>
           </div>

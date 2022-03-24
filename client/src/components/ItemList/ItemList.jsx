@@ -111,10 +111,10 @@ function ItemList() {
 
                   <div className="blog-pagination">
                     <ul className="justify-content-center">
-                      <li>
+                      <li className="active">
                         <a href="#">1</a>
                       </li>
-                      <li className="active">
+                      <li>
                         <a href="#">2</a>
                       </li>
                       <li>
