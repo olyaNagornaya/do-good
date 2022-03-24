@@ -20,7 +20,7 @@ export default function ProfileProductCard({type, card}) {
         setIsOpen(true);
     };
 
-    console.log('posts-1111->>', posts)
+    // console.log('posts-1111->>', posts)
     const handlerChangeStatus = async (cardId) => {
 
         try {
