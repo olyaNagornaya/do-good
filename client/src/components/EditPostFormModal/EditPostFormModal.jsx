@@ -25,6 +25,7 @@ const OVERLAY_STYLES = {
     bottom: 0,
     backgroundColor: 'rgba(0,88,189, .6)',
     zIndex: 1000
+};
 
 const BUTTON_CLOUSE_STYLES = {
   position: "fixed",
