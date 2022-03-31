@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import ReactDom from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import { setError } from '../../redux/AC/errorAC'
 import "./styleFormModal.css";
 import { setStatus } from "../../redux/actions/formActions";
-import { getCoordinate } from "./getCoordinate";
 
 const MODAL_STYLES = {
   position: "fixed",
@@ -18,14 +16,14 @@ const MODAL_STYLES = {
 };
 
 const OVERLAY_STYLES = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0,88,189, .6)',
-    zIndex: 1000
-
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundColor: 'rgba(0,88,189, .6)',
+  zIndex: 1000,
+}
 const BUTTON_CLOUSE_STYLES = {
   position: "fixed",
   top: 0,
@@ -36,7 +34,6 @@ const BUTTON_CLOUSE_STYLES = {
 };
 
 const EditFoodFormModal = ({ open, children, onClose, food }) => {
-  // const err = useSelector(state => state.error)
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     title: food?.title,
@@ -55,9 +52,6 @@ const EditFoodFormModal = ({ open, children, onClose, food }) => {
 
     let { title, description, city, geolocation } = inputs;
     city = `${city}`;
-    // вдруг координаты допилим
-    // const coordinate = getCoordinate({geolocation, city});
-    // console.log('<<<coordinate<<<EditFoodFormModal<=', coordinate);
 
     fetch(`http://localhost:3001/items/${food.id}`, {
       method: "PATCH",
@@ -86,12 +80,9 @@ const EditFoodFormModal = ({ open, children, onClose, food }) => {
             return el;
           }
         });
-        console.log("res--", res);
         dispatch(setStatus(res));
         onClose();
       });
-
-    ///Допилить логику!!!
   };
 
   if (!open) return null;
@@ -165,13 +156,13 @@ const EditFoodFormModal = ({ open, children, onClose, food }) => {
             <div></div>
           </div>
                 <ul className="colorlib-bubbles">
-                    <li><img className="img-bubbles" src="" /></li>
-                    <li><img className="img-bubbles" src="" /></li>
-                    <li><img className="img-bubbles" src="" /></li>
-                    <li><img className="img-bubbles" src="" /></li>
-                    <li><img className="img-bubbles" src="" /></li>
-                    <li><img className="img-bubbles" src="" /></li>
-                    <li><img className="img-bubbles" src="" /></li>
+                    <li><img className="img-bubbles" src="" alt=""/></li>
+                    <li><img className="img-bubbles" src="" alt=""/></li>
+                    <li><img className="img-bubbles" src="" alt=""/></li>
+                    <li><img className="img-bubbles" src="" alt=""/></li>
+                    <li><img className="img-bubbles" src="" alt=""/></li>
+                    <li><img className="img-bubbles" src="" alt=""/></li>
+                    <li><img className="img-bubbles" src="" alt=""/></li>
                 </ul>
           
         </div>

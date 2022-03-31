@@ -35,7 +35,6 @@ const BUTTON_CLOUSE_STYLES = {
 
 }
 
-// это стиль для отрисовки уже на самой странице, в этом файле не используется, поэтому мы экспортим её
 export const BUTTON_WRAPPER_STYLES = {
     position: "relative",
     zIndex: 1,

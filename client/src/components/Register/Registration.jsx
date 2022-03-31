@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {AddRegaThunk} from '../../redux/thunk/ThunkPosts'
-import {Link} from "react-router-dom"; // ОТПРАВКА НА САНКИ
+import {Link} from "react-router-dom";
 import "./styleForm.css";
 
 
 function Registration() {
-
 
    const dispatch = useDispatch() 
    const [registration, setRegistration] = useState({
@@ -29,8 +28,6 @@ function Registration() {
       formData.append('telephone', registration.telephone);
 
 
-
-
       dispatch(AddRegaThunk(formData))
       setRegistration({
           name: '',
@@ -50,14 +47,11 @@ function Registration() {
     const inputAvatarHandler = (e) => {
         const file = e.target.files[0];
         setRegistration(prev=> ({...prev, file}))
-        // uploadHandler(file);
     }
 
   return (
       <>
           <main id="main">
-
-          {/* <!-- main --> */}
           <div className="main-w3layouts wrapper maindiv">
 
               <h1>Регистрация</h1>
@@ -91,7 +85,7 @@ function Registration() {
                               value={registration.email}
                               onChange={e => setRegistration({...registration, email: e.target.value}) }
                           />
-                          {/* <input className="text email inputformdecor inputphoto input-file" id="file" type="file" name="photo" multiple accept="image/*" placeholder="Загрузить фото" required="" value={inputs.photo}> */}
+
                           <input className="inputphoto input-file" id="file" onChange={(e) => inputAvatarHandler(e)}
                                  accept='image/*' type='file' name='img'/>
                           <label htmlFor="file" className="btn btn-tertiary js-labelFile">
@@ -165,18 +159,17 @@ function Registration() {
                   </div>
               </div>
               <ul className="colorlib-bubbles">
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
 
               </ul>
           </div>
-          {/* <!-- //main --> */}
           </main>
       </>
   )

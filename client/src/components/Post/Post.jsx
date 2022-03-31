@@ -11,8 +11,7 @@ function Post() {
     const {id} = useParams()
     const post = useSelector(state => state.post)
     const curPost = post.filter(el => el.id === +id)[0]
-    console.log('currrent ', curPost)
-    console.log("el-------------", id)
+
     return (
         <>
             <main id="main">
@@ -46,8 +45,6 @@ function Post() {
                                         <div className="count-box py-5">
                                             <i className="bi bi-calendar-check"></i>
                                             <span>{curPost?.createdAt.slice(0, 10)}</span>
-                                            {/*<time dateTime="2020-01-01">{el.createdAt.slice(0, 10)}</time>*/}
-
                                             <p>Опубликовано</p>
                                         </div>
                                     </div>
@@ -105,7 +102,6 @@ function Post() {
                                     Обращайте внимание на состояние вещей и сроки годности продуктов, будьте вежливы
                                     с автором публикации
                                 </p>
-                                 {/*<button href="#about" className="btnauthor">Снять с публикации</button>*/}
                             </div>
                         </div>
                     </div>

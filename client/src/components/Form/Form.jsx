@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./styleForm.css";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-
 import { PostsThunk } from "../../redux/thunk/ThunkForm";
-import { getNewPost } from "../../redux/actions/formActions";
+
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -23,26 +22,11 @@ const Form = () => {
 
   const user = useSelector((state) => state.register);
 
-  // console.log(user);
-  // console.log(inputs);
-
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(inputs, "eto inputs");
-  };
-
-  // const uploadHandler = async (file) => {
-  //   const formData = new FormData();
-  //   formData.append("file", file);
-  //   setInputs({ ...inputs, img: formData });
-  // };
-
   const inputCheckBox = (e) => {
-    // console.log(e.target.checked);
     setInputs((prev) => {
       return { ...prev, checkBox: e.target.checked };
     });
@@ -52,7 +36,6 @@ const Form = () => {
     e.preventDefault();
     let id;
     if (inputs.checkBox === true) {
-      console.log('addProdToDB--',inputs);
 
       const formData = new FormData();
       formData.append("file", inputs.img);
@@ -64,8 +47,6 @@ const Form = () => {
       formData.append("user_id", user.user);
       formData.append("validUntil", inputs.validUntil);
 
-      console.log(Object.fromEntries(formData));
-      console.log(formData);
       try {
         const response = await fetch("http://localhost:3001/items/addgood", {
           method: "POST",
@@ -75,7 +56,6 @@ const Form = () => {
         const data = await response.json();
         dispatch(PostsThunk());
         id = data.id;
-      console.log('addProdToDB---response', response)
 
       } catch (e) {
         console.error(e);
@@ -90,8 +70,6 @@ const Form = () => {
   };
   const inputAvatarHandler = (e) => {
     const file = e.target.files[0];
-    console.log(file);
-    // uploadHandler(file);
     setInputs((prev) => ({ ...prev, img: file }));
   };
 
@@ -99,10 +77,7 @@ const Form = () => {
     <>
       {/* <!-- main --> */}
       <main id="main">
-
-
       <div className="main-w3layouts wrapper maindiv">
-        {/*<h1>{err}</h1>*/}
         <h1>Добавление продукта</h1>
         <div className="main-agileinfo">
           <div className="agileits-top formdesign">

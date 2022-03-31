@@ -20,7 +20,6 @@ export const getCoordinate = async (inputs) => {
 
     coord = changeOrder(coord.split(" ").map((el) => Number(el)));
 
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaa", coord);
     return {
         coordinate: coord,
     };

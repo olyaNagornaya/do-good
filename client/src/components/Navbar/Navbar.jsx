@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import {LogoutThunk} from '../../redux/thunk/ThunkPosts' // ОТПРАВКА НА САНКИ
+import {LogoutThunk} from '../../redux/thunk/ThunkPosts'
 
 function Navbar() {
    const Check = useSelector(store=> store.register)

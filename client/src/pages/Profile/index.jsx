@@ -15,14 +15,11 @@ export default function ProfilePage() {
     useEffect(()=>{
         (async() => {
             const allllll = await dispatch(PostsThunk());
-            // console.log('allllll', allllll)
         })()
     }, [])
 
     const activePost = allPosts.filter(el => el.available === true)
-    // console.log('activePost------', activePost)
     const archivePost = allPosts.filter(el => el.available === false)
-    // console.log('archivePost------', archivePost)
 
     const handlerActual = () => {
         setTypeProduct('active');
@@ -49,7 +46,6 @@ export default function ProfilePage() {
                 descriptions="Ниже отображается список добавленных вами продуктов, после завершения сделки кликните на кнопку - снять с публикации"
                 type={typeProduct}
                 posts={activePost}
-                // posts={allPosts}
             />
             )
               : (

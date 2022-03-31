@@ -1,31 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Item from "../Item/Item";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PostsThunk } from "../../redux/thunk/ThunkForm";
 
 function ItemList() {
 
-  //следит за всеми товарами
   const [items, setItems] = useState([]);
-  //следит за копией
   const [itemsCopy, setItemsCopy] = useState([]);
-  //следит за постами в зависимости от текущей страницы
   const [itemsWithPages, setItemsWithPages] = useState([]);
-  // Номер текущей страницы
   const [page, setPage] = useState(1);
-  //следит за инпутом
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
   const allPost = useSelector((state) => state.post);
 
-  console.log("Render in ItemList");
-  console.log("items ---->>>>", items);
-  console.log("items ---->>>>", itemsCopy);
-
   useEffect(() => {
-    // fetch('http://localhost:3001/items').then(response => response.json()).then(data => setItems(data))
     dispatch(PostsThunk());
     setItems(allPost);
   }, [items]);
@@ -49,7 +38,6 @@ function ItemList() {
     );
   };
 
-  // Счетчики для каждой категории
   const allItemsQnty = items?.filter((el) => el.available === true).length;
   const foodQnty = items
       .filter((el) => el.available === true)
@@ -61,15 +49,9 @@ function ItemList() {
       .filter((el) => el.available === true)
       .filter((el) => el.category_id === 3).length;
 
-  console.log(allItemsQnty);
-  console.log(foodQnty);
-  console.log(clothesQnty);
-  console.log(furnitureQnty);
 
-  // Пагинация
-  // Кол-во страниц для выводимой категории
   const pagesQnty = Math.ceil(itemsCopy.length / 10);
-  console.log(pagesQnty);
+
 
   return (
       <>

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {ProfileThunk} from '../../redux/thunk/ThunkPosts' // ОТПРАВКА НА САНКИ
+import {ProfileThunk} from '../../redux/thunk/ThunkPosts'
 
 
 function Profile() {
@@ -32,7 +31,6 @@ function Profile() {
        <br />
 
     </div>
-   // <div className='container mt-5' >dsa</div>
   )
 }
 

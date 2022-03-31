@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   return ( 
@@ -19,9 +19,6 @@ const Footer = () => {
                 <ul>
                   <li><a href="#hero">В начало</a></li>
                   <li><a href="#about">О нас</a></li>
-                  {/*<li><Link to="/food">Еда</Link></li>*/}
-                  {/*<li><Link to="rules">Правила платформы</Link></li>*/}
-                  {/*<li><Link to="/profile">Личный кабинет</Link></li>*/}
                 </ul>
               </div>
 

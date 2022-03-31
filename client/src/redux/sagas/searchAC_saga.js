@@ -5,4 +5,4 @@ export const searchPost = (posts) => {
   };
 };
 
-//тут дёргаю наш экшен 
+

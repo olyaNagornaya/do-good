@@ -16,7 +16,6 @@ function MapMini() {
   const ourCoord = [ourPost[0]?.coordinatesX, ourPost[0]?.coordinatesY];
   const ourPostTitle = ourPost[0]?.title;
   const ourPostDesription = ourPost[0]?.description;
-  console.log(DBO);
   return (
     <>
       <YMaps>

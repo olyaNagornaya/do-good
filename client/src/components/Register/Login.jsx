@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {LoginRegaThunk} from '../../redux/thunk/ThunkPosts'
-import {Link} from "react-router-dom"; // ОТПРАВКА НА САНКИ
+import {Link} from "react-router-dom";
 
 
 
@@ -11,23 +11,16 @@ function Login() {
    const dispatch = useDispatch() 
    const [login, setLogin] = useState({email:'',password:''})
 
-
-
    const addLogin =  (e) => {
       e.preventDefault()
       dispatch(LoginRegaThunk(login))
       setLogin({email:'',password:''})
-
    }
-
 
 
   return (
       <>
           <main id="main"></main>
-
-          {/* <!-- main --> */}
-
           <div className="main-w3layouts wrapper maindiv">
               <h1>Авторизация</h1>
               <div className="main-agileinfo">
@@ -75,18 +68,17 @@ function Login() {
                   </div>
               </div>
               <ul className="colorlib-bubbles">
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
-                  <li><img className="img-bubbles" src="" /></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
+                  <li><img className="img-bubbles" src="" alt=""/></li>
 
               </ul>
           </div>
-          {/* <!-- //main --> */}
       </>
   )
 }

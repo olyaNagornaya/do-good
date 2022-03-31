@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 import {
   YMaps,
   Map,
@@ -68,28 +67,9 @@ export default function MapYandex() {
       {/*// <!-- End Breadcrumbs -->*/}
       <div className="container py-3" data-aos="fade-up">
         <YMaps >
-          {/*<section id="blog" className="blog">*/}
-          {/*  <div className="container" data-aos="fade-up">*/}
-          {/*<div className="sidebar-item tags">*/}
-          {/*  <ul>*/}
-          {/*    <li>*/}
-          {/*      <a onClick={() => sortedMarks(null)}>Все категории</a>{" "}*/}
-          {/*    </li>*/}
-          {/*    {allCategory.map((el) => {*/}
-          {/*      return (*/}
-          {/*        <li>*/}
-          {/*          <a onClick={() => sortedMarks(el.id)}>{el.title}</a>*/}
-          {/*        </li>*/}
-          {/*      );*/}
-          {/*    })}*/}
-          {/*  </ul>*/}
-          {/*</div>*/}
-          {/*  </div>*/}
-          {/*</section>*/}
           <section id="blog" className="blog">
           <div className="container" data-aos="fade-up">
           <div className="sidebar">
-          {/*<h3 className="sidebar-title">Tags</h3>*/}
           <div className="sidebar-item tags" >
             <ul>
               <li> <a onClick={() => sortedMarks(null)}>Все категории</a></li>
@@ -105,10 +85,6 @@ export default function MapYandex() {
               <li><a href="#">Игрушки</a></li>
               <li><a href="#">Канцтовары</a></li>
               <li><a href="#">Гигиена</a></li>
-              {/*<li><a href="#">Studio</a></li>*/}
-              {/*<li><a href="#">Smart</a></li>*/}
-              {/*<li><a href="#">Tips</a></li>*/}
-              {/*<li><a href="#">Marketing</a></li>*/}
             </ul>
           </div>
           </div>
@@ -128,7 +104,6 @@ export default function MapYandex() {
           >
             <GeolocationControl />
             <FullscreenControl />
-            {/* <SearchControl state={(results) => test(results)} /> */}
             <ZoomControl />
             <Clusterer
               modules={["clusterer.addon.balloon"]}

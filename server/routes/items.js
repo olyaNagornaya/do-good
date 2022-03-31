@@ -10,7 +10,6 @@ router.get("/", async (req, res) => {
     include: [Category, User],
     order: [["id", "DESC"]],
   });
-  // console.log("IIIITTTTTTEEEE", Items);
   res.json(Items);
 });
 
@@ -21,17 +20,10 @@ router.get("/takens", async (req, res) => {
 
 router.get("/categories", async (req, res) => {
   const Categories = await Category.findAll();
-  // console.log(Categories);
   res.json(Categories);
 });
 
 router.post("/addgood", upload.single("file"), async (req, res) => {
-  console.log(">>>>>>>>>>>>>>>>>>>>>>");
-  // console.log(req.file);
-  console.log("----------------------");
-  console.log(req.body);
-
-  // console.log("session --------", req.session.userId);
 
   const img = req.file ? `/img/${req.file.originalname}` : null;
 
@@ -48,7 +40,7 @@ router.post("/addgood", upload.single("file"), async (req, res) => {
   const category_id = convertCategoryId(category);
 
   const x = await helper({ geolocation, city });
-  // console.log(x.coordinate);
+
 
   const objForDB = {
     title,
@@ -65,18 +57,15 @@ router.post("/addgood", upload.single("file"), async (req, res) => {
   };
 
   const ourPost = await Item.create(objForDB);
-  console.log(ourPost);
   res.json(ourPost);
 });
 
 router.post("/:id", async (req, res) => {
   try {
-    console.log("req--params---", req.params);
     const data = await Item.update(
       { available: false },
       { where: { id: req.params.id } }
     );
-    console.log("data-----", data);
     res.sendStatus(200);
   } catch {
     res.sendStatus(500);
@@ -85,11 +74,8 @@ router.post("/:id", async (req, res) => {
 
 router.patch("/:id", async (req, res) => {
   try {
-    console.log("req--params- patch(/:id--", req.params);
-    console.log("req.body(/:id--", req.body);
     const { geolocation, city } = req.body;
     const x = await helper({ geolocation: city, city: geolocation });
-
     const data = await Item.update(
       {
         title: req.body.title,
@@ -101,7 +87,6 @@ router.patch("/:id", async (req, res) => {
       },
       { where: { id: req.params.id } }
     );
-    console.log("data-----", data);
     res.json({x});
   } catch {
     res.sendStatus(500);

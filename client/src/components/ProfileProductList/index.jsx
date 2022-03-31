@@ -26,7 +26,6 @@ export default function ProfileProductList({header, descriptions, type, posts}) 
                                 <h1>Вы не добавляли продуктов</h1>
                             }
                             {type === 'archive' ?
-                                // тут мапим из базы карточки posts из пропсов
                                 <>
                                     {posts && posts.filter(el => +el.user_id === +profileDate.user).map(el => <ProfileProductCard key={el.id} card={el} type={type}/>
                                     )}

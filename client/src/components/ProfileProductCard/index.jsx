@@ -20,7 +20,6 @@ export default function ProfileProductCard({type, card}) {
         setIsOpen(true);
     };
 
-    // console.log('posts-1111->>', posts)
     const handlerChangeStatus = async (cardId) => {
 
         try {
@@ -38,12 +37,9 @@ export default function ProfileProductCard({type, card}) {
             } else {
                 return el
             }})
-        console.log('res--', res)
         dispatch(setStatus(res))
 
       }
-
-
 
     const backgroundImage = {
     backgroundImage: `url(${card.img})`,
@@ -54,7 +50,6 @@ export default function ProfileProductCard({type, card}) {
             <div className="card" style={backgroundImage}>
                 <div className="card-body">
                     <h5 className="card-title">
-                        {/*<Link to={`/good/${id}`}>{card.title}</Link>*/}
                         <a href={`/good/${card.id}`}>{card.title}</a>
                     </h5>
                     <p className="card-text">

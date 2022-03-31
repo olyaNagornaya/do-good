@@ -13,7 +13,6 @@ function OwnerInfo() {
             .then((res) => res.json())
             .then((res) => setUser(res));
     }, []);
-    console.log("user=========", id)
     return (
         <>
             <main id="main">
@@ -36,8 +35,6 @@ function OwnerInfo() {
                                     {curPost?.User.telephone}
                                 </a>
                                 <br />
-
-
 
                             </div>
                         </div>

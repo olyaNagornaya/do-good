@@ -163,23 +163,6 @@ input.email, input.text.w3lpass {
     margin: 2em 0;
 }
 
-/* .text:focus, .text:valid {
-  box-shadow: none;
-  outline: none;
-  background-position: 0 0;
-} */
-
-/* .text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: .9em;
-  -webkit-transform: translateY(-30px);
-  -moz-transform: translateY(-30px);
-  -o-transform: translateY(-30px);
-  -ms-transform: translateY(-30px);
-  transform: translateY(-30px);
-  visibility: visible !important;
-} */
-
 ::-webkit-input-placeholder {
     color: #fff;
     font-weight: 300;

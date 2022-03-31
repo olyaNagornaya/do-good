@@ -12,13 +12,11 @@ code {
     monospace;
 }
 
-/* logo navbar */
+
 .imglogo {
   margin-bottom: 10px !important;
 }
-/* \logo navbar */
 
-/* Btn edit personal */
 .btncustom {
   background: #809bfa;
   padding: 8px 25px;
@@ -32,9 +30,7 @@ code {
   color: #fff;
   background: #3360f7;
 }
-/* Btn edit personal */
 
-/* Btn product */
 .btnproduct {
   background: #809bfa;
   padding: 8px 25px;

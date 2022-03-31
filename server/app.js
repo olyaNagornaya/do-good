@@ -32,12 +32,12 @@ app.set("trust proxy", 1);
 
 app.use(
   session({
-    secret: COOKIE_SECRET, // строка для шифрования сессии
-    resave: false, // не пересохраняем сессию если не было изменений
-    saveUninitialized: false, // не сохраняем сессию если она пустая
-    cookie: { secure: false }, // не HTTPS
-    name: COOKIE_NAME, // имя сессионной куки
-    store: new FileStore(), // хранилище для куков - папка с файлами
+    secret: COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false },
+    name: COOKIE_NAME,
+    store: new FileStore(),
   })
 );
 
@@ -45,7 +45,6 @@ app.use(
 app.use("/", indexRouter);
 
 app.use((req,res,next)=> {
-  console.log(req.session);
   next();
 })
 
@@ -56,4 +55,4 @@ app.use("/items", itemsRouter);
 
 
 
-app.listen(PORT, () => console.log(`Server is runnig on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server is started on port ${PORT}`));

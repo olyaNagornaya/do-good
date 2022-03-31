@@ -22,8 +22,6 @@ export default function AboutMe({profile}) {
     }
 
 
-
-
     return (
         <>
             {profile && (
@@ -48,7 +46,6 @@ export default function AboutMe({profile}) {
 
                                 </div>
                                 <div className="col-md-7 pt-4" data-aos="fade-left">
-                                     {/*<h3>{user?.city}</h3>*/}
 
                                     <ul>
                                         <li>
@@ -60,26 +57,7 @@ export default function AboutMe({profile}) {
                                         <li>
                                             <i className="bi bi-phone"/> {profile?.phone}
                                         </li>
-                                        <li>
-                                            {/*<i className="bi bi-check-circle"/> Мои подписки:{" "}*/}
-                                            {/*{err}*/}
-                                            <br />
-                                            {/*{subList.length*/}
-                                            {/*    ? subList.map((el) => (*/}
-                                            {/*        <>*/}
-                                            {/*            <br />{" "}*/}
-                                            {/*            <i className="bi bi-bell" key={el._id}></i>{" "}*/}
-                                            {/*            {categories[el]}{" "}*/}
-                                            {/*            <Link name={el} onClick={handlerDelete}>*/}
-                                            {/*                {" "}*/}
-                                            {/*                delete*/}
-                                            {/*            </Link>*/}
-                                            {/*        </>*/}
-                                            {/*    ))*/}
-                                            {/*    : */}
-                                            {/*    "Нет подписок на категории"*/}
-                                            {/*// }*/}
-                                        </li>
+
                                         <br />
                                         <button className="btncustom" onClick={clickHandler}>
                                             Изменить личные данные
