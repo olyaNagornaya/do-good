@@ -44,7 +44,7 @@
 Для запуска проекта вам необходимо войти в папку - 📂 client и набрать команду в терминале:
 
 ```javascript
-yarn
+npm i
 ```
 
 <br/>
@@ -60,7 +60,7 @@ npm i
 В папке - 📂 client набрать команду в терминале:
 
 ```javascript
-yarn start
+npm start
 ```
 
 <br/>
@@ -84,12 +84,10 @@ npm start
   <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
   <img alt="npm" src="https://img.shields.io/badge/-NPM-CB3837?style=flat-square&logo=npm&logoColor=white" />
   <img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
-  <img alt="Passport" src="https://img.shields.io/badge/-PassportJs-F7B93E?style=flat-square&logo=passport&logoColor=white" />
-  <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white" />
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/-PostgreSQL-13aa52?style=flat-square&logo=postgres&logoColor=white" />
   <img alt="Nodejs" src="https://img.shields.io/badge/-Nodejs-43853d?style=flat-square&logo=Node.js&logoColor=white" />
   <img alt="Bootstrap" src="https://img.shields.io/badge/-Bootstrap-430098?style=flat-square&logo=bootstrap&logoColor=white" />
   <img alt="Express" src="https://img.shields.io/badge/-ExpressJs-F7B93E?style=flat-square&logo=express&logoColor=white" />
-  <img alt="Telegram" src="https://img.shields.io/badge/-Telegram-2088FF?style=flat-square&logo=telegram&logoColor=white" />
   <img alt="Yandex" src="https://img.shields.io/badge/-YandexMap-CB3837?style=flat-square&logo=yandex&logoColor=white" />
   
   
@@ -97,34 +95,6 @@ npm start
   
 </p>
 
-## Команда проекта 🥷
 
-<a href="https://github.com/Ulitkau">
-  <div>
-   <img align="left" alt="Ulitkau" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
-   <h3><a href="https://github.com/Ulitkau">Ulviya Karakhmazli</a></h3>
-  </div>
-</a>
-
-<a href="https://github.com/gamz420">
-  <div>
-   <img align="left" alt="Gamz" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
-   <h3><a href="https://github.com/gamz420">Gamzat Gamzaliev</a></h3>
-  </div>
-</a>
-
-<a href="https://github.com/AlexandrBatrakov">
-  <div>
-   <img align="left" alt="Alexandr Batrakov" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
-   <h3><a href="https://github.com/AlexandrBatrakov">Alexandr Batrakov</a></h3>
-  </div>
-</a>
-
-<a href="https://github.com/DanilaNagornyi">
-  <div>
-   <img align="left" alt="Danila Nagornyi" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
-   <h3><a href="https://github.com/DanilaNagornyi">Danila Nagornyi</a></h3>
-  </div>
-</a>
 
 
