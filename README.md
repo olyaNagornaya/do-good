@@ -14,6 +14,10 @@
 
 После добавления товаров, они видны в ленте на вкладке Добро. В ленте можно отфильтровать товары по категориям и перейти на страницу продукта.
 
+**
+
+![dogood-5](https://user-images.githubusercontent.com/87146188/167617209-b88a7616-105d-4dd3-88fb-eb60a6f26f6b.gif)
+
 ![dogood-2](https://user-images.githubusercontent.com/87146188/167613371-3388e26f-fc49-4fee-a710-6f41e182cd23.gif)
 next
 next
@@ -24,4 +28,4 @@ next
 
 next
 next
-![dogood-5](https://user-images.githubusercontent.com/87146188/167617209-b88a7616-105d-4dd3-88fb-eb60a6f26f6b.gif)
+
